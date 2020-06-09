@@ -25,7 +25,6 @@ class Settings extends KN_Controller {
 
 		$this->data['content'] = 'admin/settings/index';
 		$this->load->view('layout/default', $this->data);
-
 	}
 
 	public function save()

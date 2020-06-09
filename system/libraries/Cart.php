@@ -453,7 +453,7 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Total Items
+	 * Total ItemsModel
 	 *
 	 * Returns the total item count
 	 *

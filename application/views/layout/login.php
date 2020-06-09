@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=site_url()?>"><b>My</b> Admin</a>
+    <a href="<?=site_url()?>"><b>ToysNToys</b> Admin</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

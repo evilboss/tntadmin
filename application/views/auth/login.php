@@ -6,7 +6,7 @@
 <?php endif;?>
 <?php echo form_open("auth/login");?>
   <div class="form-group has-feedback">
-  <?php echo form_input($identity,false,array('class'=>'form-control','placeholder'=>'Email'));?>
+  <?php echo form_input($identity,false,array('class'=>'form-control','placeholder'=>'Username'));?>
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
   <div class="form-group has-feedback">

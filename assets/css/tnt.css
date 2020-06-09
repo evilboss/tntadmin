@@ -1,0 +1,8 @@
+.app-container{
+    max-height: 70vh;
+    scroll-behavior: auto;
+    overflow-y: auto;
+}
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header>p{
+    color:#3379b7
+}

@@ -1,11 +1,18 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>{{VIEW}} view page</title>
-	</head>
-	<body>
-		<h1>This is my first application</h1>
-		<?php echo $content; ?>
-	</body>
-</html>
+<section class="content-header">
+    <h1>
+        {{MV}}
+        <small>( Take a look at all of your {{MV}} )</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?= site_url() ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">{{MV}}</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row app-container">
+
+
+    </div>
+
+</section>

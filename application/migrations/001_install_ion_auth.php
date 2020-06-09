@@ -145,7 +145,7 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'username' => 'admin',
 			'password' => '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36',
 			'salt' => '',
-			'email' => 'info@nextgen-soft.com',
+			'email' => 'test@test.com',
 			'activation_code' => '',
 			'forgotten_password_code' => NULL,
 			'created_on' => time(),
