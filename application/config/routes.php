@@ -13,3 +13,4 @@ $route['forgot_password'] = 'auth/forgot_password';
 $route['categories'] = 'shop/categories';
 $route['categories/(:any)'] = 'shop/categories/$1';
 $route['categories/(:any)/(:any)'] = 'shop/categories/$1/$2';
+$route['dashboard'] = 'home';

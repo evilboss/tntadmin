@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Settings extends KN_Controller {
+class Settings extends TNT_Controller {
 
 	public function __construct() {
 		parent::__construct();

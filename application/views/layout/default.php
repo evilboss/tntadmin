@@ -24,6 +24,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
      folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/skins/skin-black-light.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/tnt-admin.css">
+
     <?php if (!empty($add_css)): ?><?php foreach ($add_css as $css): ?>
         <link rel="stylesheet" href="<?= base_url($css) ?>"><?php endforeach; ?><?php endif; ?>
 
@@ -42,11 +44,10 @@
 </head>
 <body class="hold-transition skin-yellow sidebar-mini">
 <div class="wrapper">
-
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="<?= site_url() ?>" class="logo">
+        <a href="<?= site_url('dashboard') ?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>n<b>T</b></span>
             <!-- logo for regular state and mobile devices -->

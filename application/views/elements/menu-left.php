@@ -1,7 +1,7 @@
 <ul class="sidebar-menu">
     <li class="header">MAIN NAVIGATION</li>
     <li <?= $this->router->class == 'home' ? 'class="active"' : '' ?> >
-        <a href="<?= site_url() ?>"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+        <a href="<?= site_url('dashboard') ?>"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
     </li>
 
     <?php if ($this->ion_auth->is_admin() || $this->ion_auth->is_super_admin()): ?>

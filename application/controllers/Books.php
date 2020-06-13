@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Books extends KN_Controller
+class Books extends TNT_Controller
 {
     public function __construct()
     {

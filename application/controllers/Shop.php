@@ -5,15 +5,46 @@ class Shop extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->data['site'] = $this->getData();
+        $this->data['add_js'] = [];
+        $this->data['add_css'] = [];
     }
 
     public function index()
     {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
-        $this->data['content'] = 'shop';
-        echo "SHOP";
-        //     $this->load->view('layout/default', $this->data);
+        $this->data['content'] = 'shop/home';
+        $this->load->view('layout/store', $this->data);
+    }
+
+    public function products()
+    {
+
+        /*
+         * 				$id = $product['serial'];
+				$name = $product['name'];
+				$description = $product['description'];
+				$price = $product['price'];
+*/
+        $this->data['products'] = array(
+            [
+                'serial' => 1,
+                'name' => 'sample1',
+                'description' => 'aining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                'price' => 500,
+                'picture'=>'https://place-hold.it/300'],
+            [
+                'serial' => 2,
+                'name' => 'sample1',
+                'description' => 'aining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                'price' => 500,
+                'picture'=>'https://place-hold.it/300']
+
+        );
+        $this->data['content'] = 'products';
+        $this->load->view('layout/store', $this->data);
+
     }
 
     public function categories($category = null, $subcategory = null)
@@ -26,6 +57,13 @@ class Shop extends CI_Controller
             echo "Categories";
 
         }
+    }
+
+    public function item($slug = '')
+    {
+        $this->data['content'] = 'shop/productDetail';
+        $this->load->view('layout/store', $this->data);
+
     }
 
     public function get($id)
@@ -93,6 +131,21 @@ class Shop extends CI_Controller
             redirect(site_url(), 'refresh');
         }
     }
+
+    private function getData()
+    {
+        $this->load->model('setting');
+        $settings = $this->setting->all();
+
+        if (empty($settings)) return $settings;
+
+        foreach ($settings as $setting) {
+            $data[$setting['key']] = $setting['value'];
+        }
+
+        return $data;
+    }
+
 }
 /* End of file '/Shop.php' */
 /* Location: ./application/controllers//Shop.php */

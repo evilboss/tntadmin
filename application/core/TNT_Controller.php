@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class KN_Controller extends CI_Controller {
+class TNT_Controller extends CI_Controller {
 
 	public $data = array();
 
