@@ -1,5 +1,5 @@
 
-<section style="margin-top: 25vh">
+<section>
     <div class="row">
         <div class="col">
             <div class="col">

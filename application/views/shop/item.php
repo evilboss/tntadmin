@@ -128,24 +128,70 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-12 details-container d-flex justify-content-between
+">
+                                    <div class="col-6">
+                                        <div class="col-3">
+                                            <div class="row">
+                                                Deposit: $250
+                                            </div>
+                                            <div class="row">
+                                                <h3>$500</h3>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            650
+                                        </div>
+
+
+                                    </div>
+                                    <div class="input-group col-6">
+
+                                        <button type="button" class="btn btn-outline-secondary btn-number"
+                                                disabled="disabled" data-type="minus" data-field="quant[1]">
+                                            <i class="fa fa-minus-circle"></i>
+                                        </button>
+                                        <input type="text" name="quant[1]"
+                                               class="form-control input-number item-quantity"
+                                               value="1" min="1" max="10"/>
+                                        <button type="button" class="btn btn-outline-secondary btn-number"
+                                                data-type="plus" data-field="quant[1]"><i
+                                                    class="fa fa-plus-circle"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> Add
+                                        To cart
+                                    </button>
+                                    <button class="btn btn-primary">Buy Now</button>
+                                    <button class="button btn-secondary"><i class="fa fa-heart"></i></button>
+                                    <button class="btn btn-secondary">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="col-12">
+                                    <span><i class="fa fa-calendar" aria-hidden="true"></i> release date</span>
+
+                                </div>
 
 
                                 <div class="row">
                                     <div class="col">
                                         <nav>
                                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
-                                                   href="#nav-details" role="tab" aria-controls="nav-home"
+                                                <a class="nav-item nav-link active" id="nav-details-tab"
+                                                   data-toggle="tab"
+                                                   href="#nav-details" role="tab" aria-controls="nav-details"
                                                    aria-selected="true">Details</a>
-                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                                   href="#nav-specs" role="tab" aria-controls="nav-profile"
+                                                <a class="nav-item nav-link" id="nav-specs-tab" data-toggle="tab"
+                                                   href="#nav-specs" role="tab" aria-controls="nav-specs"
                                                    aria-selected="false">Specs</a>
                                             </div>
                                         </nav>
                                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                                             <div class="tab-pane fade show active text-wrap" id="nav-details"
                                                  role="tabpanel"
-                                                 aria-labelledby="nav-home-tab">
+                                                 aria-labelledby="nav-details-tab">
                                                 Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry. Lorem Ipsum has been the industry's standard dummy text ever
                                                 since the 1500s, when an unknown printer took a galley of type and
@@ -159,7 +205,7 @@
 
                                             </div>
                                             <div class="tab-pane fade text-wrap" id="nav-specs" role="tabpanel"
-                                                 aria-labelledby="nav-profile-tab">
+                                                 aria-labelledby="nav-specs-tab">
                                                 <span class="text-wrap">
                                                     It is a long established fact that a reader will be distracted by the
                                                 readable content of a page when looking at its layout. The point of

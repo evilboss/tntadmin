@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
 
     <link rel="stylesheet" href="/assets/css/tnt-store.css">
@@ -55,9 +56,25 @@
                     <div class="p-2">                <span class="badge badge-secondary">
                     <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
                 </span>
-                        <span class="badge badge-secondary">
-                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-                </span>
+                        <div class="btn-group dropleft">
+
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <span class="badge badge-secondary">
+                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                                </span> </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+
+                        </div>
+
 
                     </div>
                 </div>
@@ -115,11 +132,48 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                           <span class="badge badge-secondary">
-                               <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-                           </span>
-                                </a>
+                                <div class="dropdown dropleft">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                       id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                    <span class="badge badge-secondary">
+                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                                </span> </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <dl class="row">
+                                            <dt class="col-sm-3">Description lists</dt>
+                                            <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+                                            <dt class="col-sm-3">Euismod</dt>
+                                            <dd class="col-sm-9">
+                                                <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem
+                                                    nec elit.</p>
+                                                <p>Donec id elit non mi porta gravida at eget metus.</p>
+                                            </dd>
+
+                                            <dt class="col-sm-3">Malesuada porta</dt>
+                                            <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+
+                                            <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                                            <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                                                condimentum nibh, ut fermentum massa justo sit amet risus.
+                                            </dd>
+
+                                            <dt class="col-sm-3">Nesting</dt>
+                                            <dd class="col-sm-9">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Nested definition list</dt>
+                                                    <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc
+                                                        augue blandit nunc.
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+
+                                    </div>
+                                </div>
+
 
                             </li>
                         </ul>
@@ -195,7 +249,7 @@
 
 
 </header>
-<section class="content">
+<section class="content store-content">
     <?php $this->load->view($content); ?>
 </section>
 <section id="wrapper-newsletter" class="dark-section text-white">
@@ -296,14 +350,14 @@
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
 
 
 <script>
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel();
+    $(document).ready(function () {
     });
 </script>
+<script src="/assets/js/cart.js"></script>
 <?php if (!empty($add_js)): ?><?php foreach ($add_js as $js): ?>
     <script src="<?= $js ?>"></script> <?php endforeach; ?><?php endif; ?>
 </body>

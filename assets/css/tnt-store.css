@@ -1,7 +1,9 @@
 .store-carousel {
     max-height: 45vh;
-    margin-top: 20vh;
+}
 
+.store-content {
+    padding-top: 192px;
 }
 
 
@@ -227,3 +229,9 @@ button.close {
     margin-bottom: 3px;
 }
 
+.details-container {
+}
+
+.item-quantity {
+    max-width: 40px
+}
