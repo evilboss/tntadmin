@@ -4,7 +4,7 @@
         <div class="col">
             <div class="col">
                 <h1>Your Shopping Cart</h1>
-                <input type="button" value="Continue Shopping" onclick="window.location='products'"/>
+                <input type="button" value="Continue Shopping" onclick="window.location='shop/products'"/>
                 <div><?php echo $message ?></div>
                 <table>
                     <?php if ($cart = $this->cart->contents()): ?>

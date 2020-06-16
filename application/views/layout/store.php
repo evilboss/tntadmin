@@ -355,6 +355,7 @@
 
 <script>
     $(document).ready(function () {
+
     });
 </script>
 <script src="/assets/js/cart.js"></script>
