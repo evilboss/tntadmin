@@ -192,10 +192,104 @@
 
 }
 
+.product-modal h5{
+    font-size: 32px;
+    font-weight: bold;
+}
+.product-modal .actions{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+.product-modal .actions > button{
+    margin-right: 10px;
+    width: 180px;
+    border-radius: 0;
+    padding: 10px 0;
+}
+.product-modal .actions > .btn-secondary{
+    border: 0;
+    border-radius: 0;
+    padding: 5px 0;
+    width: 60px;
+    text-align: center;
+}
+.product-modal .actions > button:last-child{
+    margin-right: 0;
+}
+.product-modal label {
+    margin-bottom: 0;
+}
+.product-modal .desc{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.product-modal .details-container {
+    display: flex;
+    background: #f0f3f7;
+    padding: 5px 10px;
+    align-items: center;
+}
+.product-modal .details-container > div {
+    width: 50%;
+}
+.product-modal .details-container .price{
+    font-weight: bold;
+}
+.product-modal .details-container .price > span{
+    display: block;
+}
+.product-modal .details-container .price h3{
+    display: inline-block;
+    font-size: 42px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.product-modal .details-container .price .prev-amt{
+    display: inline-block;
+    text-decoration: line-through;
+}
+.product-modal .details-container .price-actions{
+    display: flex;
+}
+.product-modal .details-container .price-actions button{
+    height: 35px;
+    border-radius: 0;
+    border: 2px solid #ced4da;
+    background: #fff !important;
+    opacity: 1 !important;
+    line-height: 1;
+}
+.product-modal .details-container .price-actions .item-quantity{
+    height: 35px;
+    border-radius: 0;
+    border: 2px solid #ced4da;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+}
+.product-modal .release-date{
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+    margin-top: 5px;
+}
+.product-modal .release-date .fa{
+    color: #9d1716;
+}
+
 .tab-content {
     overflow-wrap: break-word;
     max-height: 10rem;
     overflow-y: auto;
+}
+.product-modal .tab-content{
+    background: #edf0f5;
+    padding: 10px 10px;
+}
+.product-modal .nav-tabs .nav-item.active{
+    background: #edf0f5;
+    border-color: #edf0f5;
 }
 
 .thumb-nails img.img-fluid {
