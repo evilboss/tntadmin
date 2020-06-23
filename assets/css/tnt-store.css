@@ -340,3 +340,29 @@ button.close {
  .social-media-icons .nav-link:hover{
     color: #FFF800 !important;
      }
+
+.navbar-nav .heart-badge{
+    position: relative;
+    background-color: #6c757d;
+}
+.navbar-nav .heart-badge .badge{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.navbar-nav .cart-badge{
+    position: relative;
+    background-color: #FFF800;
+    color: #000000 !important;
+}
+.navbar-nav .cart-badge .badge{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.navbar-nav.nav-buttons .nav-item{
+    border-left: 2px solid;
+    padding: 0 2em;
+
+}

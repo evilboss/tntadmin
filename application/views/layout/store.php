@@ -122,11 +122,11 @@
 
                         </ul>
                     </div>
-                    <div>
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
+                    <div class="d-flex">
+                        <ul class="navbar-nav nav-buttons">
+                            <!-- <li class="nav-item active">
                                 <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white" href="#" id="navbarDropdown"
@@ -142,20 +142,26 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="#">Login</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#">
-                           <span class="badge badge-secondary">
-                               <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
-                           </span>
+                            
+                        </ul>
+                        <ul class="navbar-nav">
+                           
+                            <li class="nav-item ">
+                                <a class="nav-link heart-badge" href="#">
+                                <i class="fa fa-heart px-2 " aria-hidden="true"></i>
+                           
+                               <span class="badge">9</span>
+                           
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" type="button"
+                                <a class="nav-link cart-badge" type="button"
                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
-                                         <span class="badge badge-secondary">
-                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-                                </span>
+                                   <i class="fa fa-shopping-cart px-2" aria-hidden="true"></i>
+                                   <span class="badge">9</span>
+                                    
+                                
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <div class="alert alert-primary" role="alert">
@@ -188,7 +194,6 @@
 
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </div>
