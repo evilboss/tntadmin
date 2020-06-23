@@ -202,7 +202,7 @@
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
-     <div class="w-100 mx-6">
+     <div class="w-100 mx-6 d-flex justify-content-between">
      <a class="navbar-brand" href="#"><img src="/assets/img/tnt-logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -211,28 +211,28 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Home</a>
                 </li>
-                <li class="nav-item text-white">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">New</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Coming soon</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Pre Order</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Shop</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Categories</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Blog</a>
                 </li>
 

@@ -3,7 +3,7 @@
 }
 
 .store-content {
-    padding-top: 192px;
+    padding-top: 126px;
 }
 
 
@@ -365,4 +365,14 @@ button.close {
     border-left: 2px solid;
     padding: 0 2em;
 
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar .mx-6{
+    margin: 0 !important;
+}
+}
+
+#navbarSupportedContent{
+    flex-grow: 0;
 }
