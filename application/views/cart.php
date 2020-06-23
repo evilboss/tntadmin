@@ -1,10 +1,10 @@
-
 <section>
     <div class="row">
         <div class="col">
             <div class="col">
                 <h1>Your Shopping Cart</h1>
-                <input type="button" value="Continue Shopping" onclick="window.location='shop/products'"/>
+                <input type="button" class="btn btn-primary" value="Continue Shopping"
+                       onclick="window.location='shop/products'"/>
                 <div><?php echo $message ?></div>
                 <table>
                     <?php if ($cart = $this->cart->contents()): ?>
@@ -55,7 +55,7 @@
                             <td><input type="button" value="Clear Cart" onclick="clear_cart()">
                                 <input type="submit" value="Update Cart">
                                 <?php echo form_close(); ?>
-                                <input type="button" value="Place Order" onclick="window.location='billing'"></td>
+                                <input type="button" value="Checkout" onclick="window.location='billing'"></td>
                         </tr>
                     <?php endif; ?>
                 </table>

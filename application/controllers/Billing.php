@@ -14,7 +14,7 @@ class Billing extends CI_Controller
     {
         $this->data['title'] = 'Billing';
         $this->data['content'] = 'billing';
-        $this->data['add_js'] = ['/assets/js/lib/card.js', '/assets/js/checkout.js'];
+        $this->data['add_js'] = ['/assets/plugins/jquery.steps/jquery.steps.js', '/assets/js/lib/card.js', '/assets/js/checkout.js'];
         $this->load->view('layout/store', $this->data);
 
     }

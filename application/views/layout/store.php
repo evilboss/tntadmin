@@ -53,26 +53,44 @@
                             <a class="dropdown-item" href="#">Cn</a>
                         </div>
                     </div>
-                    <div class="p-2">                <span class="badge badge-secondary">
-                    <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
-                </span>
-                        <div class="btn-group dropleft">
+                    <div class="p-2">
+                        <span class="badge badge-secondary"><i class="fa fa-heart fa-2x" aria-hidden="true"></i></span>
 
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                   id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">
-                                    <span class="badge badge-secondary">
+                        <div class="dropdown">
+                            <a class="nav-link" href="#" role="button"
+                               id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                    <span class="nav-link badge badge-secondary">
                                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                                 </span> </a>
 
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <div class="alert alert-primary" role="alert">
+                                    A simple primary alert—check it out!
                                 </div>
-                            </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    A simple secondary alert—check it out!
+                                </div>
+                                <div class="alert alert-success" role="alert">
+                                    A simple success alert—check it out!
+                                </div>
+                                <div class="alert alert-danger" role="alert">
+                                    A simple danger alert—check it out!
+                                </div>
+                                <div class="alert alert-warning" role="alert">
+                                    A simple warning alert—check it out!
+                                </div>
+                                <div class="alert alert-info" role="alert">
+                                    A simple info alert—check it out!
+                                </div>
+                                <div class="alert alert-light" role="alert">
+                                    A simple light alert—check it out!
+                                </div>
+                                <div class="alert alert-dark" role="alert">
+                                    A simple dark alert—check it out!
+                                </div>
 
+                            </div>
                         </div>
 
 
@@ -111,7 +129,7 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                                <a class="nav-link text-white" href="#" id="navbarDropdown"
                                    role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Language
@@ -131,52 +149,46 @@
                            </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <div class="dropdown dropleft">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                       id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                       aria-expanded="false">
-                                    <span class="badge badge-secondary">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" type="button"
+                                   id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                         <span class="badge badge-secondary">
                                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-                                </span> </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <dl class="row">
-                                            <dt class="col-sm-3">Description lists</dt>
-                                            <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
-
-                                            <dt class="col-sm-3">Euismod</dt>
-                                            <dd class="col-sm-9">
-                                                <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem
-                                                    nec elit.</p>
-                                                <p>Donec id elit non mi porta gravida at eget metus.</p>
-                                            </dd>
-
-                                            <dt class="col-sm-3">Malesuada porta</dt>
-                                            <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
-
-                                            <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-                                            <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                                                condimentum nibh, ut fermentum massa justo sit amet risus.
-                                            </dd>
-
-                                            <dt class="col-sm-3">Nesting</dt>
-                                            <dd class="col-sm-9">
-                                                <dl class="row">
-                                                    <dt class="col-sm-4">Nested definition list</dt>
-                                                    <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc
-                                                        augue blandit nunc.
-                                                    </dd>
-                                                </dl>
-                                            </dd>
-                                        </dl>
-
+                                </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <div class="alert alert-primary" role="alert">
+                                        A simple primary alert—check it out!
                                     </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                        A simple secondary alert—check it out!
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        A simple success alert—check it out!
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                        A simple danger alert—check it out!
+                                    </div>
+                                    <div class="alert alert-warning" role="alert">
+                                        A simple warning alert—check it out!
+                                    </div>
+                                    <div class="alert alert-info" role="alert">
+                                        A simple info alert—check it out!
+                                    </div>
+                                    <div class="alert alert-light" role="alert">
+                                        A simple light alert—check it out!
+                                    </div>
+                                    <div class="alert alert-dark" role="alert">
+                                        A simple dark alert—check it out!
+                                    </div>
+
                                 </div>
 
 
                             </li>
                         </ul>
+
                     </div>
                 </div>
             </div>
