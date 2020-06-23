@@ -38,8 +38,8 @@
 <body>
 <header class="fixed-top">
 
-    <nav class="navbar navbar-expand-lg navbar-dark dark-section">
-        <div class="w-100" id="nav-one">
+    <nav class="navbar navbar-expand-lg navbar-dark dark-section p-0">
+        <div class="w-100 mx-6" id="nav-one">
             <!--visible only in small-->
             <div class="d-block d-sm-none">
                 <div class="d-flex justify-content-between bd-highlight mb-3">
@@ -97,32 +97,32 @@
                     </div>
                 </div>
             </div>
-            <div class="d-none d-sm-block">
-                <div class="d-flex mb-2">
-                    <div class="mr-auto p-2 bd-highlight">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#"><i class="fa fa-facebook-square"
+            <div class="d-none d-sm-block ">
+                <div class="d-flex">
+                    <div class="mr-auto">
+                        <ul class="navbar-nav mr-auto social-media-icons">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#"><i class="fa fa-facebook"
                                                                            aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link text-white" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
+                            <li class="nav-item  mx-2">
+                                <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#"><i class="fa fa-instagram"
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#"><i class="fa fa-instagram"
                                                                            aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item text-white">
-                                <a class="nav-link text-white" href="#"><i class="fa fa-weixin" aria-hidden="true"></i>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#"><i class="fa fa-weixin" aria-hidden="true"></i>
                                 </a>
                             </li>
 
                         </ul>
                     </div>
-                    <div class="p-2 bd-highlight">
+                    <div>
                         <ul class="navbar-nav">
                             <li class="nav-item active">
                                 <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
@@ -197,7 +197,8 @@
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
-        <a class="navbar-brand" href="#"><img src="/assets/img/tnt-logo.png"></a>
+     <div class="w-100 mx-6">
+     <a class="navbar-brand" href="#"><img src="/assets/img/tnt-logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -256,7 +257,7 @@
 
             </div>
         </div>
-
+</div>
     </nav>
 
 

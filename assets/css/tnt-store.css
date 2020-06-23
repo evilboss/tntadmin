@@ -329,3 +329,14 @@ button.close {
 .item-quantity {
     max-width: 40px
 }
+
+ /* spacing */
+ .mx-6{
+     margin-left: 6rem !important;
+     margin-right : 6rem !important;
+ }
+
+
+ .social-media-icons .nav-link:hover{
+    color: #FFF800 !important;
+     }
