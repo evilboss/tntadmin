@@ -52,7 +52,7 @@
                                 </a>
 
                                 <div class="row justify-content-center ">
-                                    <div class="thumb-nails overflow-auto mt-2 owl-carousel owl-theme">
+                                    <div class="thumb-nails overflow-auto mt-2 jr-carousel owl-theme">
                                         <a href="https://unsplash.it/1200/768.jpg?image=251"
                                            data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
@@ -89,89 +89,80 @@
                                         <span class="item-id"><?= $item['id'] ?></span>
                                     </div>
                                 </div>
-                                <div class="row">
+                                
+                                <h5>Product Description</h5>
+                                <div class="row desc">
                                     <div class="col-6">
-                                        <h5 class="text-bold">Product Description</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row">
+                                        <div>
                                             <label class="font-weight-bold">Product Type</label>
                                             <span class="">Product Type</span>
 
                                         </div>
-                                        <div class="row">
+                                        <div>
                                             <label class="font-weight-bold">Brand Category</label>
                                             <span class="">Brand Category</span>
 
                                         </div>
-                                        <div class="row">
+                                        <div >
                                             <label class="font-weight-bold">Brand</label>
                                             <span class="">Brand</span>
 
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <div class="row">
+                                        <div>
                                             <label class="font-weight-bold">Manufacturer</label>
                                             <span class="">Manufacturer</span>
 
                                         </div>
-                                        <div class="row">
+                                        <div>
                                             <label class="font-weight-bold">Manufacturer Ca</label>
                                             <span class="">Manufacturer Ca</span>
                                         </div>
-                                        <div class="row">
+                                        <div>
                                             <label class="font-weight-bold">Item Weight</label>
                                             <span class="">Item Weight</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 details-container d-flex justify-content-between
-">
-                                    <div class="col-6">
-                                        <div class="col-3">
-                                            <div class="row">
-                                                Deposit: $250
-                                            </div>
-                                            <div class="row">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="details-container">
+                                            <div class="price">
+                                                <span>Deposit: $250</span>
                                                 <h3>$500</h3>
+                                                <span class="prev-amt">$650.00</span>
+                                            </div>
+                                            <div class="price-actions">
+                                                <button type="button" class="btn btn-outline-secondary btn-number"
+                                                            disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                        <i class="fa fa-minus-circle"></i>
+                                                    </button>
+                                                    <input type="text" name="quant[1]"
+                                                        class="form-control input-number item-quantity"
+                                                        value="1" min="1" max="10"/>
+                                                    <button type="button" class="btn btn-outline-secondary btn-number"
+                                                            data-type="plus" data-field="quant[1]"><i
+                                                                class="fa fa-plus-circle"></i></button>
                                             </div>
                                         </div>
-                                        <div class="col-3">
-                                            650
-                                        </div>
-
-
                                     </div>
-                                    <div class="input-group col-6">
-
-                                        <button type="button" class="btn btn-outline-secondary btn-number"
-                                                disabled="disabled" data-type="minus" data-field="quant[1]">
-                                            <i class="fa fa-minus-circle"></i>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-12 actions">
+                                        <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> Add
+                                            To cart
                                         </button>
-                                        <input type="text" name="quant[1]"
-                                               class="form-control input-number item-quantity"
-                                               value="1" min="1" max="10"/>
-                                        <button type="button" class="btn btn-outline-secondary btn-number"
-                                                data-type="plus" data-field="quant[1]"><i
-                                                    class="fa fa-plus-circle"></i></button>
+                                        <button class="btn btn-primary">Buy Now</button>
+                                        <button class="button btn-secondary"><i class="fa fa-heart"></i></button>
+                                        <button class="btn btn-secondary">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </button>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> Add
-                                        To cart
-                                    </button>
-                                    <button class="btn btn-primary">Buy Now</button>
-                                    <button class="button btn-secondary"><i class="fa fa-heart"></i></button>
-                                    <button class="btn btn-secondary">
-                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="col-12">
-                                    <span><i class="fa fa-calendar" aria-hidden="true"></i> release date</span>
+                                    <div class="col-12">
+                                        <span class="release-date"><i class="fa fa-calendar" aria-hidden="true"></i> Release date</span>
 
+                                    </div>
                                 </div>
 
 
@@ -188,7 +179,7 @@
                                                    aria-selected="false">Specs</a>
                                             </div>
                                         </nav>
-                                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                        <div class="tab-content" id="nav-tabContent">
                                             <div class="tab-pane fade show active text-wrap" id="nav-details"
                                                  role="tabpanel"
                                                  aria-labelledby="nav-details-tab">
