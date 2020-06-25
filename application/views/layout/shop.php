@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
     <meta name="msapplication-TileImage" content="<?= base_url() ?>assets/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta charset="utf-8">

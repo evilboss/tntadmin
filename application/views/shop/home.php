@@ -100,7 +100,6 @@
     </a>
 </div>
 
-
 <section class="light-gray-section item-container">
     <div class="container">
         <h3>Blog post</h3>
