@@ -5,6 +5,9 @@ class Shop extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Items_model');
+
+
         $this->data['site'] = $this->getData();
         $this->data['add_js'] = [];
         $this->data['add_css'] = [];
@@ -14,7 +17,11 @@ class Shop extends CI_Controller
     {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
+
         $this->data['content'] = 'shop/home';
+        $this->data['items'] = $this->Items_model->getWebItems();
+        $this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
+        // print_r($this->Items_model->getFeaturedItems());
         $this->load->view('layout/store', $this->data);
     }
 
@@ -33,13 +40,13 @@ class Shop extends CI_Controller
                 'name' => 'sample1',
                 'description' => 'aining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => 500,
-                'picture'=>'https://place-hold.it/300'],
+                'picture' => 'https://place-hold.it/300'],
             [
                 'serial' => 2,
                 'name' => 'sample1',
                 'description' => 'aining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => 500,
-                'picture'=>'https://place-hold.it/300']
+                'picture' => 'https://place-hold.it/300']
 
         );
         $this->data['content'] = 'products';

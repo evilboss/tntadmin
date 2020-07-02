@@ -291,7 +291,7 @@ class CI_Loader {
 		//
 		//       However, load_class() instantiates classes
 		//       to cache them for later use and that prevents
-		//       MY_Model from being an abstract class and is
+		//       TNT_Model from being an abstract class and is
 		//       sub-optimal otherwise anyway.
 		if ( ! class_exists('CI_Model', FALSE))
 		{

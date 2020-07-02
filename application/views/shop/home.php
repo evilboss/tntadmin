@@ -1,5 +1,4 @@
-
-
+<?php print_r($featuredItems) ?>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner store-carousel">
         <div class="carousel-item active">
@@ -29,28 +28,12 @@
         </div>
     </div>
     <div class="product-container container">
-            <?php
-            $items = array(
-                ['id' => 1, 'name' => 'sample1'],
-                ['id' => 2, 'name' => 'sample2'],
-                ['id' => 3, 'name' => 'sample1'],
-                ['id' => 4, 'name' => 'sample2'],
-                ['id' => 5, 'name' => 'sample1'],
-                ['id' => 6, 'name' => 'sample1'],
-                ['id' => 7, 'name' => 'sample2'],
-                ['id' => 8, 'name' => 'sample1'],
-                ['id' => 9, 'name' => 'sample2'],
-                ['id' => 10, 'name' => 'sample1'],
-            );
-
-            foreach ($items as $item) {
-                $data['item'] = $item;
-                $this->load->view('shop/item', $data);
-            }
-
-
-            ?>
-
+        <?php
+        foreach ($featuredItems as $item) {
+            $data['item'] = $item;
+            $this->load->view('shop/item', $data);
+        }
+        ?>
 
     </div>
 

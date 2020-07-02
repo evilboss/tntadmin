@@ -12,7 +12,16 @@ class Items extends TNT_Controller
     public function index()
     {
         $this->data['content'] = 'items/list';
-        $this->data['add_js'] = ['https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js', 'https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js', '/assets/js/items/items.js'];
+        $this->data['add_css'] = [
+            '/assets/css/uploader.css'
+        ];
+
+        $this->data['add_js'] = [
+            'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js',
+            'https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js',
+            '/assets/js/uploader/uploader.js',
+            '/assets/js/items/items.js'
+        ];
         $this->load->view('layout/default', $this->data);
 
     }
@@ -21,6 +30,14 @@ class Items extends TNT_Controller
     {
         $id = intval($id);
         if ($id != 0) {
+            $this->data['content'] = 'items/list';
+            $this->data['add_css'] = [
+                '/assets/css/uploader.css'
+            ];
+
+            $this->data['add_js'] = [
+                '/assets/js/uploader/uploader.js',
+            ];
             $this->load->model('items_model');
             $this->data['item'] = $this->items_model->get($id);
             $this->data['content'] = 'items/edit';

@@ -46,11 +46,11 @@
                     <div class="p-2">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Language
+                            Language / 字符
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">English</a>
-                            <a class="dropdown-item" href="#">Cn</a>
+                            <a class="dropdown-item" href="#">中文</a>
                         </div>
                     </div>
                     <div class="p-2">
@@ -103,7 +103,7 @@
                         <ul class="navbar-nav mr-auto social-media-icons">
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="#"><i class="fa fa-facebook"
-                                                                           aria-hidden="true"></i>
+                                                                aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="nav-item  mx-2">
@@ -112,7 +112,7 @@
                             </li>
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="#"><i class="fa fa-instagram"
-                                                                           aria-hidden="true"></i>
+                                                                aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="nav-item mx-2">
@@ -132,78 +132,81 @@
                                 <a class="nav-link text-white" href="#" id="navbarDropdown"
                                    role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Language
+                                    Language / 字符
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">English</a>
-                                    <a class="dropdown-item" href="#">Cn</a>
+                                    <a class="dropdown-item" href="#">中文</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a href="#" data-toggle="dropdown" class="nav-link text-white dropdown-toggle mr-3">Login</a>
-			<div class="dropdown-menu login-form gray-section">
-            <form>
-	<div class="form-group">
-	<div class="input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text bg-white text-muted"> <i class="fa fa-user"></i> </span>
-		 </div>
-		<input name="" class="form-control" placeholder="Email" type="email">
-	</div> <!-- input-group.// -->
-	</div> <!-- form-group// -->
-	<div class="form-group">
-	<div class="input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text bg-white text-muted"> <i class="fa fa-lock"></i> </span>
-		 </div>
-	    <input class="form-control" placeholder="Password" type="password">
-	</div> <!-- input-group.// -->
-	</div> <!-- form-group// -->
-  <div class="d-flex justify-content-between">
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    Remember me
-  </label>
-</div>
+                                <div class="dropdown-menu login-form gray-section">
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text bg-white text-muted"> <i
+                                                                class="fa fa-user"></i> </span>
+                                                </div>
+                                                <input name="" class="form-control" placeholder="Email" type="email">
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text bg-white text-muted"> <i
+                                                                class="fa fa-lock"></i> </span>
+                                                </div>
+                                                <input class="form-control" placeholder="Password" type="password">
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                        <div class="d-flex justify-content-between">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Remember me
+                                                </label>
+                                            </div>
 
-<a href="" class="text-primary">I forgot my password</a></div>
-	<div class="form-group mt-2">
-	<button type="submit" class="btn btn-danger btn-block"> Login  </button>
-	</div> <!-- form-group// -->
-<p class="text-primary text-center">or sign in with</p>
-<div class="text-center">
+                                            <a href="" class="text-primary">I forgot my password</a></div>
+                                        <div class="form-group mt-2">
+                                            <button type="submit" class="btn btn-danger btn-block"> Login</button>
+                                        </div> <!-- form-group// -->
+                                        <p class="text-primary text-center">or sign in with</p>
+                                        <div class="text-center">
 
-    <i class="fa fa-facebook"></i>
-<i class="fa fa-twitter"></i>
-<i class="fa fa-instagram"></i>
-<i class="fa fa-weixin"></i>
-</div>
-<p class="text-primary text-center">Create an account</p>
-<button type="submit" class="btn btn-primary btn-block"> Sign up  </button>
-	</form>				
-			</div>	
+                                            <i class="fa fa-facebook"></i>
+                                            <i class="fa fa-twitter"></i>
+                                            <i class="fa fa-instagram"></i>
+                                            <i class="fa fa-weixin"></i>
+                                        </div>
+                                        <p class="text-primary text-center">Create an account</p>
+                                        <button type="submit" class="btn btn-primary btn-block"> Sign up</button>
+                                    </form>
+                                </div>
                             </li>
-                            
+
                         </ul>
                         <ul class="navbar-nav">
-                           
+
                             <li class="nav-item ">
                                 <a class="nav-link heart-badge" href="#">
-                                <i class="fa fa-heart px-2 " aria-hidden="true"></i>
-                           
-                               <span class="badge">9</span>
-                           
+                                    <i class="fa fa-heart px-2 " aria-hidden="true"></i>
+
+                                    <span class="badge">9</span>
+
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link cart-badge" type="button"
                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
-                                   <i class="fa fa-shopping-cart px-2" aria-hidden="true"></i>
-                                   <span class="badge">9</span>
-                                    
-                                
+                                    <i class="fa fa-shopping-cart px-2" aria-hidden="true"></i>
+                                    <span class="badge">9</span>
+
+
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <div class="alert alert-primary" role="alert">
@@ -244,67 +247,67 @@
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
-     <div class="w-100 mx-6 d-flex justify-content-between">
-     <a class="navbar-brand" href="#"><img src="/assets/img/tnt-logo.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="w-100 mx-6 d-flex justify-content-between">
+            <a class="navbar-brand" href="#"><img src="/assets/img/tnt-logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Home</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">New</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Coming soon</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Pre Order</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Shop</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Categories</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">About</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Blog</a>
-                </li>
-
-            </ul>
-            <div class="d-block d-sm-none">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#"><i class="fa fa-facebook-square"
-                                                                   aria-hidden="true"></i>
-                        </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">Home</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-white" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">New</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#"><i class="fa fa-instagram"
-                                                                   aria-hidden="true"></i>
-                        </a>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">Coming soon</a>
                     </li>
-                    <li class="nav-item text-white">
-                        <a class="nav-link text-white" href="#"><i class="fa fa-weixin" aria-hidden="true"></i>
-                        </a>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">Pre Order</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">About</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="#">Blog</a>
                     </li>
 
                 </ul>
+                <div class="d-block d-sm-none">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><i class="fa fa-facebook-square"
+                                                                       aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link text-white" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><i class="fa fa-instagram"
+                                                                       aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-white" href="#"><i class="fa fa-weixin" aria-hidden="true"></i>
+                            </a>
+                        </li>
 
+                    </ul>
+
+                </div>
             </div>
         </div>
-</div>
     </nav>
 
 

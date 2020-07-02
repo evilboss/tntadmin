@@ -6,7 +6,7 @@
                     <span class="badge badge-primary">Coming Soon</span>
                 </div>
                 <div class="col-sm">
-                    <span class="text-right"><?= $item['id'] ?></span>
+                    <span class="text-right"><?= $item['ItemCode'] ?></span>
                 </div>
             </div>
         </div>
@@ -17,22 +17,24 @@
         </div>
         <div class="card-body info">
             <ul class="list-unstyled">
-                <li><h6>Item name</h6></li>
+                <li><h6><?php $description = explode('~', $item['Description'], 2);
+                        echo $description[0];
+                        ?></h6></li>
                 <li>Description</li>
-                <li>Price</li>
+                <li><?= $item['RetailPrice'] ?></li>
             </ul>
         </div>
 
 
         <div class="overlay">
-            <a class="info" data-toggle="modal" data-target="#itemModal-<?= $item['id'] ?>">Quick View</a>
+            <a class="info" data-toggle="modal" data-target="#itemModal-<?= $item['ID'] ?>">Quick View</a>
         </div>
 
     </div>
 
 
     <!-- Modal -->
-    <div class="modal fade product-modal" id="itemModal-<?= $item['id'] ?>" role="dialog"
+    <div class="modal fade product-modal" id="itemModal-<?= $item['ID'] ?>" role="dialog"
          aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -45,7 +47,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 col-sm-12">
-                                <a href="https://place-hold.it/400x400" data-lightbox="gallery-<?= $item['id'] ?>"
+                                <a href="https://place-hold.it/400x400" data-lightbox="gallery-<?= $item['ID'] ?>"
                                    data-toggle="lightbox">
                                     <img src="https://place-hold.it/400x400" class="main-img img-fluid"
                                          alt="Responsive image">
@@ -54,29 +56,30 @@
                                 <div class="row justify-content-center ">
                                     <div class="thumb-nails overflow-auto mt-2 jr-carousel owl-theme">
                                         <a href="https://unsplash.it/1200/768.jpg?image=251"
-                                           data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
+                                           data-lightbox="gallery-<?= $item['ID'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
                                         </a>
                                         <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
+                                           data-lightbox="gallery-<?= $item['ID'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
                                         </a>
                                         <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
+                                           data-lightbox="gallery-<?= $item['ID'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
                                         </a>
                                         <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
+                                           data-lightbox="gallery-<?= $item['ID'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
                                         </a>
                                         <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
+                                           data-lightbox="gallery-<?= $item['ID'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
                                         </a>
                                         <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item['id'] ?>" class="col-sm-4">
+                                           data-lightbox="gallery-<?= $item['ID'] ?>" class="col-sm-4">
                                             <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
                                         </a>
+
 
                                     </div>
                                 </div>
@@ -86,11 +89,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <span class="badge badge-primary">Coming Soon</span>
-                                        <span class="item-id"><?= $item['id'] ?></span>
+                                        <span class="item-id"><?= $item['ItemCode'] ?></span>
                                     </div>
                                 </div>
-                                
-                                <h5>Product Description</h5>
+
+                                <h5><?= $description[0] ?> </h5>
                                 <div class="row desc">
                                     <div class="col-6">
                                         <div>
@@ -100,12 +103,12 @@
                                         </div>
                                         <div>
                                             <label class="font-weight-bold">Brand Category</label>
-                                            <span class="">Brand Category</span>
+                                            <span class=""><?= $item['Category'] ?></span>
 
                                         </div>
-                                        <div >
+                                        <div>
                                             <label class="font-weight-bold">Brand</label>
-                                            <span class="">Brand</span>
+                                            <span class=""><?= $item['Brand'] ?></span>
 
                                         </div>
                                     </div>
@@ -121,7 +124,7 @@
                                         </div>
                                         <div>
                                             <label class="font-weight-bold">Item Weight</label>
-                                            <span class="">Item Weight</span>
+                                            <span class=""><?= $item['ItemWeight'] ?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -129,21 +132,21 @@
                                     <div class="col-12">
                                         <div class="details-container">
                                             <div class="price">
-                                                <span>Deposit: $250</span>
-                                                <h3>$500</h3>
-                                                <span class="prev-amt">$650.00</span>
+                                                <span>Deposit: <?= $item['WDeposit'] ?></span>
+                                                <h3>$<?= $item['SPOfferPrice'] ?></h3>
+                                                <span class="prev-amt">$<?= $item['RetailPrice'] ?></span>
                                             </div>
                                             <div class="price-actions">
                                                 <button type="button" class="btn btn-outline-secondary btn-number"
-                                                            disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                        <i class="fa fa-minus-circle"></i>
-                                                    </button>
-                                                    <input type="text" name="quant[1]"
-                                                        class="form-control input-number item-quantity"
-                                                        value="1" min="1" max="10"/>
-                                                    <button type="button" class="btn btn-outline-secondary btn-number"
-                                                            data-type="plus" data-field="quant[1]"><i
-                                                                class="fa fa-plus-circle"></i></button>
+                                                        disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    <i class="fa fa-minus-circle"></i>
+                                                </button>
+                                                <input type="text" name="quant[1]"
+                                                       class="form-control input-number item-quantity"
+                                                       value="1" min="1" max="10"/>
+                                                <button type="button" class="btn btn-outline-secondary btn-number"
+                                                        data-type="plus" data-field="quant[1]"><i
+                                                            class="fa fa-plus-circle"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -159,9 +162,16 @@
                                             <i class="fa fa-share-alt" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div class="col-12">
-                                        <span class="release-date"><i class="fa fa-calendar" aria-hidden="true"></i> Release date</span>
+                                    <div class="col-12" style="visibility:  <?php if (empty($item['Release_Date'])) {
+                                        echo "hidden";
+                                    } else {
+                                        echo "visible";
+                                    } ?>"
+                                    >
 
+                                        <span class="release-date"><i
+                                                    class="fa fa-calendar"
+                                                    aria-hidden="true"></i> Release date <?= $item['Release_Date'] ?></span>
                                     </div>
                                 </div>
 
@@ -183,30 +193,15 @@
                                             <div class="tab-pane fade show active text-wrap" id="nav-details"
                                                  role="tabpanel"
                                                  aria-labelledby="nav-details-tab">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has survived not only five
-                                                centuries, but also the leap into electronic typesetting, remaining
-                                                essentially unchanged. It was popularised in the 1960s with the release
-                                                of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                                with desktop publishing software like Aldus PageMaker including versions
-                                                of Lorem Ipsum.
+                                                <?= $item['Summary'] ?>
 
 
                                             </div>
                                             <div class="tab-pane fade text-wrap" id="nav-specs" role="tabpanel"
                                                  aria-labelledby="nav-specs-tab">
                                                 <span class="text-wrap">
-                                                    It is a long established fact that a reader will be distracted by the
-                                                readable content of a page when looking at its layout. The point of
-                                                using Lorem Ipsum is that it has a more-or-less normal distribution of
-                                                letters, as opposed to using 'Content here, content here', making it
-                                                look like readable English. Many desktop publishing packages and web
-                                                page editors now use Lorem Ipsum as their default model text, and a
-                                                search for 'lorem ipsum' will uncover many web sites still in their
-                                                infancy. Various versions have evolved over the years, sometimes by
-                                                accident, sometimes on purpose (injected humour and the like).
+                                                    <?= $item['Specs'] ?>
+                                                    <?php print_r($item['Specs']) ?>
                                                 </span>
                                             </div>
 

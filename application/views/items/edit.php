@@ -20,6 +20,8 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="box-header with-border">
+                                <input class="form-check-input" type="hidden" id="images" name="images">
+
                                 <input class="form-check-input" type="checkbox" id="WebItem" name="WebItem">
                                 <label class="form-check-label" for="WebItem">
                                     WebItem
@@ -236,7 +238,40 @@
 
                         </div>
                     </div>
-                    <pre><? print_r($item) ?>/pre>
+                    <div class="row">
+                        <?php if (isset($item['images']))
+                            $imageArray = json_decode($item['images'], true);
+                        //print_r($imageArray);
+                        foreach ($imageArray as $key => $images) {
+                            foreach ($images as $image) {
+                                echo "<img src='$image'/>";
+                            }
+
+                        }
+
+
+                        ?>
+                        <div class="wrapper">
+                            <div class="sections">
+
+                                <section class="active">
+                                    <div class="images">
+                                        <div class="pic">
+                                            add
+                                        </div>
+                                    </div>
+
+
+                                </section>
+
+                            </div>
+                        </div>
+                        <div class="notification"></div>
+
+                    </div>
+                    <!--
+                      -->
+                    <pre><? print_r($item) ?></pre>
 
                 </div>
             </div>

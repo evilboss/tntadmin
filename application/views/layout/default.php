@@ -29,8 +29,7 @@
     <?php if (!empty($add_css)): ?><?php foreach ($add_css as $css): ?>
         <link rel="stylesheet" href="<?= base_url($css) ?>"><?php endforeach; ?><?php endif; ?>
 
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/kn.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/tnt.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/tnt-admin.css">
 
     <script type="text/javascript">
         var base_url = "<?=base_url()?>";

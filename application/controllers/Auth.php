@@ -53,7 +53,8 @@ class Auth extends CI_Controller
     public function login()
     {
         if ($this->ion_auth->logged_in()) {
-            redirect('home');
+
+            redirect('admin');
         }
 
         $this->data['title'] = $this->lang->line('login_heading');
@@ -64,10 +65,9 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == true) {
             $remember = (bool)$this->input->post('remember');
-
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('home');
+                redirect('admin');
             } else {
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
                 redirect('login');

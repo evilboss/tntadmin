@@ -9,12 +9,31 @@ class Items_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Category_model');
+        $this->load->model('Brand_model');
     }
 
     public function get_all()
     {
         return $this->db->get($this->table);
 
+    }
+
+    public function getWebItems()
+    {
+        return $this->db->get_where($this->table, array('WebItem' => true, 'featured' => false, 'InActive' => false))->result_array();
+    }
+
+    public function getFeaturedItems()
+    {
+        $featuredItems = $this->db->get_where($this->table, array('WebItem' => true, 'featured' => true, 'InActive' => false))->result_array();
+        foreach ($featuredItems as $idx => $item) {
+            $featuredItems[$idx]['Category'] = $this->Category_model->getNameById($item['Category']);
+            $featuredItems[$idx]['Brand'] = $this->Brand_model->getNameById($item['Brand']);
+
+        }
+
+        return $featuredItems;
     }
 
     public function get($id)
