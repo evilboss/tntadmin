@@ -42,6 +42,9 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-yellow sidebar-mini">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=731733500224472&autoLogAppEvents=1" nonce="G10zidkm"></script>
+
 <div class="wrapper">
     <section id="wrapper-login">
         <div class="row">
@@ -51,7 +54,7 @@
                         <div class="row">
                             <div class="col-md-4" style="padding-left:0;padding-right:0">
                                 <a href="https://www.facebook.com/imaginarium.hobby/" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <!-- <a href="https://twitter.com/toyntoys/" target="_blank"><i class="fab fa-twitter"></i></a> -->
+                                <div class="fb-page" data-href="https://www.facebook.com/annetteonlinestore/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/annetteonlinestore/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/annetteonlinestore/">Annette &quot;Bautista&quot; Online Store</a></blockquote></div>                                <!-- <a href="https://twitter.com/toyntoys/" target="_blank"><i class="fab fa-twitter"></i></a> -->
                                 <a href="https://www.instagram.com/imaginarium.art/" target="_blank"><i class="fab fa-instagram"></i></a>
                                 <a href="weixin://dl/chat?{toID}" target="_blank"><i class="fab fa-weixin"></i></a>
                             </div>

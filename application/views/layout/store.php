@@ -316,87 +316,25 @@
     <?php $this->load->view($content); ?>
 </section>
 <section id="wrapper-newsletter" class="dark-section text-white">
-    <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6"><h3>Subscribe to Our Newsletter</h3></div>
-                <div class="col-md-6">
-                    <form class="form-inline float-right">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <input type="email" class="form-control" id="newsletter-email"
-                                   placeholder="Enter your Email">
-                        </div>
-                        <button type="submit" class="btn mb-2">Send</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </section>
 <section id="wrapper-footer" class="gray-section text-white">
-    <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Facebook</h5>
-                    <br>
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fimaginarium.hobby%2F&amp;tabs=timeline&amp;width=300&amp;height=300&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=163340304142143"
-                            width="300" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                            allowtransparency="true" allow="encrypted-media"></iframe>
-                </div>
-                <div class="col-md-3 footer-instagram">
-                    <h5>Instagram</h5><br>
-                    <!-- <iframe src="//lightwidget.com/widgets/70c7e455d4d9502f95b95ebbec51ee09.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe> -->
-                    <!-- LightWidget WIDGET -->
-                    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-                    <iframe src="//lightwidget.com/widgets/fc54d3b021615606b2e2826158e9e557.html" scrolling="no"
-                            allowtransparency="true" class="lightwidget-widget"
-                            style="width: 100%; border: 0px; overflow: hidden; height: 210px;"></iframe>
-                    <h5><a href="#" style="text-decoration: underline;color:#fff">Follow Us</a></h5>
-                </div>
-                <div class="col-md-3 footer-tags">
-                    <h5>Tags</h5><br>
-                    <div class="row">
-                        <a href="#"><span class="badge">TRANSFORMER G1</span></a>
-                        <a href="#"><span class="badge">HASBRO</span></a>
-                    </div>
-                    <div class="row">
-                        <a href="#"><span class="badge">DARK TWISTED TALES</span></a>
-                    </div>
-                    <div class="row">
-                        <a href="#"><span class="badge">OPTIMUS PRIME</span></a>
-                        <a href="#"><span class="badge">MARVEL</span></a>
-                    </div>
-                    <div class="row">
-                        <a href="#"><span class="badge">BUMBLE BEE</span></a>
-                        <a href="#"><span class="badge">STARSCREAM</span></a>
-                    </div>
-                    <div class="row">
-                        <a href="#"><span class="badge">RUMBLE</span></a>
-                        <a href="#"><span class="badge">GRIMLOCK</span></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h5>Contact Us</h5><br>
-                    <form>
-                        <div class="form-group">
-                            <label for="footer-email">Email Address</label>
-                            <input type="email" class="form-control" id="footer-email" aria-describedby="emailHelp"
-                                   placeholder="Enter email" autocomplete="off"
-                                   style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                   placeholder="Password" autocomplete="off"
-                                   style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12"><h3>Facebook</h3>
+                <iframe></iframe>
             </div>
+            <div class="col-md-3 col-sm-12"><h3>Instagram</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-12"><h3>Twitter</h3>
+
+            </div>
+            <div class="col-md-3 col-sm-12"><h3>Subscribe to our news letter</h3>
+            </div>
+
         </div>
+
     </div>
 </section>
 
