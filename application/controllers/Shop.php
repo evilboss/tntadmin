@@ -34,6 +34,8 @@ class Shop extends CI_Controller
 				$description = $product['description'];
 				$price = $product['price'];
 */
+
+        /*TODO: Add actial products to list*/
         $this->data['products'] = array(
             [
                 'serial' => 1,

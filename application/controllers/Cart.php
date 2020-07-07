@@ -7,6 +7,7 @@ class Cart extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Cart_model');
+        $this->data['cart'] = $this->cart->contents();
     }
 
     public function index()
