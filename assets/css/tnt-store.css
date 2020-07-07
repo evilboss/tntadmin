@@ -431,3 +431,18 @@ button.close {
 
 #wrapper-footer {
 }
+
+.product-img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.product-type {
+  padding: 5px;
+}
+.product-type.blue {
+  background-color: blue;
+}
+.product-type.red {
+  background-color: red;
+}

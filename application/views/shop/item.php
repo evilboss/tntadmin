@@ -13,7 +13,8 @@
 
         <div class="card-body">
             <div class="corner"><span>NEW</span></div>
-            <img class="card-img" src="https://place-hold.it/400x400" alt="Card image cap">
+            <img class="card-img product-img" src="https://place-hold.it/400x400" alt="Card image cap">
+            <div class="product-type blue">test</div>
         </div>
         <div class="card-body info">
             <ul class="list-unstyled">
