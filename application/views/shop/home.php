@@ -1,4 +1,3 @@
-<?php print_r($featuredItems) ?>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner store-carousel">
         <div class="carousel-item active">

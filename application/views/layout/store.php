@@ -190,7 +190,6 @@
 
                         </ul>
                         <ul class="navbar-nav">
-
                             <li class="nav-item ">
                                 <a class="nav-link heart-badge" href="#">
                                     <i class="fa fa-heart px-2 " aria-hidden="true"></i>
@@ -204,9 +203,7 @@
                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     <i class="fa fa-shopping-cart px-2" aria-hidden="true"></i>
-                                    <span class="badge">9</span>
-
-
+                                    <span class="badge"><?php echo count($cart); ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <div class="alert alert-primary" role="alert">

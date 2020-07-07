@@ -6,8 +6,8 @@ class Shop extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Items_model');
-
-
+        $this->load->model('Cart_model');
+        $this->data['cart'] = $this->cart->contents();
         $this->data['site'] = $this->getData();
         $this->data['add_js'] = [];
         $this->data['add_css'] = [];
