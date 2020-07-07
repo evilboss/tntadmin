@@ -316,7 +316,7 @@
 
 </section>
 <section id="wrapper-footer" class="gray-section text-white">
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-md-3 col-sm-12"><h3>Facebook</h3>
                 <iframe></iframe>
