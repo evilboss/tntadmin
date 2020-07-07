@@ -19,7 +19,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <div class="box-title">
-                            <a href="<?php echo base_url('index.php/'.uri_string()).'/create' ?>" class="btn btn-success"> Add new</a>
+                            <a href="<?php echo base_url(uri_string()).'/create' ?>" class="btn btn-success"> Add new</a>
                         </div>
                     </div>
                         <div class="box-body">

@@ -19,7 +19,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <div class="box-title">
-                            <a href="<?php echo base_url('index.php/admin/products/create') ?>" class="btn btn-success">
+                            <a href="<?php echo base_url('admin/products/create') ?>" class="btn btn-success">
                                 Add new</a>
                         </div>
                     </div>
