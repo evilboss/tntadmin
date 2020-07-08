@@ -3,8 +3,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Products
-            <small>Create</small>
+            <?php
+            echo (isset($type)) ? ucfirst($type) : "Categories";
+            ?>
+            <small>Edit</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

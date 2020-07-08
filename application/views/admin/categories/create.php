@@ -3,15 +3,21 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php echo ucfirst($this->uri->segment(2)); ?>
+            <?php
+            echo (isset($type)) ? ucfirst($type) : "Categories";
+
+            ?>
             <small>Create</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li class="active"> <?php
+                echo (isset($type)) ? ucfirst($type) : "Categories";
+
+                ?> create
+            </li>
         </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -20,7 +26,7 @@
                     <div class="box-header">
 
                     </div>
-                    <?php echo form_open_multipart(base_url('index.php/admin/categories/create')) ?>
+                    <?php echo form_open_multipart(base_url(uri_string())) ?>
 
                     <div class="box-body">
                         <?php $this->load->view('admin/categories/form'); ?>

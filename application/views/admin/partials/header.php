@@ -135,16 +135,18 @@
                                 Add</a></li>
                     </ul>
                 </li>
-                <li class="treeview <?php echo ($this->uri->segment(2) == "categories") ? " active" : ""; ?>">
+                <li class="treeview <?php echo ($this->uri->segment(2) == "brand") ? " active" : ""; ?>">
                     <a href="#">
                         <i class="fa fa-list"></i>
                         <span>Brand</span>
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url('/admin/categories'); ?>"><i class="fa fa-circle-o"></i>
+                        <li><a href="<?php echo base_url('/admin/brand'); ?>"><i class="fa fa-circle-o"></i>
                                 All</a></li>
-                        <li><a href="<?php echo base_url('/admin/categories/create'); ?>"><i class="fa fa-circle-o"></i>
+                        <li><a href="<?php echo base_url('/admin/brand'); ?>"><i class="fa fa-circle-o"></i>
+                                Category</a></li>
+                        <li><a href="<?php echo base_url('/admin/brand/create'); ?>"><i class="fa fa-circle-o"></i>
                                 Add</a></li>
                     </ul>
                 </li>
@@ -157,6 +159,20 @@
                     <ul class="treeview-menu">
                         <li><a href="<?php echo base_url('/admin/categories'); ?>"><i class="fa fa-circle-o"></i>
                                 All</a></li>
+                        <li><a href="<?php echo base_url('/admin/categories/create'); ?>"><i class="fa fa-circle-o"></i>
+                                Add</a></li>
+                    </ul>
+                </li>
+                <li class="treeview <?php echo ($this->uri->segment(2) == "categories") ? " active" : ""; ?>">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>Manufacturer</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<?php echo base_url('/admin/categories'); ?>"><i class="fa fa-circle-o"></i>All</a>
+                        </li>
                         <li><a href="<?php echo base_url('/admin/categories/create'); ?>"><i class="fa fa-circle-o"></i>
                                 Add</a></li>
                     </ul>
