@@ -5,7 +5,6 @@
         <h1>
             <?php
             echo (isset($type)) ? ucfirst($type) : "Categories";
-
             ?>
             <small>Create</small>
         </h1>

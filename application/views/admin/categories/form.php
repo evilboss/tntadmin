@@ -1,12 +1,17 @@
 <fieldset>
+    <?php
+    echo (isset($type)) ? ucfirst($type) : "Categories";
+    ?>
     <div class="form-group<?php echo (form_error('name')) ? ' has-error' : ''; ?>">
         <label for="name">Name *</label>
-        <?php echo form_input('name', (isset($record))? set_value("name", $record->name) : set_value("name"), array('class' => 'form-control', 'placeholder' => 'Product name', 'id' => 'name')); ?>
+        <?php echo form_input('name', (isset($record))? set_value("name", $record->name) : set_value("name"), array('class' => 'form-control', 'placeholder' => (isset($type)) ? ucfirst($type)." name" : "Category ". "name", 'id' => 'name')); ?>
         <?php echo form_error('name', '<span class="help-block">', '</span>') ?>
     </div>
 
     <div class="form-group<?php echo (form_error('price')) ? ' has-error' : ''; ?>">
-        <label for="price">Parent category</label>
+        <label for="price">Parent  <?php
+            echo (isset($type)) ? $type : "Categories";
+            ?></label>
         <?php
         $select_categories = array();
         foreach ($categories as $category){

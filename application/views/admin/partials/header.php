@@ -163,7 +163,7 @@
                                 Add</a></li>
                     </ul>
                 </li>
-                <li class="treeview <?php echo ($this->uri->segment(2) == "categories") ? " active" : ""; ?>">
+                <li class="treeview <?php echo ($this->uri->segment(2) == "manufacturer") ? " active" : ""; ?>">
                     <a href="#">
                         <i class="fa fa-list"></i>
                         <span>Manufacturer</span>
@@ -171,9 +171,11 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="<?php echo base_url('/admin/categories'); ?>"><i class="fa fa-circle-o"></i>All</a>
+                            <a href="<?php echo base_url('/admin/manufacturer'); ?>"><i
+                                        class="fa fa-circle-o"></i>All</a>
                         </li>
-                        <li><a href="<?php echo base_url('/admin/categories/create'); ?>"><i class="fa fa-circle-o"></i>
+                        <li><a href="<?php echo base_url('/admin/manufacturer/create'); ?>"><i
+                                        class="fa fa-circle-o"></i>
                                 Add</a></li>
                     </ul>
                 </li>

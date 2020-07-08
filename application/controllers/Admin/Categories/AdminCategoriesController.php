@@ -184,6 +184,82 @@ class AdminCategoriesController extends TNT_Controller
         $this->load->templateAdmin('admin/categories/edit', $this->data);
     }
 
+    /**
+     * Display the list of resource.
+     */
+    public function manufacturer()
+    {
+        $this->data['records'] = $this->CategoriesModel->order_by('created_at', 'desc')->get_many_by(
+            'type', 'manufacturer'
+        );
+        $this->data['type'] = "manufacturer";
+
+        $this->load->templateAdmin('admin/categories/list', $this->data);
+    }
+
+    /**
+     * Create New Resource
+     */
+    public function createManufacturer()
+    {
+
+        $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('manufacturer');
+        //If POST method Create New Record
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $inputs = $this->input->post();
+            //print_r($inputs);
+            $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[128]');
+
+            if ($this->form_validation->run()) {
+
+                //Form validation success. Insert Record into database
+
+                $upload_data = $this->uploadFile('cover_image', $this->getUploadConfig());
+
+                $inputs['cover_image'] = $upload_data['file_name'];
+                $inputs['type'] = 'manufacturer';
+                $last_id = $this->CategoriesModel->insert($inputs);
+
+
+                $this->session->set_flashdata('success', 'Category Created successfully');
+
+                redirect(base_url('admin/manufacturer'));
+                exit;
+            }
+        }
+
+        $this->data['type'] = "manufacturer";
+
+        $this->load->templateAdmin('admin/categories/create', $this->data);
+    }
+
+    /**
+     * Show form for editing the resource Resource as well as update the database if HTTP verb is POST.
+     *
+     * @param $id
+     */
+    public function editManufacturer($id)
+    {
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[128]');
+
+            if ($this->form_validation->run()) {
+                //Form validation success. Update Record
+                $inputs = $this->input->post();
+                $this->CategoriesModel->update($id, $inputs);
+                $this->session->set_flashdata('success', 'Product Updated successfully');
+
+                redirect(base_url('index.php/admin/manufacturer'));
+                exit;
+            }
+        }
+        $record = $this->CategoriesModel->get($id);
+        $this->data['record'] = $record;
+        $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('brand', $id);
+        $this->data['type'] = "manufacturer";
+        $this->load->templateAdmin('admin/categories/edit', $this->data);
+    }
+
     public function getUploadConfig()
     {
         $config = array();
