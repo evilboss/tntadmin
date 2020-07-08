@@ -266,7 +266,7 @@ class AdminCategoriesController extends TNT_Controller
     public function productType()
     {
         $this->data['records'] = $this->CategoriesModel->order_by('created_at', 'desc')->get_many_by(
-            'type', 'brand'
+            'type', 'productType'
         );
         $this->data['type'] = "Product Type";
 

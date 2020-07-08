@@ -20,7 +20,7 @@
                     <div class="box-header">
 
                     </div>
-                    <?php echo form_open_multipart(base_url('index.php/admin/products/create')) ?>
+                    <?php echo form_open_multipart(base_url('admin/products/create')) ?>
 
                     <div class="box-body">
                         <?php $this->load->view('admin/products/form'); ?>
