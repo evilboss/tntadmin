@@ -260,6 +260,82 @@ class AdminCategoriesController extends TNT_Controller
         $this->load->templateAdmin('admin/categories/edit', $this->data);
     }
 
+    /**
+     * Display the list of resource.
+     */
+    public function productType()
+    {
+        $this->data['records'] = $this->CategoriesModel->order_by('created_at', 'desc')->get_many_by(
+            'type', 'brand'
+        );
+        $this->data['type'] = "Product Type";
+
+        $this->load->templateAdmin('admin/categories/list', $this->data);
+    }
+
+    /**
+     * Create New Resource
+     */
+    public function createProductType()
+    {
+
+        $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('productType');
+        //If POST method Create New Record
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $inputs = $this->input->post();
+            //print_r($inputs);
+            $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[128]');
+
+            if ($this->form_validation->run()) {
+
+                //Form validation success. Insert Record into database
+
+                $upload_data = $this->uploadFile('cover_image', $this->getUploadConfig());
+
+                $inputs['cover_image'] = $upload_data['file_name'];
+                $inputs['type'] = 'productType';
+                $last_id = $this->CategoriesModel->insert($inputs);
+
+
+                $this->session->set_flashdata('success', 'Category Created successfully');
+
+                redirect(base_url('admin/producttype'));
+                exit;
+            }
+        }
+
+        $this->data['type'] = "Product Type";
+
+        $this->load->templateAdmin('admin/categories/create', $this->data);
+    }
+
+    /**
+     * Show form for editing the resource Resource as well as update the database if HTTP verb is POST.
+     *
+     * @param $id
+     */
+    public function editProductType($id)
+    {
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[128]');
+
+            if ($this->form_validation->run()) {
+                //Form validation success. Update Record
+                $inputs = $this->input->post();
+                $this->CategoriesModel->update($id, $inputs);
+                $this->session->set_flashdata('success', 'Product Updated successfully');
+
+                redirect(base_url('index.php/admin/categories'));
+                exit;
+            }
+        }
+        $record = $this->CategoriesModel->get($id);
+        $this->data['record'] = $record;
+        $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('productType', $id);
+        $this->data['type'] = "Product Type";
+        $this->load->templateAdmin('admin/categories/edit', $this->data);
+    }
+
     public function getUploadConfig()
     {
         $config = array();

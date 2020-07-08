@@ -45,6 +45,11 @@ $route['admin/manufacturer/create'] = 'Admin/Categories/AdminCategoriesControlle
 $route['admin/manufacturer/edit/(:num)'] = 'Admin/Categories/AdminCategoriesController/editManufacturer/$1';
 $route['admin/manufacturer/delete/(:num)'] = 'Admin/Categories/AdminCategoriesController/delete/$1';
 
+$route['admin/producttype'] = 'Admin/Categories/AdminCategoriesController/productType';
+$route['admin/producttype/create'] = 'Admin/Categories/AdminCategoriesController/createProductType';
+$route['admin/producttype/edit/(:num)'] = 'Admin/Categories/AdminCategoriesController/editProductType/$1';
+$route['admin/producttype/delete/(:num)'] = 'Admin/Categories/AdminCategoriesController/delete/$1';
+
 
 $route['admin/orders'] = 'Admin/Orders/AdminOrdersController/index';
 $route['admin/orders/show/(:num)'] = 'Admin/Orders/AdminOrdersController/show/$1';
