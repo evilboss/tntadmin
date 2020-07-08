@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/libs/font-awesome/css/font-awesome.min.css') ?>">
     <!-- Date Picker -->
 
-    <link rel="stylesheet" href="<?php echo base_url('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') ?>">
+    <link rel="stylesheet"
+          href="<?php echo base_url('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') ?>">
 
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/admin/AdminLTE.min.css') ?>">
@@ -27,7 +28,6 @@
     <!-- Bootstrap 3.3.7 -->
     <script src="<?php echo base_url('assets/libs/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') ?>"></script>
-
 
 
     <!-- Google Font -->
@@ -126,6 +126,32 @@
                     <a href="#">
                         <i class="fa fa-list"></i>
                         <span>Categories</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo base_url('/admin/categories'); ?>"><i class="fa fa-circle-o"></i>
+                                All</a></li>
+                        <li><a href="<?php echo base_url('/admin/categories/create'); ?>"><i class="fa fa-circle-o"></i>
+                                Add</a></li>
+                    </ul>
+                </li>
+                <li class="treeview <?php echo ($this->uri->segment(2) == "categories") ? " active" : ""; ?>">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>Brand</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo base_url('/admin/categories'); ?>"><i class="fa fa-circle-o"></i>
+                                All</a></li>
+                        <li><a href="<?php echo base_url('/admin/categories/create'); ?>"><i class="fa fa-circle-o"></i>
+                                Add</a></li>
+                    </ul>
+                </li>
+                <li class="treeview <?php echo ($this->uri->segment(2) == "categories") ? " active" : ""; ?>">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>Product Type</span>
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
