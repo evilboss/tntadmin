@@ -38,6 +38,7 @@ $route['admin/categories/delete/(:num)'] = 'Admin/Categories/AdminCategoriesCont
 $route['admin/brand'] = 'Admin/Categories/AdminCategoriesController/brand';
 $route['admin/brand/create'] = 'Admin/Categories/AdminCategoriesController/createBrand';
 $route['admin/brand/edit/(:num)'] = 'Admin/Categories/AdminCategoriesController/editBrand/$1';
+$route['admin/brand/delete/(:num)'] = 'Admin/Categories/AdminCategoriesController/delete/$1';
 
 
 $route['admin/orders'] = 'Admin/Orders/AdminOrdersController/index';

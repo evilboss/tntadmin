@@ -138,12 +138,12 @@ class TNT_Model extends CI_Model
             $this->_database->where($this->soft_delete_key, (bool)$this->_temporary_only_deleted);
         }
 
-		$this->_set_where($where);
+        $this->_set_where($where);
 
         $this->trigger('before_get');
 
         $row = $this->_database->get($this->_table)
-                        ->{$this->_return_type()}();
+            ->{$this->_return_type()}();
         $this->_temporary_return_type = $this->return_type;
 
         $row = $this->trigger('after_get', $row);
