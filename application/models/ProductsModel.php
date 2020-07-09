@@ -13,6 +13,8 @@ class ProductsModel extends TNT_Model
         //$this->has_one['image'] = array('foreign_model'=>'ProductsModel','foreign_table'=>'product_images','foreign_key'=>'product_id','local_key'=>'id');
 
         parent::__construct();
+        $this->load->model('CategoriesModel');
+
     }
 
     public function getProductsForShop($category, $inputs, $limit, $offset)
@@ -85,6 +87,27 @@ class ProductsModel extends TNT_Model
         $query = $this->db->get();
         return $query->num_rows();
 
+    }
+
+    private function getItemStatus($item)
+    {
+        return "Some kind of status";
+    }
+
+    public function getFormattedItems($products)
+    {
+        foreach ($products as $product) {
+            $product->cls = 0;
+            $product->status = $this->getItemStatus($product);
+            $product->brandName = isset($product->brandId) ? $this->CategoriesModel->get($product->brandId)->name : false;
+            $product->categoryName = isset($product->category_id) ? $this->CategoriesModel->get($product->category_id)->name : false;
+            $product->productTypeName = isset($product->productTypeId) ? $this->CategoriesModel->get($product->productTypeId)->name : false;
+            $product->manufacturerName = isset($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
+            $product->isNew = false;
+
+
+        }
+        return $products;
     }
 
 }

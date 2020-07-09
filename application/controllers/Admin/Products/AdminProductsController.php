@@ -50,6 +50,11 @@ class AdminProductsController extends TNT_Controller
         $this->form_validation->set_rules('productCode', 'Product Code', 'trim|required|max_length[128]');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
         $this->form_validation->set_rules('category_id', 'category', 'trim|required');
+        $this->form_validation->set_rules('preOrderStart', 'Pre Order Start', 'trim|required');
+        $this->form_validation->set_rules('preOrderEnd', 'Pre Order End', 'trim|required');
+        $this->form_validation->set_rules('releaseDate', 'Release Date', 'trim|required');
+
+
         $this->form_validation->set_rules('price', 'Description', 'trim|required|max_length[11]');
         if (empty($_FILES['cover_image']['name']) && $type == 'add') {
             $this->form_validation->set_rules('cover_image', 'cover image', 'required');
@@ -96,7 +101,9 @@ class AdminProductsController extends TNT_Controller
                 $this->createThumb($cover_image);
                 //Save uploaded file name in column.
                 $inputs['cover_image'] = $cover_image['file_name'];
-
+                //Format date
+                $inputs['preOrderStart'] = (date_format(date_create($inputs['preOrderStart']), "Y/m/d H:i:s"));
+                $inputs['preOrderEnd'] = (date_format(date_create($inputs['preOrderEnd']), "Y/m/d H:i:s"));
 
 //				$images_path = array();
 //				$allowed_mime_types = array("image/jpeg", "image/png", "image/jpg");
@@ -108,11 +115,11 @@ class AdminProductsController extends TNT_Controller
                 $last_id = $this->ProductsModel->insert($inputs);
 
 
-//
-//				if(!$this->upload->do_upload('images')){
-//					//$this->form_validation->set_message('uploadFiles', $this->upload->display_errors());
-//					return false;
-//				}
+                //
+                //				if(!$this->upload->do_upload('images')){
+                //					//$this->form_validation->set_message('uploadFiles', $this->upload->display_errors());
+                //					return false;
+                //				}
 
                 foreach ($this->uploaded_images as $uploaded_image) {
                     $images_path['path'] = $uploaded_image['file_name'];
@@ -121,7 +128,9 @@ class AdminProductsController extends TNT_Controller
                 }
                 $this->session->set_flashdata('success', 'Product Created successfully');
 
-                redirect(base_url('index.php/admin/products'));
+
+                print_r($inputs);
+                // redirect(base_url('index.php/admin/products'));
                 exit;
 
             }
