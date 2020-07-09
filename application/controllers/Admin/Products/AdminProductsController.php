@@ -91,7 +91,10 @@ class AdminProductsController extends TNT_Controller
             //Set one additional rule
             $this->form_validation->set_rules('images[]', 'Images', 'callback_validateAndUploadFiles');
 
-            if ($this->form_validation->run()) {
+            if ($this->form_validation->run() == FALSE) {
+
+                $this->data['record'] = $inputs;
+            } else {
                 //Form validation success. Insert Record into database
                 $inputs['created_at'] = date('Y-m-d H:i:s');
 
@@ -181,8 +184,8 @@ class AdminProductsController extends TNT_Controller
 
         $this->data['record'] = $record;
         $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('category');
-        $this->data['brand'] = $this->CategoriesModel->getCategoriesDropdown('brand');
-        $this->data['manufacturer'] = $this->CategoriesModel->getCategoriesDropdown('manufacturer');
+        $this->data['brands'] = $this->CategoriesModel->getCategoriesDropdown('brand');
+        $this->data['manufacturers'] = $this->CategoriesModel->getCategoriesDropdown('manufacturer');
         $this->data['productTypes'] = $this->CategoriesModel->getCategoriesDropdown('productType');
 
         $this->load->templateAdmin('admin/products/edit', $this->data);
