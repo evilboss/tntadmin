@@ -91,7 +91,32 @@ class ProductsModel extends TNT_Model
 
     private function getItemStatus($item)
     {
-        return "Some kind of status";
+        $date_now = date("Y/m/d"); // this format is string comparable
+
+        /*  if ($date_now > date_format(date_create($item->preOrderStart), 'Y/m/d')) {
+              $status = 'greater than';
+          } else {
+              $status = 'Less than';
+          }*/
+
+        switch (true) {
+            case $date_now <= date_format(date_create($item->preOrderEnd), 'Y/m/d'):
+                $status = 'Pre-Order' . date_format(date_create($item->preOrderEnd), 'Y/m/d') . $date_now;
+                break;
+            case $item->arrivalDate != '0000-00-00 00:00:00' && $date_now >= date_format(date_create($item->arrivalDate), 'Y/m/d') && $date_now >= date_format(date_create($item->releaseDate), 'Y/m/d'):
+                $status = 'In-Stock' . date_format(date_create($item->arrivalDate), 'Y/m/d');
+                break;
+            case $date_now >= date_format(date_create($item->preOrderEnd), 'Y/m/d'):
+                $status = 'coming-soon';
+                break;
+
+            default:
+                $status = '';
+                break;
+        }
+
+
+        return $status;
     }
 
     public function getFormattedItems($products)
