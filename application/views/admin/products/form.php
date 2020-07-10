@@ -1,6 +1,51 @@
 <fieldset>
     <div class="col col-lg-12">
         <div class="col col-lg-4">
+            <div class="form-group<?php echo (form_error('active')) ? ' has-error' : ''; ?>">
+                <label>Active * &nbsp </label>
+
+                <label class="radio-inline">
+                    <?php echo form_radio('active', 1, (isset($record->active)) ? $record->active : true, array()); ?>
+                    Yes
+                </label>
+
+                <label class="radio-inline">
+                    <?php echo form_radio('active', 0, (isset($record->active) && $record->active == 0) ? true : false, array()); ?>
+                    No
+                </label>
+                <?php echo form_error('active', '<span class="help-block">', '</span>') ?>
+            </div>
+            <div class="form-group<?php echo (form_error('webItem')) ? ' has-error' : ''; ?>">
+                <label>Web Item * &nbsp </label>
+
+                <label class="radio-inline">
+                    <?php echo form_radio('webItem', 1, (isset($record->webItem)) ? $record->webItem : true, array()); ?>
+                    Yes
+                </label>
+
+                <label class="radio-inline">
+                    <?php echo form_radio('webItem', 0, (isset($record->webItem) && $record->webItem == 0) ? true : false, array()); ?>
+                    No
+                </label>
+                <?php echo form_error('webItem', '<span class="help-block">', '</span>') ?>
+            </div>
+            <div class="form-group<?php echo (form_error('recomended')) ? ' has-error' : ''; ?>">
+                <label>Recomended * &nbsp </label>
+
+                <label class="radio-inline">
+                    <?php echo form_radio('recomended', 1, (isset($record->recomended)) ? $record->recomended : true, array()); ?>
+                    Yes
+                </label>
+
+                <label class="radio-inline">
+                    <?php echo form_radio('recomended', 0, (isset($record->recomended) && $record->recomended == 0) ? true : false, array()); ?>
+                    No
+                </label>
+                <?php echo form_error('recomended', '<span class="help-block">', '</span>') ?>
+            </div>
+
+            <div class="col col-lg-6">
+            </div>
             <div class="form-group<?php echo (form_error('productCode')) ? ' has-error' : ''; ?>">
                 <label for="name">Product Code *</label>
                 <?php echo form_input('productCode', (isset($record->productCode)) ? set_value("productCode", $record->productCode) : set_value("productCode"), array('class' => 'form-control', 'placeholder' => 'Product Code', 'id' => 'productCode')); ?>
@@ -10,6 +55,13 @@
                 <label for="name">Name *</label>
                 <?php echo form_input('name', (isset($record->name)) ? set_value("name", $record->name) : set_value("name"), array('class' => 'form-control', 'placeholder' => 'Product name', 'id' => 'name')); ?>
                 <?php echo form_error('name', '<span class="help-block">', '</span>') ?>
+            </div>
+            <div class="form-group<?php echo (form_error('price')) ? ' has-error' : ''; ?>">
+                <label for="price">Retail Price *</label>
+
+                <input name="price" id="price" type="number" min="0" class="form-control" value=
+                    <?= isset($record) ? is_object($record) ? isset($record->price) ? $record->price : '' : floatval($record['price']) : '' ?>/>
+                <?php echo form_error('price', '<span class="help-block">', '</span>') ?>
             </div>
             <div class="col col-lg-6">
                 <div class="form-group<?php echo (form_error('manufacturerId')) ? ' has-error' : ''; ?>">
@@ -62,19 +114,6 @@
                 </div>
 
             </div>
-
-
-        </div>
-
-        <div class="col col-lg-4">
-
-            <div class="form-group<?php echo (form_error('price')) ? ' has-error' : ''; ?>">
-                <label for="price">Price *</label>
-
-                <input name="price" id="price" type="number" min="0" class="form-control" value=
-<?= isset($record) ? is_object($record) ? isset($record->price) ? $record->price : '' : floatval($record['price']) : '' ?> />
-                <?php echo form_error('price', '<span class="help-block">', '</span>') ?>
-            </div>
             <div class=" form-group<?php echo (form_error('cover_image')) ? ' has-error' : ''; ?>">
                 <label for="cover_image">Cover Image *</label>
                 <input type="file" name="cover_image" class="form-control" id="cover_image"/>
@@ -85,37 +124,11 @@
                 <input type="file" name="images[]" class="form-control" multiple="multiple"/>
                 <?php echo form_error('images[]', '<span class="help-block">', '</span>') ?>
             </div>
-            <div class="form-group<?php echo (form_error('active')) ? ' has-error' : ''; ?>">
-                <label>Active * &nbsp </label>
 
-                <label class="radio-inline">
-                    <?php echo form_radio('active', 1, (isset($record->active)) ? $record->active : true, array()); ?>
-                    Yes
-                </label>
 
-                <label class="radio-inline">
-                    <?php echo form_radio('active', 0, (isset($record->active) && $record->active == 0) ? true : false, array()); ?>
-                    No
-                </label>
-                <?php echo form_error('active', '<span class="help-block">', '</span>') ?>
-            </div>
-            <div class="form-group<?php echo (form_error('webItem')) ? ' has-error' : ''; ?>">
-                <label>Web Item * &nbsp </label>
-
-                <label class="radio-inline">
-                    <?php echo form_radio('webItem', 1, (isset($record->webItem)) ? $record->webItem : true, array()); ?>
-                    Yes
-                </label>
-
-                <label class="radio-inline">
-                    <?php echo form_radio('webItem', 0, (isset($record->webItem) && $record->webItem == 0) ? true : false, array()); ?>
-                    No
-                </label>
-                <?php echo form_error('webItem', '<span class="help-block">', '</span>') ?>
-            </div>
         </div>
-        <div class="col col-lg-4">
 
+        <div class="col col-lg-4">
             <div class="form-group <?php echo (form_error('preOrderStart')) ? ' has-error' : ''; ?>">
                 <label>Pre Order Start:</label>
 
@@ -177,6 +190,52 @@
                 <?php echo form_error('arrivalDate', '<span class="help-block">', '</span>') ?>
 
             </div>
+            <div class="form-group<?php echo (form_error('poPrice')) ? ' has-error' : ''; ?>">
+                <input name="poPrice" id="poPrice" type="number" min="0" class="form-control" value=
+                    <?= isset($record) ? is_object($record) ? isset($record->poPrice) ? $record->poPrice : '' : floatval($record['poPrice']) : '' ?>/>
+                <?php echo form_error('price', '<span class="help-block">', '</span>') ?>
+            </div>
+
+
+        </div>
+        <div class="col col-lg-4">
+            <label>Special Offer</label>
+            <div class="form-group<?php echo (form_error('spPrice')) ? ' has-error' : ''; ?>">
+                <label for="price">Special Offer Price</label>
+
+                <input name="spPrice" id="spPrice" type="number" min="0" class="form-control" value=
+                    <?= isset($record) ? is_object($record) ? isset($record->spPrice) ? $record->spPrice : '' : floatval($record['spPrice']) : '' ?>/>
+                <?php echo form_error('price', '<span class="help-block">', '</span>') ?>
+            </div>
+            <div class="form-group <?php echo (form_error('spStartDate')) ? ' has-error' : ''; ?>">
+                <label>Special Offer Start Date:</label>
+
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" name="spStartDate"
+                           value="<?php echo (isset($record->spStartDate)) ? date_format(date_create($record->spStartDate), 'Y/m/d') : ''; ?>"
+                           class="form-control pull-right datepicker" id="spStartDate">
+                </div>
+                <?php echo form_error('spStartDate', '<span class="help-block">', '</span>') ?>
+
+            </div>
+            <div class="form-group <?php echo (form_error('spEndDate')) ? ' has-error' : ''; ?>">
+                <label>Special Offer End Date:</label>
+
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" name="spEndDate"
+                           value="<?php echo (isset($record->spEndDate)) ? date_format(date_create($record->spEndDate), 'Y/m/d') : ''; ?>"
+                           class="form-control pull-right datepicker" id="spEndDate">
+                </div>
+                <?php echo form_error('spEndDate', '<span class="help-block">', '</span>') ?>
+
+            </div>
+
 
         </div>
 
