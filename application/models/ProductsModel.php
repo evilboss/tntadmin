@@ -91,6 +91,7 @@ class ProductsModel extends TNT_Model
 
     private function getItemStatus($item)
     {
+        /*TODO: Complete logic for item status*/
         $date_now = date("Y/m/d"); // this format is string comparable
 
         /*  if ($date_now > date_format(date_create($item->preOrderStart), 'Y/m/d')) {
@@ -99,20 +100,18 @@ class ProductsModel extends TNT_Model
               $status = 'Less than';
           }*/
 
-        switch (true) {
-            case $date_now <= date_format(date_create($item->preOrderEnd), 'Y/m/d'):
-                $status = 'Pre-Order' . date_format(date_create($item->preOrderEnd), 'Y/m/d') . $date_now;
-                break;
-            case $item->arrivalDate != '0000-00-00 00:00:00' && $date_now >= date_format(date_create($item->arrivalDate), 'Y/m/d') && $date_now >= date_format(date_create($item->releaseDate), 'Y/m/d'):
-                $status = 'In-Stock' . date_format(date_create($item->arrivalDate), 'Y/m/d');
-                break;
-            case $date_now >= date_format(date_create($item->preOrderEnd), 'Y/m/d'):
-                $status = 'coming-soon';
-                break;
+        $status = "";
+        if ($item->arrivalDate > 0 && $item->releaseDate > 0) {
+            $status = 'In-Stock';
+            if ($item->qty <= 5) {
+                $status = 'Low-Stock';
+            }
+        } elseif ($date_now <= date_format(date_create($item->preOrderEnd), 'Y/m/d')) {
+            $status = 'Pre-Order';
+        } elseif
+        ($item->preOrderEnd > 0 && $date_now >= date_format(date_create($item->preOrderEnd), 'Y/m/d')) {
+            $status = 'Coming-Soon';
 
-            default:
-                $status = '';
-                break;
         }
 
 
@@ -130,9 +129,28 @@ class ProductsModel extends TNT_Model
             $product->manufacturerName = isset($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
             $product->isNew = false;
 
-
         }
         return $products;
+    }
+
+    public function cleanSpecialOffers($products)
+    {
+        $date_now = date("Y/m/d"); // this format is string comparable
+        // print_r($products);
+        $filteredProducts = [];
+        foreach ($products as $product) {
+            if ($product->spStartDate > 0) {
+                if (date_format(date_create($product->spStartDate), 'Y/m/d') <= $date_now && date_format(date_create($product->spEndDate), 'Y/m/d') >= $date_now && $product->spPrice != 0) {
+                    array_push($filteredProducts, $product);
+
+                }
+
+
+            }
+
+
+        }
+        return $filteredProducts;
     }
 
 }

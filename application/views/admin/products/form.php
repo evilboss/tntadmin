@@ -63,6 +63,14 @@
                     <?= isset($record) ? is_object($record) ? isset($record->price) ? $record->price : '' : floatval($record['price']) : '' ?>/>
                 <?php echo form_error('price', '<span class="help-block">', '</span>') ?>
             </div>
+
+            <div class="form-group<?php echo (form_error('weight')) ? ' has-error' : ''; ?>">
+                <label for="price">Item weight *</label>
+
+                <input name="weight" id="weight" type="number" min="0" class="form-control" value=
+                    <?= isset($record) ? is_object($record) ? isset($record->weight) ? $record->weight : '' : floatval($record['weight']) : '' ?>/>
+                <?php echo form_error('weight', '<span class="help-block">', '</span>') ?>
+            </div>
             <div class="col col-lg-6">
                 <div class="form-group<?php echo (form_error('manufacturerId')) ? ' has-error' : ''; ?>">
                     <label for="manufacturerId">Manufacturer *</label>

@@ -50,11 +50,7 @@ class AdminProductsController extends TNT_Controller
         $this->form_validation->set_rules('productCode', 'Product Code', 'trim|required|max_length[128]');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
         $this->form_validation->set_rules('category_id', 'category', 'trim|required');
-        $this->form_validation->set_rules('preOrderStart', 'Pre Order Start', 'trim|required');
-        $this->form_validation->set_rules('preOrderEnd', 'Pre Order End', 'trim|required');
-        $this->form_validation->set_rules('releaseDate', 'Release Date', 'trim|required');
-
-
+        $this->form_validation->set_rules('weight', 'Item Weight', 'trim|required');
         $this->form_validation->set_rules('price', 'Description', 'trim|required|max_length[11]');
         if (empty($_FILES['cover_image']['name']) && $type == 'add') {
             $this->form_validation->set_rules('cover_image', 'cover image', 'required');
