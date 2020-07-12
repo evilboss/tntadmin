@@ -30,12 +30,38 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="/assets/css/tnt-store.css">
 
     <title>Toyntoys</title>
 </head>
 <body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+    });
+</script>
+<script src="/assets/js/cart.js"></script>
+<?php if (!empty($add_js)): ?><?php foreach ($add_js as $js): ?>
+    <script src="<?= $js ?>"></script> <?php endforeach; ?><?php endif; ?>
 <header class="fixed-top">
 
     <nav class="navbar navbar-expand-lg navbar-dark dark-section p-0">
@@ -65,30 +91,6 @@
                                 </span> </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <div class="alert alert-primary" role="alert">
-                                    A simple primary alert—check it out!
-                                </div>
-                                <div class="alert alert-secondary" role="alert">
-                                    A simple secondary alert—check it out!
-                                </div>
-                                <div class="alert alert-success" role="alert">
-                                    A simple success alert—check it out!
-                                </div>
-                                <div class="alert alert-danger" role="alert">
-                                    A simple danger alert—check it out!
-                                </div>
-                                <div class="alert alert-warning" role="alert">
-                                    A simple warning alert—check it out!
-                                </div>
-                                <div class="alert alert-info" role="alert">
-                                    A simple info alert—check it out!
-                                </div>
-                                <div class="alert alert-light" role="alert">
-                                    A simple light alert—check it out!
-                                </div>
-                                <div class="alert alert-dark" role="alert">
-                                    A simple dark alert—check it out!
-                                </div>
 
                             </div>
                         </div>
@@ -206,30 +208,6 @@
                                     <span class="badge"><?php echo count($cart); ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <div class="alert alert-primary" role="alert">
-                                        A simple primary alert—check it out!
-                                    </div>
-                                    <div class="alert alert-secondary" role="alert">
-                                        A simple secondary alert—check it out!
-                                    </div>
-                                    <div class="alert alert-success" role="alert">
-                                        A simple success alert—check it out!
-                                    </div>
-                                    <div class="alert alert-danger" role="alert">
-                                        A simple danger alert—check it out!
-                                    </div>
-                                    <div class="alert alert-warning" role="alert">
-                                        A simple warning alert—check it out!
-                                    </div>
-                                    <div class="alert alert-info" role="alert">
-                                        A simple info alert—check it out!
-                                    </div>
-                                    <div class="alert alert-light" role="alert">
-                                        A simple light alert—check it out!
-                                    </div>
-                                    <div class="alert alert-dark" role="alert">
-                                        A simple dark alert—check it out!
-                                    </div>
 
                                 </div>
 
@@ -245,7 +223,7 @@
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
         <div class="w-100 mx-6 d-flex justify-content-between">
-            <a class="navbar-brand" href="#"><img src="/assets/img/tnt-logo.png"></a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="/assets/img/tnt-logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -253,26 +231,26 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">Home</a>
+                    <li class="nav-item mx-3 <?= $this->router->method == 'index' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url(); ?>">Home</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">New</a>
+                    <li class="nav-item mx-3  <?= $this->router->method == 'new' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url('new'); ?>">New</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">Coming soon</a>
+                    <li class="nav-item mx-3  <?= $this->router->method == 'comingSoon' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url('coming-soon'); ?>">Coming soon</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">Pre Order</a>
+                    <li class="nav-item mx-3 <?= $this->router->method == 'preOrders' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url('pre-orders'); ?>">Pre Order</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">Shop</a>
+                    <li class="nav-item mx-3 <?= $this->router->method == 'products' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url('products'); ?>">Shop</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">Categories</a>
+                    <li class="nav-item mx-3 <?= $this->router->method == 'categories' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url('categories'); ?>">Categories</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-white" href="#">About</a>
+                    <li class="nav-item mx-3 <?= $this->router->method == 'about' ? 'active' : '' ?>">
+                        <a class="nav-link text-white" href="<?php echo base_url('about'); ?>">About</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link text-white" href="#">Blog</a>
@@ -335,29 +313,6 @@
     </div>
 </section>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
 
-
-<script>
-    $(document).ready(function () {
-
-    });
-</script>
-<script src="/assets/js/cart.js"></script>
-<?php if (!empty($add_js)): ?><?php foreach ($add_js as $js): ?>
-    <script src="<?= $js ?>"></script> <?php endforeach; ?><?php endif; ?>
 </body>
 </html>

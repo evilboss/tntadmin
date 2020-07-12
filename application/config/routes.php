@@ -9,9 +9,7 @@ $route['update-profile'] = 'auth/update_profile';
 $route['login'] = 'auth/login';
 $route['forgot_password'] = 'auth/forgot_password';
 
-$route['categories'] = 'shop/categories';
-$route['categories/(:any)'] = 'shop/categories/$1';
-$route['categories/(:any)/(:any)'] = 'shop/categories/$1/$2';
+
 //$route['dashboard'] = 'home';
 
 /*
@@ -61,4 +59,27 @@ $route['admin/slider/delete/(:num)'] = 'Admin/Slider/AdminSliderController/delet
 
 $route['admin/contact-us'] = 'Admin/ContactUs/AdminContactUsController/index';
 $route['admin/contact-us/(:num)'] = 'Admin/ContactUs/AdminContactUsController/show/$1';
+
 $route['admin/contact-us/delete/(:num)'] = 'Admin/ContactUs/AdminContactUsController/delete/$1';
+
+
+//===============Shop=================//
+
+$route['categories/brands'] = 'shop/brands';// $1 is category-type
+$route['categories/manufacturers'] = 'shop/manufacturers';// $1 is category-type
+$route['categories/producttypes'] = 'shop/producttypes';// $1 is category-type
+$route['categories/genres'] = 'shop/genres';// $1 is category-type
+
+//$route['categories/brands/(:any)'] = 'StoreFront/StoreFrontController/brands/$1';// $1 is category-type
+$route['new'] = 'shop/newProducts';
+$route['coming-soon'] = 'shop/comingSoon';
+$route['pre-orders'] = 'shop/preOrders';
+
+$route['categories'] = 'shop/categories';
+
+$route['categories/(:any)'] = 'shop/categories/$1';// $1 is category-type
+
+//===============Categories=================//
+
+/*$route['categories/(:any)'] = 'shop/categories/$1';
+$route['categories/(:any)/(:any)'] = 'shop/categories/$1/$2';*/

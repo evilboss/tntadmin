@@ -25,7 +25,6 @@ class ProductsModel extends TNT_Model
 
         //$images = $this->getImagesForProducts($products);
 
-
         return $products;
     }
 
@@ -62,7 +61,7 @@ class ProductsModel extends TNT_Model
             $this->db->order_by('products.price', $inputs['sort_type']);
         }
 
-        $this->db->where('products.status', 1);
+        $this->db->where('products.webItem', 1);
         $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
         $this->db->group_by('products.id');
 
@@ -91,20 +90,15 @@ class ProductsModel extends TNT_Model
 
     private function getItemStatus($item)
     {
-        /*TODO: Complete logic for item status*/
-        $date_now = date("Y/m/d"); // this format is string comparable
-
-        /*  if ($date_now > date_format(date_create($item->preOrderStart), 'Y/m/d')) {
-              $status = 'greater than';
-          } else {
-              $status = 'Less than';
-          }*/
-
+        $date_now = date("Y/m/d");
         $status = "";
         if ($item->arrivalDate > 0 && $item->releaseDate > 0) {
             $status = 'In-Stock';
             if ($item->qty <= 5) {
                 $status = 'Low-Stock';
+            } elseif ($item->qty = 0) {
+                $status = 'Out-Of-Stock';
+
             }
         } elseif ($date_now <= date_format(date_create($item->preOrderEnd), 'Y/m/d')) {
             $status = 'Pre-Order';
@@ -118,6 +112,12 @@ class ProductsModel extends TNT_Model
         return $status;
     }
 
+    public function checkIfNew($date)
+    {
+        return (strtotime(date_format(date_create($date), 'Y/m/d')) > strtotime('-7 day'));
+    }
+
+
     public function getFormattedItems($products)
     {
         foreach ($products as $product) {
@@ -127,13 +127,14 @@ class ProductsModel extends TNT_Model
             $product->categoryName = isset($product->category_id) ? $this->CategoriesModel->get($product->category_id)->name : false;
             $product->productTypeName = isset($product->productTypeId) ? $this->CategoriesModel->get($product->productTypeId)->name : false;
             $product->manufacturerName = isset($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
-            $product->isNew = false;
+            $product->isNew = $this->checkIfNew($product->created_at);
 
         }
         return $products;
     }
 
-    public function cleanSpecialOffers($products)
+    public
+    function cleanSpecialOffers($products)
     {
         $date_now = date("Y/m/d"); // this format is string comparable
         // print_r($products);
