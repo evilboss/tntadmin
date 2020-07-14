@@ -32,6 +32,7 @@ $route['admin/categories/create'] = 'Admin/Categories/AdminCategoriesController/
 $route['admin/categories/edit/(:num)'] = 'Admin/Categories/AdminCategoriesController/edit/$1';
 $route['admin/categories/delete/(:num)'] = 'Admin/Categories/AdminCategoriesController/delete/$1';
 
+$route['admin/blog'] = 'Admin/Blog/AdminBlogController/index';
 
 $route['admin/brand'] = 'Admin/Categories/AdminCategoriesController/brand';
 $route['admin/brand/create'] = 'Admin/Categories/AdminCategoriesController/createBrand';

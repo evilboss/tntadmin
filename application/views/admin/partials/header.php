@@ -190,6 +190,11 @@
                         <i class="fa fa-phone"></i> <span>Contact</span>
                     </a>
                 </li>
+                <li class="<?php echo ($this->uri->segment(2) == "blog") ? " active" : ""; ?>">
+                    <a href="<?php echo base_url('/admin/blog') ?>">
+                        <i class="fa fa-phone"></i> <span>Blog</span>
+                    </a>
+                </li>
 
 
                 <li class="<?php echo ($this->uri->segment(2) == "slider") ? " active" : ""; ?>">
