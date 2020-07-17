@@ -4,7 +4,9 @@ class Legacy_model extends TNT_Model
 {
     public function __construct()
     {
-        $db2 = $this->load->database('istechdb', TRUE);
+        parent::__construct();
+
+        $this->db2 = $this->load->database('istechdb', TRUE);
     }
 
     function getRecords()
@@ -15,10 +17,10 @@ class Legacy_model extends TNT_Model
         // Select records from 1st database
 
         // Select records from 2nd database
-        $db2 = $this->load->database('istechdb', TRUE);
+        //$db2 = $this->load->database('istechdb', TRUE);
 
-        $db2->select('*');
-        $q = $db2->get('items');
+        $this->db2->select('*');
+        $q = $this->db2->get('items');
         $result = $q->result_array();
 
         return $result;
