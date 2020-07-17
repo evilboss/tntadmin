@@ -128,8 +128,8 @@ class AdminProductsController extends TNT_Controller
                 $this->session->set_flashdata('success', 'Product Created successfully');
 
 
-                print_r($inputs);
-                // redirect(base_url('index.php/admin/products'));
+                //print_r($inputs);
+                redirect(base_url('index.php/admin/products'));
                 exit;
 
             }
