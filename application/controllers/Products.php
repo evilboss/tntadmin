@@ -7,6 +7,8 @@ class Products extends CI_Controller
         parent::__construct();
 
         $this->load->model('ProductsModel');
+        $this->load->model('Legacy_model');
+
 
         $this->load->library('pagination');
         $this->load->helper('admin');
@@ -47,5 +49,11 @@ class Products extends CI_Controller
         ));
 
 
+    }
+
+    public function getLegacy()
+    {
+        echo "legacy";
+        print_r($this->Legacy_model->getRecords());
     }
 }

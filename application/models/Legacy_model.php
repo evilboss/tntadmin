@@ -1,0 +1,27 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Legacy_model extends TNT_Model
+{
+    public function __construct()
+    {
+        $db2 = $this->load->database('istechdb', TRUE);
+    }
+
+    function getRecords()
+    {
+
+        // Load database
+
+        // Select records from 1st database
+
+        // Select records from 2nd database
+        $db2 = $this->load->database('istechdb', TRUE);
+
+        $db2->select('*');
+        $q = $db2->get('items');
+        $result = $q->result_array();
+
+        return $result;
+    }
+
+}
