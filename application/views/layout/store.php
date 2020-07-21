@@ -238,7 +238,7 @@
                                     <div class="header-cart-buttons">
                                         <div class="header-cart-wrapbtn">
                                             <!-- Button -->
-                                            <a href="<?php echo base_url('index.php/cart') ?>"
+                                            <a href="<?php echo base_url('cart') ?>"
                                                class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                                 View Cart
                                             </a>

@@ -9,6 +9,7 @@ class CartController extends CI_Controller
         parent::__construct();
         $this->load->model('ProductsModel');
         $this->load->model('ProductImagesModel');
+        $this->data['cart'] = $this->cart;
     }
 
     /**
@@ -77,9 +78,7 @@ class CartController extends CI_Controller
     public function show()
     {
 
-        $data['cart'] = $this->cart->contents();
-
-
-        $this->load->template('cart/cart', $data);
+        $this->data['content'] = 'cart/cart';
+        $this->load->view('layout/store', $this->data);
     }
 }
