@@ -29,15 +29,12 @@ class Cart extends CI_Controller
     {
         $this->load->model('Cart_model');
         $insert_room = array(
-            'id' => $this->input->post('id'),
-            'name' => $this->input->post('name'),
-            'price' => $this->input->post('price'),
-            'qty' => 1
+            'id' => $this->input->post('id')
         );
 
         $this->cart->insert($insert_room);
-
-        redirect('cart');
+        print_r($insert_room);
+        //redirect('cart');
     }
 
     function remove($rowid)

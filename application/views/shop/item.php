@@ -92,7 +92,7 @@
                             <div class="col-lg-6 col-sm-12">
                                 <div class="row">
                                     <div class="col-6">
-                                        <span class="badge <?= $item->status?> "><?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?></span>
+                                        <span class="badge <?= $item->status ?> "><?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?></span>
                                         <span class="item-id"><?= $item->productCode ?></span>
                                     </div>
                                 </div>
@@ -157,20 +157,33 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 col-md-12 actions">
-                                        <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> Add
-                                            To cart
+
+                                        <?php echo form_open(base_url('add-to-cart')) ?>
+                                        <input name="id" type="hidden" value="<?= $item->id ?>">
+                                        <button class="btn btn-outline-primary" type="submit"><i
+                                                    class="fa fa-shopping-cart"></i> Add To cart
                                         </button>
-                                        <button class="btn btn-primary">Buy Now</button>
-                                        <button class="button btn-secondary"><i class="fa fa-heart"></i></button>
+                                        <?php echo form_close(); ?>
+
+
+                                        <?php echo form_open(base_url('add-to-cart')) ?>
+                                        <input name="id" type="hidden" value="<?= $item->id ?>">
+                                        <button class="btn btn-primary" type="submit">Buy Now</button>
+
+                                        <?php echo form_close(); ?>
+
+                                        <button class="button btn-secondary"><i class="fa fa-heart"></i>
+                                        </button>
                                         <button class="btn btn-secondary">
                                             <i class="fa fa-share-alt" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div class="col-12" style="visibility:  <?php if (empty($item->releaseDate)) {
-                                        echo "hidden";
-                                    } else {
-                                        echo "visible";
-                                    } ?>"
+                                    <div class="col-12"
+                                         style="visibility:  <?php if (empty($item->releaseDate)) {
+                                             echo "hidden";
+                                         } else {
+                                             echo "visible";
+                                         } ?>"
                                     >
 
                                         <span class="release-date"><i
@@ -188,7 +201,8 @@
                                                    data-toggle="tab"
                                                    href="#nav-details" role="tab" aria-controls="nav-details"
                                                    aria-selected="true">Details</a>
-                                                <a class="nav-item nav-link" id="nav-specs-tab" data-toggle="tab"
+                                                <a class="nav-item nav-link" id="nav-specs-tab"
+                                                   data-toggle="tab"
                                                    href="#nav-specs" role="tab" aria-controls="nav-specs"
                                                    aria-selected="false">Specs</a>
                                             </div>

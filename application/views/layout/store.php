@@ -205,10 +205,53 @@
                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     <i class="fa fa-shopping-cart px-2" aria-hidden="true"></i>
-                                    <span class="badge"><?php echo count($cart); ?></span>
+                                    <span class="badge"><?php echo $cart->total_items(); ?></span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <div class="header-cart header-dropdown dropdown-menu dropdown-menu-right"
+                                     aria-labelledby="dropdownMenuButton">
+                                    <ul class="header-cart-wrapitem">
+                                        <?php foreach ($cart->contents() as $header_cart) : ?>
+                                            <li class="header-cart-item">
+                                                <div class="header-cart-item-img">
+                                                    <img class="img-thumbnail" src="<?php echo (isset($header_cart['options']['product_image'])) ? base_url() . thumbImage($header_cart['options']['product_image']) : ""; ?>"
+                                                         alt="IMG">
+                                                </div>
 
+                                                <div class="header-cart-item-txt">
+                                                    <a href="<?php echo base_url() . "index.php/product/" . $header_cart['id'] ?>"
+                                                       class="header-cart-item-name">
+                                                        <?php echo $header_cart['name'] ?>
+                                                    </a>
+
+                                                    <span class="header-cart-item-info">
+											<?php echo $header_cart['qty'] . "x" . $header_cart['price'] ?>
+                                    </span>
+                                                </div>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+
+                                    <div class="header-cart-total">
+                                        Total: Rs. <?php echo number_format($this->cart->total()); ?>
+                                    </div>
+
+                                    <div class="header-cart-buttons">
+                                        <div class="header-cart-wrapbtn">
+                                            <!-- Button -->
+                                            <a href="<?php echo base_url('index.php/cart') ?>"
+                                               class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                                View Cart
+                                            </a>
+                                        </div>
+
+                                        <div class="header-cart-wrapbtn">
+                                            <!-- Button -->
+                                            <a href="<?php echo base_url('index.php/cart/checkout') ?>"
+                                               class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                                Check Out
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
 
 
@@ -288,6 +331,8 @@
 
 </header>
 <section class="content store-content">
+    <?php $this->load->view('partials/flash'); ?>
+
     <?php $this->load->view($content); ?>
 </section>
 <section id="wrapper-newsletter" class="dark-section text-white">

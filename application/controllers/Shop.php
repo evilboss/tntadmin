@@ -11,7 +11,7 @@ class Shop extends CI_Controller
         $this->load->model('ProductImagesModel');
         $this->load->model('CategoriesModel');
         $this->load->library('pagination');
-        $this->data['cart'] = $this->cart->contents();
+        $this->data['cart'] = $this->cart;
         $this->data['site'] = $this->getData();
 
         $this->data['add_js'] = [];

@@ -94,6 +94,7 @@
                 </div>
             </div>
             <div class="col-md-12 " style="margin-top: 20px">
+
                 <button id="AddToCart" itemcode="SSC400015" typ="Products" type="button" class="btn btn-primary"><i
                             class="fas fa-shopping-cart"></i>&nbsp;Add to Cart
                 </button>

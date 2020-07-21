@@ -84,3 +84,11 @@ $route['categories/(:any)'] = 'shop/categories/$1';// $1 is category-type
 
 /*$route['categories/(:any)'] = 'shop/categories/$1';
 $route['categories/(:any)/(:any)'] = 'shop/categories/$1/$2';*/
+
+
+//===============Cart=====================//
+
+$route['cart'] = 'CartModule/CartController/show';
+$route['add-to-cart'] = 'CartModule/CartController/addToCart';
+$route['cart/update'] = 'CartModule/CartController/updateCart';
+$route['cart/remove']['POST'] = 'CartModule/CartController/removeItem';
