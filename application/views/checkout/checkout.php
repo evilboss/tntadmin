@@ -65,7 +65,7 @@
 					</span>
             </div>
             <!--  -->
-            <?php echo form_open(base_url('index.php/place-order')) ?>
+            <?php echo form_open(base_url('place-order')) ?>
             <div class="flex-w flex-sb-m p-t-26 p-b-30">
 					<span class="m-text22 w-size19 w-full-sm">
 						Total:
