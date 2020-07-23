@@ -38,7 +38,6 @@
             $this->load->view('shop/item', $data);
         }
         ?>
-
     </div>
 
 

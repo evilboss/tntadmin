@@ -14,6 +14,7 @@ class ProductsModel extends TNT_Model
 
         parent::__construct();
         $this->load->model('CategoriesModel');
+        $this->load->model('ProductImagesModel');
 
     }
 
@@ -128,6 +129,7 @@ class ProductsModel extends TNT_Model
             $product->productTypeName = isset($product->productTypeId) ? $this->CategoriesModel->get($product->productTypeId)->name : false;
             $product->manufacturerName = isset($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
             $product->isNew = $this->checkIfNew($product->created_at);
+            $product->images = $this->ProductImagesModel->getByProductId($product->id);
 
         }
         return $products;

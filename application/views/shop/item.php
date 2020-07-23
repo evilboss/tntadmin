@@ -4,8 +4,6 @@
             <div class="row">
                 <div class="col-sm">
                     <span class="badge <?= $item->status ?>">
-
-
                         <?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?>
                     </span>
                 </div>
@@ -19,7 +17,8 @@
             <?= $item->isNew ?
                 "<div class=\"corner $item->status-corner\"><span>NEW</span></div>" : ''
             ?>
-            <img class="card-img product-img" src="https://place-hold.it/400x400" alt="Card image cap">
+            <img class="card-img product-img" src="<?= base_url("/images/products/$item->cover_image") ?>"
+                 alt="Card image cap">
             <div class="product-type <?= $item->status ?>"><?= $item->productTypeName ?></div>
         </div>
         <div class="card-body info">
@@ -51,38 +50,27 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 col-sm-12">
-                                <a href="https://place-hold.it/400x400" data-lightbox="gallery-<?= $item->id ?>"
+                                <a href="<?= base_url("/images/products/$item->cover_image") ?>"
+                                   data-lightbox="gallery-<?= $item->id ?>"
                                    data-toggle="lightbox">
-                                    <img src="https://place-hold.it/400x400" class="main-img img-fluid"
+                                    <img src="<?= base_url("/images/products/$item->cover_image") ?>"
+                                         class="main-img img-fluid"
                                          alt="Responsive image">
                                 </a>
 
                                 <div class="row justify-content-center ">
                                     <div class="thumb-nails overflow-auto mt-2 jr-carousel owl-theme">
-                                        <a href="https://unsplash.it/1200/768.jpg?image=251"
-                                           data-lightbox="gallery-<?= $item->id ?>" class="col-sm-4">
-                                            <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
-                                        </a>
-                                        <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item->id ?>" class="col-sm-4">
-                                            <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
-                                        </a>
-                                        <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item->id ?>" class="col-sm-4">
-                                            <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
-                                        </a>
-                                        <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item->id ?>" class="col-sm-4">
-                                            <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
-                                        </a>
-                                        <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item->id ?>" class="col-sm-4">
-                                            <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
-                                        </a>
-                                        <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox"
-                                           data-lightbox="gallery-<?= $item->id ?>" class="col-sm-4">
-                                            <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
-                                        </a>
+                                        <?php foreach ($item->images as $image) {
+
+
+                                            ?>
+                                            <a href="<?= base_url("/images/products/$image->path") ?>"
+                                               data-toggle="lightbox"
+                                               data-lightbox="gallery-<? /*= $item->id */ ?>" class="col-sm-4">
+                                                <img src="<?= base_url("/images/products/$image->path") ?>"
+                                                     class="img-fluid">
+                                            </a>
+                                        <?php } ?>
 
 
                                     </div>
