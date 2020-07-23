@@ -39,4 +39,7 @@ upload/*
 application/config/database.php
 application/config/config.php
 !images/categories/.gitkeep
+!images/products/.gitkeep
+!images/slider/.gitkeep
+
 images/

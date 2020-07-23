@@ -16,7 +16,6 @@ class OrdersModel extends TNT_Model
 
         $this->db->where("orders.id", $id);
         $result = $this->db->get();
-
         return $result->row();
     }
 

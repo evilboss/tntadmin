@@ -10,7 +10,8 @@ class Shop extends CI_Controller
         $this->load->model('ProductsModel');
         $this->load->model('ProductImagesModel');
         $this->load->model('CategoriesModel');
-        $this->load->library('pagination');
+        $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
+
         $this->data['cart'] = $this->cart;
         $this->data['site'] = $this->getData();
 
@@ -38,6 +39,7 @@ class Shop extends CI_Controller
         // print_r($this->Items_model->getFeaturedItems());
         $this->load->view('layout/store', $this->data);
     }
+
     public function newProducts()
     {
         //  $this->load->model('shop_model');
@@ -58,6 +60,7 @@ class Shop extends CI_Controller
         // print_r($this->Items_model->getFeaturedItems());
         $this->load->view('layout/store', $this->data);
     }
+
     public function featured()
     {
         //  $this->load->model('shop_model');
@@ -78,6 +81,7 @@ class Shop extends CI_Controller
         // print_r($this->Items_model->getFeaturedItems());
         $this->load->view('layout/store', $this->data);
     }
+
     public function comingSoon()
     {
         //  $this->load->model('shop_model');
@@ -98,6 +102,7 @@ class Shop extends CI_Controller
         // print_r($this->Items_model->getFeaturedItems());
         $this->load->view('layout/store', $this->data);
     }
+
     public function preorders()
     {
         //  $this->load->model('shop_model');
@@ -162,7 +167,7 @@ class Shop extends CI_Controller
         //Get Categories
         $this->data['category'] = $this->CategoriesModel->get($category_id);
         $this->data['genres'] = $this->CategoriesModel->getParentCategory($category_id, 'category');
-        $this->data['brands'] = $this->CategoriesModel->getParentCategory($category_id,'brand');
+        $this->data['brands'] = $this->CategoriesModel->getParentCategory($category_id, 'brand');
         $this->data['manufacturers'] = $this->CategoriesModel->getParentCategory($category_id, 'manufacturer');
         $this->data['productTypes'] = $this->CategoriesModel->getParentCategory($category_id, 'productType');
 
@@ -192,7 +197,7 @@ class Shop extends CI_Controller
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         //Get Categories
-        $this->data['brands'] = $this->CategoriesModel->getParentCategory($category_id,'brand');
+        $this->data['brands'] = $this->CategoriesModel->getParentCategory($category_id, 'brand');
 
         //
 
@@ -208,6 +213,7 @@ class Shop extends CI_Controller
 
         ///$this->load->template('shop/list', $data);
     }
+
     public function manufacturers($category_id = 0)
     {
         //Get Query string Inputs.
@@ -234,6 +240,7 @@ class Shop extends CI_Controller
 
         ///$this->load->template('shop/list', $data);
     }
+
     public function producttypes($category_id = 0)
     {
         //Get Query string Inputs.
@@ -260,6 +267,7 @@ class Shop extends CI_Controller
 
         ///$this->load->template('shop/list', $data);
     }
+
     public function genres($category_id = 0)
     {
         //Get Query string Inputs.
@@ -389,6 +397,60 @@ class Shop extends CI_Controller
 
         return $data;
     }
+
+    public function login()
+    {
+        if ($this->ion_auth->logged_in()) {
+            redirect('admin');
+        }
+
+        $this->data['title'] = $this->lang->line('login_heading');
+
+        //validate form input
+        $this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
+        $this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
+
+        if ($this->form_validation->run() == true) {
+            $remember = (bool)$this->input->post('remember');
+            if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
+                $this->session->set_flashdata('message', $this->ion_auth->messages());
+                redirect('admin');
+            } else {
+                $this->session->set_flashdata('message', $this->ion_auth->errors());
+                redirect('login');
+            }
+        } else {
+            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+            $this->data['identity'] = array('name' => 'identity',
+                'id' => 'identity',
+                'type' => 'text',
+                'value' => $this->form_validation->set_value('identity'),
+            );
+            $this->data['password'] = array('name' => 'password',
+                'id' => 'password',
+                'type' => 'password',
+            );
+
+            $this->data['content'] = 'auth/login';
+            $this->load->view('layout/store', $this->data);
+
+        }
+    }
+
+    public function logout()
+    {
+        $this->data['title'] = "Logout";
+        if ($this->ion_auth->logout()) {
+            $this->session->set_flashdata('message', $this->ion_auth->messages());
+            redirect('shop/login');
+        } else {
+            $this->session->set_flashdata('message', $this->ion_auth->messages());
+            redirect('shop/login');
+        }
+
+    }
+
 
 }
 /* End of file '/Shop.php' */
