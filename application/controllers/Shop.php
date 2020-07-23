@@ -10,6 +10,7 @@ class Shop extends CI_Controller
         $this->load->model('ProductsModel');
         $this->load->model('ProductImagesModel');
         $this->load->model('CategoriesModel');
+        $this->load->model('SliderImagesModel');
         $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
 
         $this->data['cart'] = $this->cart;
@@ -31,11 +32,10 @@ class Shop extends CI_Controller
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
+        $this->data['slides'] = $this->SliderImagesModel->get_all();
         $this->data['items'] = $this->Items_model->getWebItems();
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
         $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
-
-
         // print_r($this->Items_model->getFeaturedItems());
         $this->load->view('layout/store', $this->data);
     }

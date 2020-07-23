@@ -1,16 +1,21 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner store-carousel">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="https://place-hold.it/1920x500?auto=yes" alt="First slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="https://place-hold.it/1920x500?auto=yes"
-                 alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="https://place-hold.it/1920x500?auto=yes" alt="Third slide">
-        </div>
+        <?php foreach ($slides as $key => $slide) {
+            reset($slides);
+            ?>
+            <div class="carousel-item <?php if ($key === key($slides))
+                echo 'active';
+            ?>">
+                <img class="d-block w-100" src="<?= base_url("images/categories/$slide->path") ?>"
+                     alt="<?= $slide->title ?>">
+            </div>
+
+            <?php
+        } ?>
+
     </div>
+
+
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>

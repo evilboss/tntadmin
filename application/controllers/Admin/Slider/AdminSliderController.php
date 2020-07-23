@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class AdminSliderController extends TNT_Controller {
+class AdminSliderController extends TNT_Controller
+{
     /**
      * AdminCategoriesController constructor.
      */
@@ -13,7 +14,7 @@ class AdminSliderController extends TNT_Controller {
             exit;
         }*/
         $this->load->model('SliderImagesModel');
-		$this->load->helper("security");
+        $this->load->helper("security");
 
     }
 
@@ -27,51 +28,48 @@ class AdminSliderController extends TNT_Controller {
 
         $slider_images = $this->SliderImagesModel->get_all();
         $this->data['slider_images'] = $slider_images;
-        $this->load->templateAdmin('admin/slider/index',$this->data);
+        $this->load->templateAdmin('admin/slider/index', $this->data);
     }
 
     public function create()
-	{
-		if($this->input->server('REQUEST_METHOD') === 'POST'){
-			$this->setValidationRules();
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $this->setValidationRules();
 
-			if ($this->form_validation->run()) {
+            if ($this->form_validation->run()) {
 
-				$inputs = $this->input->post();
-				$image_data = $this->uploadFile('image', $this->getUploadConfig());
+                $inputs = $this->input->post();
+                $image_data = $this->uploadFile('image', $this->getUploadConfig());
 
-				if(empty($image_data)){
-					$this->session->set_flashdata('error',$this->upload->display_errors());
-				}else{
-					$inputs['path'] = $image_data['file_name'];
-					$status = $this->SliderImagesModel->insert($inputs);
-					redirect(base_url('index.php/admin/slider'));
-				}
-			}
+                if (empty($image_data)) {
+                    $this->session->set_flashdata('error', $this->upload->display_errors());
+                } else {
+                    $inputs['path'] = $image_data['file_name'];
+                    $status = $this->SliderImagesModel->insert($inputs);
+                    redirect(base_url('index.php/admin/slider'));
+                }
+            }
 
-		}
+        }
 
-		$this->load->templateAdmin('admin/slider/create');
+        $this->load->templateAdmin('admin/slider/create');
 
-	}
+    }
 
     public function delete($id)
     {
-        if($this->input->server('REQUEST_METHOD')=='POST')
-        {
-			$image = $this->SliderImagesModel->get($id);
-			//die('images/slider/'.$image->path);
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $image = $this->SliderImagesModel->get($id);
+            //die('images/slider/'.$image->path);
 
-			unlink('images/slider/'.$image->path);
+            unlink('images/slider/' . $image->path);
 
             $status = $this->SliderImagesModel->delete($id);
 
 
-
-            if($status){
+            if ($status) {
                 $this->session->set_flashdata('info', 'Image deleted successfully.');
-            }
-            else{
+            } else {
                 $this->session->set_flashdata('error', 'Failed to delete Order.');
             }
 
@@ -80,29 +78,29 @@ class AdminSliderController extends TNT_Controller {
 
     }
 
-	protected function setValidationRules($type = 'add')
-	{
-		$this->form_validation->set_rules('title', 'Title', 'trim|required|max_length[200]');
-		$this->form_validation->set_rules('link', 'Link', 'required|trim');
-		$this->form_validation->set_rules('sub_title', 'sub title', 'trim');
-		if (empty($_FILES['image']['name']) && $type == 'add') {
-			$this->form_validation->set_rules('image', 'image', 'required');
-		}
-	}
+    protected function setValidationRules($type = 'add')
+    {
+        $this->form_validation->set_rules('title', 'Title', 'trim|required|max_length[200]');
+        $this->form_validation->set_rules('link', 'Link', 'required|trim');
+        $this->form_validation->set_rules('sub_title', 'sub title', 'trim');
+        if (empty($_FILES['image']['name']) && $type == 'add') {
+            $this->form_validation->set_rules('image', 'image', 'required');
+        }
+    }
 
 
-	/**
-	 * Get Image/File Upload configuration.
-	 *
-	 * @return mixed
-	 */
-	private function getUploadConfig()
-	{
-		$config = array();
-		$config['upload_path'] = 'images/slider';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		$config['max_size'] = 10000000;
+    /**
+     * Get Image/File Upload configuration.
+     *
+     * @return mixed
+     */
+    private function getUploadConfig()
+    {
+        $config = array();
+        $config['upload_path'] = 'images/slider';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = 10000000;
 
-		return $config;
-	}
+        return $config;
+    }
 }
