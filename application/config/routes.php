@@ -97,3 +97,7 @@ $route['cart/remove']['POST'] = 'CartModule/CartController/removeItem';
 
 $route['cart/checkout'] = 'CheckOut/CheckoutController';
 $route['place-order']['POST'] = 'CheckOut/CheckoutController/placeOrder';
+
+//================Products ==============//
+
+$route['products'] = 'shop/products';

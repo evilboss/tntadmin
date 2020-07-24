@@ -12,6 +12,7 @@ class Shop extends CI_Controller
         $this->load->model('CategoriesModel');
         $this->load->model('SliderImagesModel');
         $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
+        $this->load->helper('admin');
 
         $this->data['cart'] = $this->cart;
         $this->data['site'] = $this->getData();
@@ -133,24 +134,15 @@ class Shop extends CI_Controller
 				$description = $product['description'];
 				$price = $product['price'];
 */
+        $pagination_config = getAdminPaginationConfig($this->ProductsModel->count_all(), 10);
+        $this->pagination->initialize($pagination_config);
+        $this->data['total_rows'] = $pagination_config['total_rows'];
 
-        /*TODO: Add actial products to list*/
-        $this->data['products'] = array(
-            [
-                'serial' => 1,
-                'name' => 'sample1',
-                'description' => 'aining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                'price' => 500,
-                'picture' => 'https://place-hold.it/300'],
-            [
-                'serial' => 2,
-                'name' => 'sample1',
-                'description' => 'aining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                'price' => 500,
-                'picture' => 'https://place-hold.it/300']
+        $this->data['categories'] = $this->CategoriesModel->getParentCategory('category');
 
-        );
-        $this->data['content'] = 'products';
+
+        $this->data['products'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->order_by('created_at', 'desc')->limit($pagination_config['per_page'], $this->input->get('per_page'))->get_many_by('webItem', '1'));
+        $this->data['content'] = 'products/list';
         $this->load->view('layout/store', $this->data);
 
     }
