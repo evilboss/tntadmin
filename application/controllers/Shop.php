@@ -15,6 +15,7 @@ class Shop extends CI_Controller
 
         $this->data['cart'] = $this->cart;
         $this->data['site'] = $this->getData();
+        $this->data['slides'] = $this->SliderImagesModel->get_all();
 
         $this->data['add_js'] = [];
         $this->data['add_css'] = [];
@@ -32,7 +33,6 @@ class Shop extends CI_Controller
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
-        $this->data['slides'] = $this->SliderImagesModel->get_all();
         $this->data['items'] = $this->Items_model->getWebItems();
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
         $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));

@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="card-body">
+        <div class="card-body product-body">
             <?= $item->isNew ?
                 "<div class=\"corner $item->status-corner\"><span>NEW</span></div>" : ''
             ?>
