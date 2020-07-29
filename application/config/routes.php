@@ -62,6 +62,7 @@ $route['admin/contact-us'] = 'Admin/ContactUs/AdminContactUsController/index';
 $route['admin/contact-us/(:num)'] = 'Admin/ContactUs/AdminContactUsController/show/$1';
 
 $route['admin/contact-us/delete/(:num)'] = 'Admin/ContactUs/AdminContactUsController/delete/$1';
+$route['admin/shipping'] = 'Admin/Shipping/AdminShippingController/index';
 
 
 //===============Shop=================//

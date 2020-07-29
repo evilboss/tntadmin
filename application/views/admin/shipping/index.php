@@ -1,0 +1,15 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Shiping Settings
+            <small>( Manage your shipping settings)</small>
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+        </div>
+    </section>
+</div>

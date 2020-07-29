@@ -5,7 +5,6 @@ class Legacy_model extends TNT_Model
     public function __construct()
     {
         parent::__construct();
-
         $this->db2 = $this->load->database('istechdb', TRUE);
     }
 
@@ -22,8 +21,14 @@ class Legacy_model extends TNT_Model
         $this->db2->select('*');
         $q = $this->db2->get('items');
         $result = $q->result_array();
-
         return $result;
     }
 
+    function getProducts()
+    {
+    }
+
+    function getQuantity(){
+
+    }
 }
