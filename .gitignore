@@ -43,3 +43,4 @@ application/config/config.php
 !images/slider/.gitkeep
 
 images/
+/dbs.php

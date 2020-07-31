@@ -20,6 +20,8 @@ $route['forgot_password'] = 'auth/forgot_password';
 $route['admin'] = 'Admin/AdminDashboardController/index';
 
 $route['admin/products'] = 'Admin/Products/AdminProductsController/index';
+$route['admin/products/upload'] = 'Admin/Products/AdminProductsController/fileUpload';
+
 $route['admin/products/store'] = 'Admin/Products/AdminProductsController/store';
 $route['admin/products/create'] = 'Admin/Products/AdminProductsController/create';
 $route['admin/products/edit/(:num)'] = 'Admin/Products/AdminProductsController/edit/$1';

@@ -269,4 +269,9 @@ class AdminProductsController extends TNT_Controller
         return true;
     }
 
+    public function fileUpload()
+    {
+        $this->load->templateAdmin('admin/products/upload', $this->data);
+
+    }
 }
