@@ -44,3 +44,4 @@ application/config/config.php
 
 images/
 /dbs.php
+/jwt/details.txt
