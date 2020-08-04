@@ -271,7 +271,15 @@ class AdminProductsController extends TNT_Controller
 
     public function fileUpload()
     {
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $inputs = $this->input->post();
+            echo count($_FILES['files']);
+            print_r($_FILES['files']);
+
+        }
         $this->load->templateAdmin('admin/products/upload', $this->data);
 
     }
+
+
 }

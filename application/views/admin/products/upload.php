@@ -1,5 +1,11 @@
-
-
+<link href="<?= base_url('/assets/libs/file-input/') ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="<?= base_url('/assets/libs/file-input/') ?>js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= base_url('/assets/libs/file-input/') ?>js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= base_url('/assets/libs/file-input/') ?>js/fileinput.js" type="text/javascript"></script>
+<script src="<?= base_url('/assets/libs/file-input/') ?>js/locales/fr.js" type="text/javascript"></script>
+<script src="<?= base_url('/assets/libs/file-input/') ?>js/locales/es.js" type="text/javascript"></script>
+<script src="<?= base_url('/assets/libs/file-input/') ?>themes/fas/theme.js" type="text/javascript"></script>
+<script src="<?= base_url('/assets/libs/file-input/') ?>themes/explorer-fas/theme.js" type="text/javascript"></script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,32 +23,20 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <p><input type="file" id="myfile" name="myfile" size="30" onchange="doTest()"></p>
+            <?php echo form_open_multipart(base_url('admin/products/upload')) ?>
+            <input id="images" name="files[]" type="file" multiple=true data-preview-file-type="any"/>
+            <input type="submit"/>
+            <?php echo form_close() ?>
 
-            <img id="uploadPreview" src="" width="100" style="display:none" />
         </div>
     </section>
 </div>
-<script type="text/javascript">
-    if (window.FileReader) {
 
-        var reader = new FileReader(), rFilter = /^(image\/bmp|image\/cis-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x-cmu-raster|image\/x-cmx|image\/x-icon|image\/x-portable-anymap|image\/x-portable-bitmap|image\/x-portable-graymap|image\/x-portable-pixmap|image\/x-rgb|image\/x-xbitmap|image\/x-xpixmap|image\/x-xwindowdump)$/i;
 
-        reader.onload = function (oFREvent) {
-            preview = document.getElementById("uploadPreview")
-            preview.src = oFREvent.target.result;
-            preview.style.display = "block";
-        };
-
-        function doTest() {
-
-            if (document.getElementById("myfile").files.length === 0) { return; }
-            var file = document.getElementById("myfile").files[0];
-            if (!rFilter.test(file.type)) { alert("You must select a valid image file!"); return; }
-            reader.readAsDataURL(file);
-        }
-
-    } else {
-        alert("FileReader object not found :( \nTry using Chrome, Firefox or WebKit");
-    }
+<script>
+    $("#images").fileinput({
+        theme: 'fa',
+        uploadUrl: "<?=base_url('admin/products/upload')?>",
+        showUpload: true,
+    });
 </script>
