@@ -27,7 +27,6 @@
             <input id="images" name="files[]" type="file" multiple=true data-preview-file-type="any"/>
             <input type="submit"/>
             <?php echo form_close() ?>
-
         </div>
     </section>
 </div>
