@@ -147,6 +147,30 @@ class Shop extends CI_Controller
 
     }
 
+    public function product($id = '')
+    {
+        $this->data['item'] = (object)array(
+            'isNew' => true,
+            'status' => 'status',
+            'name' => 'name',
+            'price' => 50,
+            'id' => 1,
+            'productCode' => 'oone',
+            'cover_image' => 'batmanlogo.png',
+            'brandName' => 'brandName',
+            'weight' => 'weight',
+            'images' => array((object)array('path' => 'batmanlogo.png')),
+            'poPrice' => 50,
+            'spPrice' => 10,
+            'summary'=>'bla'
+
+        );
+        $this->data['content'] = 'shop/itemDetail';
+        $this->load->view('layout/store', $this->data);
+
+    }
+
+
     public function categories($category_id = 0)
     {
         //Get Query string Inputs.

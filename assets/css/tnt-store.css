@@ -265,49 +265,47 @@ body {
 
 .product-modal label {
     margin-bottom: 0;
-}
-
-.product-modal .desc {
+} .desc {
     font-size: 14px;
     margin-bottom: 20px;
 }
 
-.product-modal .details-container {
+.details-container {
     display: flex;
     background: #f0f3f7;
     padding: 5px 10px;
     align-items: center;
 }
 
-.product-modal .details-container > div {
+.details-container > div {
     width: 50%;
 }
 
-.product-modal .details-container .price {
+.details-container .price {
     font-weight: bold;
 }
 
-.product-modal .details-container .price > span {
+.details-container .price > span {
     display: block;
 }
 
-.product-modal .details-container .price h3 {
+.details-container .price h3 {
     display: inline-block;
     font-size: 42px;
     margin-right: 10px;
     margin-bottom: 0;
 }
 
-.product-modal .details-container .price .prev-amt {
+.details-container .price .prev-amt {
     display: inline-block;
     text-decoration: line-through;
 }
 
-.product-modal .details-container .price-actions {
+.details-container .price-actions {
     display: flex;
 }
 
-.product-modal .details-container .price-actions button {
+.details-container .price-actions button {
     height: 35px;
     border-radius: 0;
     border: 2px solid #ced4da;
@@ -316,7 +314,7 @@ body {
     line-height: 1;
 }
 
-.product-modal .details-container .price-actions .item-quantity {
+.details-container .price-actions .item-quantity {
     height: 35px;
     border-radius: 0;
     border: 2px solid #ced4da;
@@ -325,14 +323,14 @@ body {
     text-align: center;
 }
 
-.product-modal .release-date {
+.release-date {
     font-weight: bold;
     margin-bottom: 20px;
     display: block;
     margin-top: 5px;
 }
 
-.product-modal .release-date .fa {
+.release-date .fa {
     color: #9d1716;
 }
 
@@ -342,12 +340,12 @@ body {
     overflow-y: auto;
 }
 
-.product-modal .tab-content {
+.tab-content {
     background: #edf0f5;
     padding: 10px 10px;
 }
 
-.product-modal .nav-tabs .nav-item.active {
+.nav-tabs .nav-item.active {
     background: #edf0f5;
     border-color: #edf0f5;
 }
@@ -578,10 +576,11 @@ button.close {
     position: relative;
     margin-right: 20px;
 }
+
 .header-cart-item-txt {
     width: calc(100% - 100px);
 }
 
-.product-body{
+.product-body {
     height: 15em;
 }
