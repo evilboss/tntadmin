@@ -75,6 +75,8 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
+
+
                                         <?php echo form_open(base_url('/logout')) ?>
                                         <button type="submit" class="btn btn-default btn-flat">Sign out</button>
                                         <?php echo form_close() ?>
@@ -86,10 +88,9 @@
                     <?php endif; ?>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                        <a href="<?= site_url('auth/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
 
-                        <!--                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        -->                    </li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
                 </ul>
             </div>
         </nav>
