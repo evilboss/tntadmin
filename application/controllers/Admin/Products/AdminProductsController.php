@@ -90,7 +90,7 @@ class AdminProductsController extends TNT_Controller
 
             if ($this->form_validation->run() == FALSE) {
 
-                $this->data['record'] = $inputs;
+                $this->data['record'] = (object)$inputs;
             } else {
                 //Form validation success. Insert Record into database
                 $inputs['created_at'] = date('Y-m-d H:i:s');

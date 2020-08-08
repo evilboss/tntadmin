@@ -323,6 +323,7 @@
             tags: true,
             containerCssClass: 'form-control'
         });
+        console.log('productCode', selectedProductCode);
         if (selectedProductCode) {
             productCodeOption.append(`<option value=${selectedProductCode} selected="selected">${selectedProductCode}</option>`);
             productCodeOption.val(selectedProductCode).trigger('change');
@@ -335,16 +336,18 @@
         productCodeOption.on('select2:select', function (e) {
             //console.log(e.params.data.text, legacyData);
             const selectedData = legacyData.find(legacy => legacy.ItemCode === e.params.data.text);
-            console.log(selectedData);
-            $("input[name='name']").val(selectedData.Description);
-            $("textarea[name='summary']").val(selectedData.Summary);
-            $("textarea[name='description']").val(selectedData.Specs);
-            $("input[name='releaseDate']").val(selectedData.Release_Date);
-            $("input[name='price']").val(selectedData.RetailPrice);
-            $("input[name='weight']").val(selectedData.ItemWeight);
-            $("input[name='poPrice']").val(selectedData.PreorderPrice);
-            $("input[name='spStartDate']").val(selectedData.SalesStart_Date);
-            $("input[name='spEndDate']").val(selectedData.SalesEnd_Date);
+            if (!selectedProductCode) {
+                $("input[name='name']").val(selectedData.Description);
+                $("textarea[name='summary']").val(selectedData.Summary);
+                $("textarea[name='description']").val(selectedData.Specs);
+                $("input[name='releaseDate']").val(selectedData.Release_Date);
+                $("input[name='price']").val(selectedData.RetailPrice);
+                $("input[name='weight']").val(selectedData.ItemWeight);
+                $("input[name='poPrice']").val(selectedData.PreorderPrice);
+                $("input[name='spStartDate']").val(selectedData.SalesStart_Date);
+                $("input[name='spEndDate']").val(selectedData.SalesEnd_Date);
+
+            }
 
 
         });
