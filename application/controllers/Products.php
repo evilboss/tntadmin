@@ -56,6 +56,7 @@ class Products extends CI_Controller
         echo "legacy";
         echo "<pre>";
 
-        print_r($this->Legacy_model->getRecords());
+        print_r($this->Legacy_model->getProducts($this->ProductsModel->getAllProductCodes()));
     }
+
 }

@@ -118,16 +118,15 @@ class ProductsModel extends TNT_Model
         return (strtotime(date_format(date_create($date), 'Y/m/d')) > strtotime('-7 day'));
     }
 
-
     public function getFormattedItems($products)
     {
         foreach ($products as $product) {
             $product->cls = 0;
             $product->status = $this->getItemStatus($product);
-            $product->brandName = isset($product->brandId) ? $this->CategoriesModel->get($product->brandId)->name : false;
-            $product->categoryName = isset($product->category_id) ? $this->CategoriesModel->get($product->category_id)->name : false;
-            $product->productTypeName = isset($product->productTypeId) ? $this->CategoriesModel->get($product->productTypeId)->name : false;
-            $product->manufacturerName = isset($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
+            $product->brandName = !empty($product->brandId) ? $this->CategoriesModel->get($product->brandId)->name : false;
+            $product->categoryName = !empty($product->category_id) ? $this->CategoriesModel->get($product->category_id)->name : false;
+            $product->productTypeName = !empty($product->productTypeId) ? $this->CategoriesModel->get($product->productTypeId)->name : false;
+            $product->manufacturerName = !empty($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
             $product->isNew = $this->checkIfNew($product->created_at);
             $product->images = $this->ProductImagesModel->getByProductId($product->id);
 
@@ -135,8 +134,7 @@ class ProductsModel extends TNT_Model
         return $products;
     }
 
-    public
-    function cleanSpecialOffers($products)
+    public function cleanSpecialOffers($products)
     {
         $date_now = date("Y/m/d"); // this format is string comparable
         // print_r($products);
@@ -154,6 +152,19 @@ class ProductsModel extends TNT_Model
 
         }
         return $filteredProducts;
+    }
+
+    public function getAllProductCodes()
+    {
+        $productCodes = array();
+        $this->db->select('products.productCode');
+        $this->db->from($this->_table);
+        foreach ($this->db->get()->result() as $key => $value) {
+            array_push($productCodes, $value->productCode);
+        }
+        return $productCodes;
+
+
     }
 
 }

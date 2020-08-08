@@ -7,29 +7,14 @@
                     <?php
                     $legacyOptions = array('');
                     if (!empty($legacy)) {
-                        ?>
-
-                        <label>Select</label>
-                        <select class="form-control item-code">
-                            <?php foreach ($legacy
-
-                                           as $key => $value) {
-                                array_push($legacyOptions, $value->ItemCode)
-                                ?>
-
-                                <option><?= $value->ItemCode ?></option>
-                                <?php
-
-                            } ?>
-                        </select>
-                        <?php
+                        foreach ($legacy as $key => $value) {
+                            array_push($legacyOptions, $value->ItemCode);
+                        }
 
                     } ?>
 
                 </div>
 
-                <pre>
-            </pre>
             </div>
 
             <div class="form-group<?php echo (form_error('active')) ? ' has-error' : ''; ?>">
@@ -231,6 +216,7 @@
 
             </div>
             <div class="form-group<?php echo (form_error('poPrice')) ? ' has-error' : ''; ?>">
+                <label>Pre Order Price:</label>
                 <input name="poPrice" id="poPrice" type="number" min="0" class="form-control" value=
                     <?= isset($record) ? is_object($record) ? isset($record->poPrice) ? $record->poPrice : '' : floatval($record['poPrice']) : '' ?>/>
                 <?php echo form_error('price', '<span class="help-block">', '</span>') ?>
@@ -317,11 +303,28 @@
         } else echo "[]"?>;
         console.log(legacyData);
         const productCodeOption = $('.product-code').select2({
-            tags: true
+            tags: true,
+            containerCssClass: 'form-control'
         });
 
-        productCodeOption.on("change", function (e) {
-            console.log("change", e);
+        productCodeOption.on("change", function () {
+            console.log("change", $(".select2 option:selected").text());
+        });
+        productCodeOption.on('select2:select', function (e) {
+            //console.log(e.params.data.text, legacyData);
+            const selectedData = legacyData.find(legacy => legacy.ItemCode === e.params.data.text);
+            console.log(selectedData);
+            $("input[name='name']").val(selectedData.Description);
+            $("textarea[name='summary']").val(selectedData.Summary);
+            $("textarea[name='description']").val(selectedData.Specs);
+            $("input[name='releaseDate']").val(selectedData.Release_Date);
+            $("input[name='price']").val(selectedData.RetailPrice);
+            $("input[name='weight']").val(selectedData.ItemWeight);
+            $("input[name='poPrice']").val(selectedData.PreorderPrice);
+            $("input[name='spStartDate']").val(selectedData.SalesStart_Date);
+            $("input[name='spEndDate']").val(selectedData.SalesEnd_Date);
+
+
         });
 
 
