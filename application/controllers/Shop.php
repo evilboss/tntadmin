@@ -5,14 +5,9 @@ class Shop extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Items_model');
-        $this->load->model('Cart_model');
-        $this->load->model('ProductsModel');
-        $this->load->model('ProductImagesModel');
-        $this->load->model('CategoriesModel');
-        $this->load->model('SliderImagesModel');
+        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel'));
         $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
-        $this->load->helper('admin');
+        $this->load->helper(array('language', 'admin'));
 
         $this->data['cart'] = $this->cart;
         $this->data['site'] = $this->getData();
@@ -480,7 +475,6 @@ class Shop extends CI_Controller
     public function register()
     {
         $this->data['title'] = $this->lang->line('create_user_heading');
-
         $groups = $this->ion_auth->groups()->result_array();
 
         $tables = $this->config->item('tables', 'ion_auth');

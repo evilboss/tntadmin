@@ -8,6 +8,8 @@
     <?php echo form_open(((isset($loginRoute) ? $loginRoute : "shop/register"))); ?>
 
     <div class="form-group">
+
+        <label>First Name:</label>
         <?php echo lang('create_user_fname_label', 'first_name'); ?> <br/>
         <?php echo form_input($first_name, '', 'class="form-control"'); ?>
     </div>
@@ -69,7 +71,7 @@
     <?php echo form_hidden($csrf); ?>
 
     <div class="form-group">
-        <?php echo form_submit('submit', lang('create_user_submit_btn'), array('class' => 'btn btn-success')); ?>
+        <?php echo form_submit('submit', "Sign Up", array('class' => 'btn btn-success')); ?>
     </div>
 
     <?php echo form_close(); ?>
