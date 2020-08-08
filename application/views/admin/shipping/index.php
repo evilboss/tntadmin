@@ -1,4 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
+<script src="<?= base_url('assets/libs/lodash/lodash.js') ?>"></script>
 <script src="<?= base_url('assets/libs/papaparse/papaparse.js') ?>"></script>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -11,20 +12,77 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <pre>
-                <?php print_r($zones); ?>
-            </pre>
-            <?php echo form_open_multipart(base_url('admin/shipping/index')); ?>
-            <?php $this->load->view('admin/shipping/form'); ?>
+            <div class="box">
+                <div class="box-header with-border">
+                    <div class="box-title">
+                        Shipping Settings
+                    </div>
+                </div>
+                <div class="box-body">
+                    <?php $this->load->view('admin/partials/flash') ?>
 
-            <?php echo form_close(); ?>
-            <button onclick="download_csv()">Download CSV</button>
+                    <?php
+                    if (!empty($zones)) {
+                        ?>
 
+
+                        <table class="table table-bordered">
+                            <tbody>
+                            <?php
+
+                            foreach (json_decode($zones) as $key => $value) {
+                                if ($key === 0) {
+                                    ?>
+                                    <tr>
+                                        <?php
+                                        foreach ($value as $header => $item) {
+                                            ?>
+                                            <th scope="col"><?= $header ?></th>
+                                            <?php
+
+                                        }
+                                        ?>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                <tr>
+                                    <?php
+                                    foreach ($value as $header => $item) {
+                                        ?>
+                                        <th scope="col"><?= $item ?></th>
+                                        <?php
+
+                                    }
+                                    ?>
+
+                                </tr>
+                                <?php
+
+
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+
+
+                        <?php
+                    }
+                    ?>
+                    <?php echo form_open_multipart(base_url('admin/shipping')); ?>
+                    <?php $this->load->view('admin/shipping/form'); ?>
+
+                    <?php echo form_close(); ?>
+                    <button onclick="download_csv()">Download CSV</button>
+                </div>
+            </div>
         </div>
     </section>
 </div>
 <script>
-    const data = [
+    const zones = <?php echo ($zones) ? $zones : "''";?>;
+
+    const data = (zones) ? zones : [
         //headings
         [0, 0, 0, `Singapore`],
         [1, 13.33, 2.22, `Macau
@@ -85,12 +143,9 @@
         Kuwait`]
     ];
 
-    console.log(Papa.unparse(data));
-
     function download_csv() {
         let csv = 'Zone,Initial CostPer 1st 500grams,Every 500 grams,locations\n';
         csv += Papa.unparse(data);
-
         const hiddenElement = document.createElement('a');
         hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
         hiddenElement.target = '_blank';

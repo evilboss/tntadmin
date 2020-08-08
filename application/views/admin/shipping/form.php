@@ -1,2 +1,2 @@
-<input type="file">
-<input type="submit">
+<input type="file" name="csv"/>
+<input type="submit"/>

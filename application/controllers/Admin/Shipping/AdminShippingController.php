@@ -6,28 +6,45 @@ class AdminShippingController extends TNT_Controller
     {
         parent::__construct();
         $this->config->load('zones');
+        $this->load->model('setting');
 
     }
 
     public function index()
     {
-        $this->data['zones'] = $this->config->item('zones');
-        if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            $list = array (
-                array('aaa', 'bbb', 'ccc', 'dddd'),
-                array('123', '456', '789'),
-                array('"aaa"', '"bbb"')
-            );
+        if ($this->input->server('REQUEST_METHOD') == 'POST' && !empty($_FILES["csv"]["tmp_name"])) {
+            if (!empty($_FILES["csv"]["tmp_name"])) {
+                $shippingSettings = array();
+                if (($handle = fopen($_FILES["csv"]["tmp_name"], "r")) !== FALSE) {
+                    $index = 0;
+                    $header = (fgetcsv($handle, 0, ","));
+                    while (($row = fgetcsv($handle, 0, ",")) !== FALSE) {
+                        $data = array();
+                        if ($index !== 0) {
+                            foreach ($row as $key => $value) {
+                                $data[$header[$key]] = $value;
 
-            $fp = fopen('file.csv', 'w');
+                            }
+                            array_push($shippingSettings, (object)$data);
+                        }
+                        $index++;
+                    }
+                    fclose($handle);
+                }
+                $newData = array(
+                    'key' => 'shipping_settings',
+                    'value' => json_encode($shippingSettings)
+                );
+                $this->setting->updateByKey($newData);
+                $this->session->set_flashdata('success', 'Successfully updated Shipping settings');
+            } else {
+                $this->session->set_flashdata('error', 'File template required!');
 
-            foreach ($list as $fields) {
-                fputcsv($fp, $fields);
             }
 
-            fclose($fp);
-        }
 
+        }
+        $this->data['zones'] = $this->setting->getByKey('shipping_settings')['value'];
         $this->load->templateAdmin('admin/shipping/index', $this->data);
 
     }

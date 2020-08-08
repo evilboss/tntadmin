@@ -47,6 +47,12 @@ class Setting extends CI_Model
         return $this->db->where('id', $id)->get($this->table)->row_array();
     }
 
+    public function getByKey($key)
+    {
+        return $this->db->where('key', $key)->get($this->table)->row_array();
+    }
+
+
     public function checkByKey($key)
     {
         return $this->db->where('key', $key)->get($this->table)->num_rows();
