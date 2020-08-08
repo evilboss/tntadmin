@@ -1,6 +1,4 @@
 <!-- Content Wrapper. Contains page content -->
-<link rel="stylesheet" href="<?= base_url() ?>assets/plugins/select2/select2.min.css">
-<script src="<?= base_url() ?>assets/plugins/select2/select2.full.min.js"></script>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

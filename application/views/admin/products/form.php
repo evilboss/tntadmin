@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="<?= base_url() ?>assets/plugins/select2/select2.min.css">
+<script src="<?= base_url() ?>assets/plugins/select2/select2.full.min.js"></script>
+
 <fieldset>
     <div class="col col-lg-12">
         <div class="col col-lg-4">
@@ -62,10 +65,20 @@
 
             <div class="col col-lg-6">
             </div>
-            <div class="form-group<?php echo (form_error('productCode')) ? ' has-error' : ''; ?>">
-                <label for="name">Product Code *</label>
+            <label for="name">Product Code *</label>
+            <select class="form-control product-code" name="productCode">
+                <?php
+                if (isset($legacyOptions)) {
+                    foreach ($legacyOptions as $option) {
+                        echo "<option value='$option'>$option</option>";
+                    }
+                }
 
-                <?php echo form_dropdown('productCode', $legacyOptions, (isset($record->productCode)) ? $record->productCode : "", array('class' => 'form-control product-code', 'placeholder' => 'Product Code', 'id' => 'productCode')); ?>
+                ?>
+            </select>
+            <div class="form-group<?php echo (form_error('productCode')) ? ' has-error' : ''; ?>">
+
+
                 <?php echo form_error('productCode', '<span class="help-block">', '</span>') ?>
             </div>
             <div class="form-group<?php echo (form_error('name')) ? ' has-error' : ''; ?>">
@@ -298,14 +311,23 @@
         })
     });
     $(document).ready(function () {
+        const selectedProductCode = <?php if (isset($record->productCode)) {
+            echo json_encode($record->productCode);
+        } else echo "''";?>;
+
+
         const legacyData =<?php if (isset($legacy)) {
             echo json_encode($legacy);
         } else echo "[]"?>;
-        console.log(legacyData);
         const productCodeOption = $('.product-code').select2({
             tags: true,
             containerCssClass: 'form-control'
         });
+        if (selectedProductCode) {
+            productCodeOption.append(`<option value=${selectedProductCode} selected="selected">${selectedProductCode}</option>`);
+            productCodeOption.val(selectedProductCode).trigger('change');
+
+        }
 
         productCodeOption.on("change", function () {
             console.log("change", $(".select2 option:selected").text());
@@ -328,6 +350,7 @@
         });
 
 
-    });
+    })
+    ;
 
 </script>
