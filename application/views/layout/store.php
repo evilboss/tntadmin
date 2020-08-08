@@ -144,49 +144,59 @@
                             <li class="nav-item">
                                 <a href="#" data-toggle="dropdown" class="nav-link text-white dropdown-toggle mr-3">Login</a>
                                 <div class="dropdown-menu login-form gray-section">
-                                    <form>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
+
+                                    <?php echo form_open('shop/login') ?>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
                                                     <span class="input-group-text bg-white text-muted"> <i
                                                                 class="fa fa-user"></i> </span>
-                                                </div>
-                                                <input name="" class="form-control" placeholder="Email" type="email">
-                                            </div> <!-- input-group.// -->
-                                        </div> <!-- form-group// -->
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
+                                            </div>
+                                            <input name="" class="form-control" placeholder="Email" type="email">
+                                        </div> <!-- input-group.// -->
+                                    </div> <!-- form-group// -->
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
                                                     <span class="input-group-text bg-white text-muted"> <i
                                                                 class="fa fa-lock"></i> </span>
-                                                </div>
-                                                <input class="form-control" placeholder="Password" type="password">
-                                            </div> <!-- input-group.// -->
-                                        </div> <!-- form-group// -->
-                                        <div class="d-flex justify-content-between">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    Remember me
-                                                </label>
                                             </div>
-
-                                            <a href="" class="text-primary">I forgot my password</a></div>
-                                        <div class="form-group mt-2">
-                                            <button type="submit" class="btn btn-danger btn-block"> Login</button>
-                                        </div> <!-- form-group// -->
-                                        <p class="text-primary text-center">or sign in with</p>
-                                        <div class="text-center">
-
-                                            <i class="fa fa-facebook"></i>
-                                            <i class="fa fa-twitter"></i>
-                                            <i class="fa fa-instagram"></i>
-                                            <i class="fa fa-weixin"></i>
+                                            <input class="form-control" placeholder="Password" type="password">
+                                        </div> <!-- input-group.// -->
+                                    </div> <!-- form-group// -->
+                                    <div class="d-flex justify-content-between">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Remember me
+                                            </label>
                                         </div>
-                                        <p class="text-primary text-center">Create an account</p>
-                                        <button type="submit" class="btn btn-primary btn-block"> Sign up</button>
-                                    </form>
+
+                                        <a href="" class="text-primary">I forgot my password</a></div>
+                                    <div class="form-group mt-2">
+                                        <button type="submit" class="btn btn-danger btn-block"> Login</button>
+                                    </div> <!-- form-group// -->
+                                    <?php echo form_close() ?>
+
+                                    <p class="text-primary text-center">or sign in with</p>
+                                    <div class="text-center">
+
+                                        <i class="fa fa-facebook"></i>
+                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa fa-instagram"></i>
+                                        <i class="fa fa-weixin"></i>
+                                    </div>
+                                    <?php echo form_open('shop/register') ?>
+
+                                    <p class="text-primary text-center">Create an account</p>
+                                    <button class="btn btn-primary btn-block" href="<?= base_url('shop/register') ?>">
+                                        Sign
+                                        up
+                                    </button>
+                                    <?php echo form_close() ?>
+
+
                                 </div>
                             </li>
 
@@ -213,7 +223,8 @@
                                         <?php foreach ($cart->contents() as $header_cart) : ?>
                                             <li class="header-cart-item">
                                                 <div class="header-cart-item-img">
-                                                    <img class="img-thumbnail" src="<?php echo (isset($header_cart['options']['product_image'])) ? base_url() . thumbImage($header_cart['options']['product_image']) : ""; ?>"
+                                                    <img class="img-thumbnail"
+                                                         src="<?php echo (isset($header_cart['options']['product_image'])) ? base_url() . thumbImage($header_cart['options']['product_image']) : ""; ?>"
                                                          alt="IMG">
                                                 </div>
 
