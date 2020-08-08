@@ -162,7 +162,7 @@ class Shop extends CI_Controller
             'images' => array((object)array('path' => 'batmanlogo.png')),
             'poPrice' => 50,
             'spPrice' => 10,
-            'summary'=>'bla'
+            'summary' => 'bla'
 
         );
         $this->data['content'] = 'shop/itemDetail';
@@ -417,11 +417,10 @@ class Shop extends CI_Controller
     public function login()
     {
         if ($this->ion_auth->logged_in()) {
-            redirect('admin');
+            redirect('shop/profile');
         }
 
         $this->data['title'] = $this->lang->line('login_heading');
-
         //validate form input
         $this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
         $this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
@@ -430,28 +429,28 @@ class Shop extends CI_Controller
             $remember = (bool)$this->input->post('remember');
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('admin');
+                redirect('/shop/profile');
             } else {
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
-                redirect('login');
+                redirect('/shop/login');
             }
-        } else {
-            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-            $this->data['identity'] = array('name' => 'identity',
-                'id' => 'identity',
-                'type' => 'text',
-                'value' => $this->form_validation->set_value('identity'),
-            );
-            $this->data['password'] = array('name' => 'password',
-                'id' => 'password',
-                'type' => 'password',
-            );
-
-            $this->data['content'] = 'auth/login';
-            $this->load->view('layout/store', $this->data);
-
         }
+        $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+        $this->data['identity'] = array('name' => 'identity',
+            'id' => 'identity',
+            'type' => 'text',
+            'value' => $this->form_validation->set_value('identity'),
+        );
+        $this->data['password'] = array('name' => 'password',
+            'id' => 'password',
+            'type' => 'password',
+        );
+
+        $this->data['content'] = 'auth/login';
+        $this->load->view('layout/store', $this->data);
+
+
     }
 
     public function logout()
@@ -481,9 +480,6 @@ class Shop extends CI_Controller
     public function register()
     {
         $this->data['title'] = $this->lang->line('create_user_heading');
-        if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
-            redirect('auth', 'refresh');
-        }
 
         $groups = $this->ion_auth->groups()->result_array();
 
@@ -580,7 +576,7 @@ class Shop extends CI_Controller
             $this->data['groups'] = $groups;
             $this->data['csrf'] = $this->_get_csrf_nonce();
 
-            $this->data['content'] = 'auth/create_user';
+            $this->data['content'] = 'auth/create_user_form';
             $this->load->view('layout/store', $this->data);
         }
     }
