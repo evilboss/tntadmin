@@ -181,6 +181,7 @@ class AdminProductsController extends TNT_Controller
         $record = $this->ProductsModel->get($id);
 
         $this->data['record'] = $record;
+        $this->data['legacy'] = $this->Legacy_model->getRecords();
         $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('category');
         $this->data['brands'] = $this->CategoriesModel->getCategoriesDropdown('brand');
         $this->data['manufacturers'] = $this->CategoriesModel->getCategoriesDropdown('manufacturer');

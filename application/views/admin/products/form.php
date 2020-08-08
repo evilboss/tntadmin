@@ -312,6 +312,10 @@
         })
     });
     $(document).ready(function () {
+        const legacyData =<?php if (isset($legacy)) {
+            echo json_encode($legacy);
+        } else echo "[]"?>;
+        console.log(legacyData);
         const productCodeOption = $('.product-code').select2({
             tags: true
         });
