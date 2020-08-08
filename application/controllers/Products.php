@@ -54,6 +54,8 @@ class Products extends CI_Controller
     public function getLegacy()
     {
         echo "legacy";
+        echo "<pre>";
+
         print_r($this->Legacy_model->getRecords());
     }
 }

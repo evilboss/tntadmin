@@ -1,6 +1,37 @@
 <fieldset>
     <div class="col col-lg-12">
         <div class="col col-lg-4">
+            <div class="row">
+                <div class="form-group">
+
+                    <?php
+                    $legacyOptions = array('');
+                    if (!empty($legacy)) {
+                        ?>
+
+                        <label>Select</label>
+                        <select class="form-control item-code">
+                            <?php foreach ($legacy
+
+                                           as $key => $value) {
+                                array_push($legacyOptions, $value->ItemCode)
+                                ?>
+
+                                <option><?= $value->ItemCode ?></option>
+                                <?php
+
+                            } ?>
+                        </select>
+                        <?php
+
+                    } ?>
+
+                </div>
+
+                <pre>
+            </pre>
+            </div>
+
             <div class="form-group<?php echo (form_error('active')) ? ' has-error' : ''; ?>">
                 <label>Active * &nbsp </label>
 
@@ -48,7 +79,8 @@
             </div>
             <div class="form-group<?php echo (form_error('productCode')) ? ' has-error' : ''; ?>">
                 <label for="name">Product Code *</label>
-                <?php echo form_input('productCode', (isset($record->productCode)) ? set_value("productCode", $record->productCode) : set_value("productCode"), array('class' => 'form-control', 'placeholder' => 'Product Code', 'id' => 'productCode')); ?>
+
+                <?php echo form_dropdown('productCode', $legacyOptions, (isset($record->productCode)) ? $record->productCode : "", array('class' => 'form-control product-code', 'placeholder' => 'Product Code', 'id' => 'productCode')); ?>
                 <?php echo form_error('productCode', '<span class="help-block">', '</span>') ?>
             </div>
             <div class="form-group<?php echo (form_error('name')) ? ' has-error' : ''; ?>">
@@ -267,7 +299,6 @@
                 <label for="description">Summary *</label>
                 <?php echo form_textarea('summary', (isset($record->summary)) ? set_value("summary", $record->summary) : set_value("Summary"), array('class' => 'form-control', 'placeholder' => 'Description', 'id' => 'description')); ?>
                 <?php echo form_error('summary', '<span class="help-block">', '</span>') ?>
-
             </div>
 
 
@@ -279,5 +310,17 @@
         $('.datepicker').datepicker({
             autoclose: true
         })
-    })
+    });
+    $(document).ready(function () {
+        const productCodeOption = $('.product-code').select2({
+            tags: true
+        });
+
+        productCodeOption.on("change", function (e) {
+            console.log("change", e);
+        });
+
+
+    });
+
 </script>

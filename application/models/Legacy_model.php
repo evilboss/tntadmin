@@ -18,9 +18,9 @@ class Legacy_model extends TNT_Model
         // Select records from 2nd database
         //$db2 = $this->load->database('istechdb', TRUE);
 
-        $this->db2->select('*');
+        $this->db2->select('items.*');
         $q = $this->db2->get('items');
-        $result = $q->result_array();
+        $result = $q->result();
         return $result;
     }
 

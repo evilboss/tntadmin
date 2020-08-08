@@ -20,12 +20,14 @@ class AdminProductsController extends TNT_Controller
         $this->load->model('ProductsModel');
         $this->load->model('ProductImagesModel');
         $this->load->model('CategoriesModel');
+        $this->load->model('Legacy_model');
         $this->load->helper('file');
         //load custom helper
         $this->load->helper('admin');
         $this->load->helper('custom');
 
     }
+
 
 
     /**
@@ -134,6 +136,7 @@ class AdminProductsController extends TNT_Controller
 
             }
         }
+        $this->data['legacy'] = $this->Legacy_model->getRecords();
         $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('category');
         $this->data['brands'] = $this->CategoriesModel->getCategoriesDropdown('brand');
         $this->data['manufacturers'] = $this->CategoriesModel->getCategoriesDropdown('manufacturer');
