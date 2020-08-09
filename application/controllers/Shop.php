@@ -575,10 +575,6 @@ class Shop extends CI_Controller
     public function profile()
     {
         if ($this->ion_auth->logged_in()) {
-            echo "Profile";
-            echo "<pre>";
-            print_r($this->ion_auth->user()->row());
-            echo "</pre>";
             $this->data['user'] = $this->ion_auth->user()->row();
             $this->load->templateProfile('profile/profile', $this->data);
         } else {
@@ -591,11 +587,8 @@ class Shop extends CI_Controller
     {
         if ($this->ion_auth->logged_in()) {
             echo "Profile";
-            echo "<pre>";
-            print_r($this->ion_auth->user()->row());
-            echo "</pre>";
             $user = $this->ion_auth->user()->row();
-            $this->data['user'] = $this->ion_auth->user()->row();
+            $this->data['user'] = $user;
             $this->data['orders'] = $this->OrdersModel->getUserOrders($user->id);
 
             $this->load->templateProfile('profile/orders', $this->data);
