@@ -66,6 +66,43 @@ class TNT_Controller extends CI_Controller
         return $this->upload->data();
     }
 
+    public function upload_files($title, $files, $path = 'images/products')
+    {
+        $config = array(
+            'upload_path' => $path,
+            'allowed_types' => 'jpg|gif|png',
+            'overwrite' => 1,
+        );
+
+        $this->load->library('upload', $config);
+
+        $images = array();
+
+        foreach ($files['name'] as $key => $image) {
+
+            $_FILES['files']['name'] = $files['name'][$key];
+            $_FILES['files']['type'] = $files['type'][$key];
+            $_FILES['files']['tmp_name'] = $files['tmp_name'][$key];
+            $_FILES['files']['error'] = $files['error'][$key];
+            $_FILES['files']['size'] = $files['size'][$key];
+
+            $fileName = $image;
+
+
+            $config['file_name'] = $fileName;
+
+            $this->upload->initialize($config);
+
+            if ($this->upload->do_upload('files')) {
+                array_push($images, $this->upload->data());
+            } else {
+                return $this->upload->display_errors();
+            }
+        }
+
+        return $images;
+    }
+
 
     /**
      * Create thumbnail of image using upload_data

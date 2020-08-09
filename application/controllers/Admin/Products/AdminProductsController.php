@@ -124,6 +124,7 @@ class AdminProductsController extends TNT_Controller
                 foreach ($this->uploaded_images as $uploaded_image) {
                     $images_path['path'] = $uploaded_image['file_name'];
                     $images_path['product_id'] = $last_id;
+
                     $this->ProductImagesModel->insert($images_path);
                 }
                 $this->session->set_flashdata('success', 'Product Created successfully');
@@ -277,10 +278,33 @@ class AdminProductsController extends TNT_Controller
     {
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $inputs = $this->input->post();
-            echo "<pre>";
-            echo count($_FILES['files']);
-            print_r($_FILES['files']);
-            echo "</pre>";
+
+            $images = (isset($_FILES['files'])) ? $_FILES['files'] : [];
+            if (!empty($images)) {
+                $uploadedImages = $this->upload_files('', $images);
+                echo "<pre>";
+                foreach ($uploadedImages as $image) {
+                    $type = 'slide';
+                    if (strpos($image['file_name'], 'display') !== false) {
+                        $type = 'display';
+                    } elseif (strpos($image['file_name'], 'thumbnail') !== false) {
+                        $type = 'thumbnail';
+
+                    } elseif (strpos($image['file_name'], '1920') !== false) {
+                        $type = 'banner';
+                    }
+                    $images_path['path'] = $image['file_name'];
+                    $images_path['product_id'] = 90;
+                    $images_path['type'] = $type;
+                    $this->ProductImagesModel->insert($images_path);
+                }
+
+                // print_r($images);
+                echo count($uploadedImages);
+                //   print_r($uploadedImages);
+                echo "</pre>";
+            }
+
 
         }
         $this->load->templateAdmin('admin/products/upload', $this->data);

@@ -35,7 +35,6 @@
     </section>
 </div>
 
-
 <script>
     $("#images").fileinput({
         theme: 'fa',
