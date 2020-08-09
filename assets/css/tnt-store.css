@@ -9,7 +9,7 @@ body {
 }
 
 .store-content {
-    padding-top: 45vh;
+    padding-top: 10vh;
     min-height: calc(100% - 201px);
 }
 

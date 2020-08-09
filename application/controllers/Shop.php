@@ -57,7 +57,7 @@ class Shop extends CI_Controller
 
 
         // print_r($this->Items_model->getFeaturedItems());
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/home', $this->data);
     }
 
     public function featured()
@@ -78,7 +78,7 @@ class Shop extends CI_Controller
 
 
         // print_r($this->Items_model->getFeaturedItems());
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/home', $this->data);
     }
 
     public function comingSoon()
@@ -99,7 +99,7 @@ class Shop extends CI_Controller
 
 
         // print_r($this->Items_model->getFeaturedItems());
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/home', $this->data);
     }
 
     public function preorders()
@@ -120,7 +120,7 @@ class Shop extends CI_Controller
 
 
         // print_r($this->Items_model->getFeaturedItems());
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/home', $this->data);
     }
 
     public function products()
@@ -141,7 +141,7 @@ class Shop extends CI_Controller
 
         $this->data['products'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->order_by('created_at', 'desc')->limit($pagination_config['per_page'], $this->input->get('per_page'))->get_many_by('webItem', '1'));
         $this->data['content'] = 'products/list';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('products/list', $this->data);
 
     }
 
@@ -164,7 +164,7 @@ class Shop extends CI_Controller
 
         );
         $this->data['content'] = 'shop/itemDetail';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/itemDetail', $this->data);
 
     }
 
@@ -196,7 +196,7 @@ class Shop extends CI_Controller
 
         $this->data['content'] = 'categories/list';
         echo $category_id;
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('categories/list', $this->data);
 
         ///$this->load->template('shop/list', $data);
     }
@@ -223,7 +223,7 @@ class Shop extends CI_Controller
 
 
         $this->data['content'] = 'categories/list';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('categories/list', $this->data);
 
         ///$this->load->template('shop/list', $data);
     }
@@ -250,7 +250,7 @@ class Shop extends CI_Controller
 
 
         $this->data['content'] = 'categories/list';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('categories/list', $this->data);
 
         ///$this->load->template('shop/list', $data);
     }
@@ -277,7 +277,7 @@ class Shop extends CI_Controller
 
 
         $this->data['content'] = 'categories/list';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('categories/list', $this->data);
 
         ///$this->load->template('shop/list', $data);
     }
@@ -299,12 +299,10 @@ class Shop extends CI_Controller
         $this->data['total_rows'] = $pagination_config['total_rows'];
         $this->data['products'] = $this->ProductsModel->
         getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
-        //Get Product Images :
-        //$this->ProductImagesModel->getImageLookupProducts($products);
 
 
         $this->data['content'] = 'categories/list';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('categories/list', $this->data);
 
         ///$this->load->template('shop/list', $data);
     }
@@ -444,9 +442,10 @@ class Shop extends CI_Controller
             'id' => 'password',
             'type' => 'password',
         );
+        $this->data['error'] = '';
 
         $this->data['content'] = 'auth/login';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('auth/login', $this->data);
 
 
     }
@@ -604,6 +603,26 @@ class Shop extends CI_Controller
         }
 
     }
+
+    public function addresses()
+    {
+        if ($this->ion_auth->logged_in()) {
+            $user = $this->data['user'];
+            $orders = array();
+            foreach ($this->OrdersModel->getUserOrders($user->id) as $order) {
+                $order->details = $this->OrderProductModel->getProductsByOrderIds([$order->id]);
+                array_push($orders, $order);
+
+            }
+            $this->data['orders'] = $orders;
+            //$this->data['orderDetails'] = $this->OrderProductModel->
+            $this->load->templateProfile('profile/addresses', $this->data);
+        } else {
+            echo "login to continue";
+        }
+
+    }
+
 
 }
 /* End of file '/Shop.php' */

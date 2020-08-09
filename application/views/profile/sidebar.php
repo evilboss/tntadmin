@@ -33,27 +33,14 @@
        class="list-group-item<?php echo ($this->uri->segment(2) == "") ? " active1" : ""; ?>">
         <i class="fa fa-shopping-cart"></i> Orders
     </a>
+    <a href="<?php echo base_url('shop/addresses/') ?>"
+       class="list-group-item<?php echo ($this->uri->segment(2) == "") ? " active1" : ""; ?>">
+        <i class="fa fa-home"></i> Addresses
+    </a>
 
 </div>
 
 
-<script>
-    $(function () {
-
-        $('#slide-submenu').on('click', function () {
-            $(this).closest('.list-group').fadeOut('slide', function () {
-                $('.mini-submenu').fadeIn();
-            });
-
-        });
-
-        $('.mini-submenu').on('click', function () {
-            $(this).next('.list-group').toggle('slide');
-            $('.mini-submenu').hide();
-        })
-    })
-
-</script>
 
 
 

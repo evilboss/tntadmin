@@ -144,8 +144,22 @@
                             <?php if (isset($user)) {
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('shop/logout') ?>"> Logout</a>
+                                    <a href="#" data-toggle="dropdown" class="nav-link text-white dropdown-toggle mr-3">Profile</a>
+                                    <div class="dropdown-menu login-form gray-section">
+
+
+                                        <?php echo form_close() ?>
+                                        <a class="nav-link text-white" href="<?= base_url('shop/profile') ?>"><i
+                                                    class="fa fa-user"></i> Profile</a>
+
+                                        <a class="nav-link text-white" href="<?= base_url('shop/logout') ?>"> <i
+                                                    class="fa fa-sign-out"></i>Logout</a>
+
+
+                                    </div>
                                 </li>
+
+
                                 <?php
                             } else {
                                 ?>
