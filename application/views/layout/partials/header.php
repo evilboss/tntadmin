@@ -141,66 +141,78 @@
                                     <a class="dropdown-item" href="#">中文</a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" data-toggle="dropdown" class="nav-link text-white dropdown-toggle mr-3">Login</a>
-                                <div class="dropdown-menu login-form gray-section">
+                            <?php if (isset($user)) {
+                                ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('shop/logout') ?>"> Logout</a>
+                                </li>
+                                <?php
+                            } else {
+                                ?>
+                                <li class="nav-item">
+                                    <a href="#" data-toggle="dropdown" class="nav-link text-white dropdown-toggle mr-3">Login</a>
+                                    <div class="dropdown-menu login-form gray-section">
 
-                                    <?php echo form_open('shop/login') ?>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
+                                        <?php echo form_open('shop/login') ?>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
                                                     <span class="input-group-text bg-white text-muted"> <i
                                                                 class="fa fa-user"></i> </span>
-                                            </div>
-                                            <input name="identity" class="form-control" placeholder="Email"
-                                                   type="email">
-                                        </div> <!-- input-group.// -->
-                                    </div> <!-- form-group// -->
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
+                                                </div>
+                                                <input name="identity" class="form-control" placeholder="Email"
+                                                       type="email">
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
                                                     <span class="input-group-text bg-white text-muted"> <i
                                                                 class="fa fa-lock"></i> </span>
+                                                </div>
+                                                <input name="password" class="form-control" placeholder="Password"
+                                                       type="password">
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                        <div class="d-flex justify-content-between">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Remember me
+                                                </label>
                                             </div>
-                                            <input name="password" class="form-control" placeholder="Password"
-                                                   type="password">
-                                        </div> <!-- input-group.// -->
-                                    </div> <!-- form-group// -->
-                                    <div class="d-flex justify-content-between">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Remember me
-                                            </label>
+
+                                            <a href="" class="text-primary">I forgot my password</a></div>
+                                        <div class="form-group mt-2">
+                                            <button type="submit" class="btn btn-danger btn-block"> Login</button>
+                                        </div> <!-- form-group// -->
+                                        <?php echo form_close() ?>
+
+                                        <p class="text-primary text-center">or sign in with</p>
+                                        <div class="text-center">
+
+                                            <i class="fa fa-facebook"></i>
+                                            <i class="fa fa-twitter"></i>
+                                            <i class="fa fa-instagram"></i>
+                                            <i class="fa fa-weixin"></i>
                                         </div>
+                                        <?php echo form_open('shop/register', array('method' => 'get')) ?>
 
-                                        <a href="" class="text-primary">I forgot my password</a></div>
-                                    <div class="form-group mt-2">
-                                        <button type="submit" class="btn btn-danger btn-block"> Login</button>
-                                    </div> <!-- form-group// -->
-                                    <?php echo form_close() ?>
+                                        <p class="text-primary text-center">Create an account</p>
+                                        <button class="btn btn-primary btn-block"
+                                                href="<?= base_url('shop/register') ?>">
+                                            Sign
+                                            up
+                                        </button>
+                                        <?php echo form_close() ?>
 
-                                    <p class="text-primary text-center">or sign in with</p>
-                                    <div class="text-center">
 
-                                        <i class="fa fa-facebook"></i>
-                                        <i class="fa fa-twitter"></i>
-                                        <i class="fa fa-instagram"></i>
-                                        <i class="fa fa-weixin"></i>
                                     </div>
-                                    <?php echo form_open('shop/register', array('method' => 'get')) ?>
+                                </li>
 
-                                    <p class="text-primary text-center">Create an account</p>
-                                    <button class="btn btn-primary btn-block" href="<?= base_url('shop/register') ?>">
-                                        Sign
-                                        up
-                                    </button>
-                                    <?php echo form_close() ?>
-
-
-                                </div>
-                            </li>
+                                <?php
+                            } ?>
 
                         </ul>
                         <ul class="navbar-nav">
