@@ -31,6 +31,21 @@ class TNT_Loader extends CI_Loader
             $this->view('admin/partials/footer', $vars);
         endif;
     }
+
+    public function templateProfile($template_name, $vars = array(), $return = FALSE)
+    {
+        if ($return):
+            $content = $this->view('layout/partials/header', $vars, $return);
+            $content .= $this->view($template_name, $vars, $return);
+            $content .= $this->view('layout/partials/footer', $vars, $return);
+
+            return $content;
+        else:
+            $this->view('layout/partials/header', $vars);
+            $this->view($template_name, $vars);
+            $this->view('layout/partials/footer', $vars);
+        endif;
+    }
 }
 
 ?>

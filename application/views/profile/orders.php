@@ -26,17 +26,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($order_products as $order_product) :?>
-                    <tr>
-                        <td> <?php echo $order_product->order_id ;?></td>
-                        <td><?php echo $order_product->product_name;?> </td>
-                        <td>
-                            <div class="cart-img-product b-rad-4 o-f-hidden">
-                                <img src="<?php echo base_url().thumbImage($order_product->product_img)?>">
-                            </div>
-                        </td>
-                        <td><?php echo $order_product->qty;?></td>
-                    </tr>
+                    <?php foreach ($orders as $order_product) : ?>
+                        <tr>
+                            <td> <?php echo $order_product->order_id; ?></td>
+                            <td><?php echo $order_product->product_name; ?> </td>
+                            <td>
+                                <div class="cart-img-product b-rad-4 o-f-hidden">
+                                    <img src="<?php echo base_url() . thumbImage($order_product->product_img) ?>">
+                                </div>
+                            </td>
+                            <td><?php echo $order_product->qty; ?></td>
+                        </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>

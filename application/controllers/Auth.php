@@ -8,7 +8,7 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library(array('ion_auth', 'form_validation'));
+        $this->load->library(array('ion_auth', 'form_validation', 'session'));
         $this->load->helper(array('language'));
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
         $this->lang->load('auth');
@@ -32,7 +32,11 @@ class Auth extends CI_Controller
         } elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
         {
             // redirect them to the home page because they must be an administrator to view this
-            return show_error('You don\'t have enough privilege to access this page');
+            ;
+            $this->session->set_flashdata('error', 'Sorry You are not allowed here');
+            redirect('logout');
+
+
         } else {
             // set the flash data error message if there is one
 
@@ -51,9 +55,21 @@ class Auth extends CI_Controller
     // log the user in
     public function login()
     {
-        if ($this->ion_auth->logged_in()) {
-            redirect('admin');
+        $errorMesseges = '';
+
+        if ($this->session->flashdata('error')) {
+            echo "yes";
+            $errorMesseges = $this->session->flashdata('error');
         }
+        if ($this->ion_auth->logged_in()) {
+            if ($this->ion_auth->is_admin()) {
+                redirect('admin');
+            } else {
+                $errorMesseges = 'Sorry You are not allowed here';
+                redirect('auth/logout');
+            }
+        }
+
 
         $this->data['title'] = $this->lang->line('login_heading');
 
@@ -65,14 +81,21 @@ class Auth extends CI_Controller
             $remember = (bool)$this->input->post('remember');
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('admin');
+                if ($this->ion_auth->is_admin()) {
+                    redirect('admin');
+
+                } else {
+                    $this->session->set_flashdata('error', 'Sorry You are not allowed here');
+                    redirect('auth/logout');
+
+                }
             } else {
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
                 redirect('login');
             }
         } else {
-            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
+            $this->data['message'] = $this->session->flashdata('message');
+            $this->data['error'] = (validation_errors()) ? validation_errors() : ($errorMesseges) ? $errorMesseges : $this->session->flashdata('error');
             $this->data['identity'] = array('name' => 'identity',
                 'id' => 'identity',
                 'type' => 'text',
@@ -95,9 +118,14 @@ class Auth extends CI_Controller
 
         if ($this->ion_auth->logout()) {
             $this->session->set_flashdata('message', $this->ion_auth->messages());
+            if ($this->session->flashdata('error')) {
+                $errorMesseges = $this->session->flashdata('error');
+                $this->session->keep_flashdata('error', $errorMesseges);
+            }
             redirect('login');
         } else {
             $this->session->set_flashdata('message', $this->ion_auth->messages());
+
             redirect('login');
         }
 

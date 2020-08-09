@@ -152,7 +152,8 @@
                                                     <span class="input-group-text bg-white text-muted"> <i
                                                                 class="fa fa-user"></i> </span>
                                             </div>
-                                            <input name="" class="form-control" placeholder="Email" type="email">
+                                            <input name="identity" class="form-control" placeholder="Email"
+                                                   type="email">
                                         </div> <!-- input-group.// -->
                                     </div> <!-- form-group// -->
                                     <div class="form-group">
@@ -161,7 +162,8 @@
                                                     <span class="input-group-text bg-white text-muted"> <i
                                                                 class="fa fa-lock"></i> </span>
                                             </div>
-                                            <input class="form-control" placeholder="Password" type="password">
+                                            <input name="password" class="form-control" placeholder="Password"
+                                                   type="password">
                                         </div> <!-- input-group.// -->
                                     </div> <!-- form-group// -->
                                     <div class="d-flex justify-content-between">

@@ -15,6 +15,9 @@ class TNT_Controller extends CI_Controller
         $this->load->helper('inflector');
         if (!$this->ion_auth->logged_in()) {
             redirect('login');
+        } elseif (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('error', 'Sorry You are not allowed here');
+            redirect('auth/logout');
         }
 
         $this->data['site'] = $this->getData();
