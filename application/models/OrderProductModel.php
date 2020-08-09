@@ -1,6 +1,7 @@
 <?php
 
-class OrderProductModel extends TNT_Model {
+class OrderProductModel extends TNT_Model
+{
     public $_table = 'order_product';
 
     public function getProductsByOrderIds(array $order_ids)
@@ -10,10 +11,11 @@ class OrderProductModel extends TNT_Model {
         $this->db->select("product_images.path as product_img");
         $this->db->from($this->_table);
 
-        $this->db->where_in("order_id",$order_ids);
+        $this->db->where_in("order_product.order_id", $order_ids);
 
-        $this->db->join("products","$this->_table.product_id = products.id");
-        $this->db->join("product_images","product_images.product_id = products.id");
+        $this->db->join("products", "$this->_table.product_id = products.id");
+        $this->db->join("product_images", "product_images.product_id = products.id");
+        $this->db->where("product_images.type", "thumbnail");
 
         $query = $this->db->get();
 

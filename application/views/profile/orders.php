@@ -3,10 +3,10 @@
 
         <div class="row">
             <div class=" col-md-2 col-sm-4 sidebar">
-
                 <?php $this->load->view("profile/sidebar"); ?>
             </div>
             <div class="col-md-10 col-sm-8">
+
                 <div class="card">
                     <table class="table">
                         <thead>
@@ -18,18 +18,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($orders as $order_product) : ?>
+                        <?php foreach ($orders as $order) : ?>
                             <tr>
-                                <td> <?php echo $order_product->order_id; ?></td>
-                                <td><?php echo $order_product->product_name; ?> </td>
+                            <td> <?php echo $order->id; ?></td>
+
+                            <?php foreach ($order->details as $details) : ?>
+                                <td><?php echo $details->product_name; ?> </td>
                                 <td>
                                     <div class="cart-img-product b-rad-4 o-f-hidden">
-                                        <img src="<?php echo base_url() . thumbImage($order_product->product_img) ?>">
+                                        <img src="<?php echo base_url("images/products/$details->product_img") ?>">
                                     </div>
                                 </td>
-                                <td><?php echo $order_product->qty; ?></td>
-                            </tr>
+                                <td><?php echo $details->qty; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                         <?php endforeach; ?>
+
                         </tbody>
                     </table>
                 </div>

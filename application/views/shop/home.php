@@ -1,3 +1,4 @@
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner store-carousel">
         <?php foreach ($slides as $key => $slide) {

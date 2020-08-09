@@ -355,3 +355,5 @@
 
 
 </header>
+<section class="content store-content">
+    <?php $this->load->view('partials/flash'); ?>

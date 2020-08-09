@@ -5,7 +5,7 @@ class Shop extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel', 'OrdersModel'));
+        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel', 'OrdersModel', 'OrderProductModel'));
         $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
         $this->load->helper(array('language', 'admin'));
 
@@ -15,6 +15,9 @@ class Shop extends CI_Controller
 
         $this->data['add_js'] = [];
         $this->data['add_css'] = [];
+        if ($this->ion_auth->logged_in()) {
+            $this->data['user'] = $this->ion_auth->user()->row();
+        }
     }
 
     public function index()
@@ -33,7 +36,7 @@ class Shop extends CI_Controller
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
         $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         // print_r($this->Items_model->getFeaturedItems());
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/home', $this->data);
     }
 
     public function newProducts()
@@ -586,11 +589,15 @@ class Shop extends CI_Controller
     public function orders()
     {
         if ($this->ion_auth->logged_in()) {
-            echo "Profile";
-            $user = $this->ion_auth->user()->row();
-            $this->data['user'] = $user;
-            $this->data['orders'] = $this->OrdersModel->getUserOrders($user->id);
+            $user = $this->data['user'];
+            $orders = array();
+            foreach ($this->OrdersModel->getUserOrders($user->id) as $order) {
+                $order->details = $this->OrderProductModel->getProductsByOrderIds([$order->id]);
+                array_push($orders, $order);
 
+            }
+            $this->data['orders'] = $orders;
+            //$this->data['orderDetails'] = $this->OrderProductModel->
             $this->load->templateProfile('profile/orders', $this->data);
         } else {
             echo "login to continue";
