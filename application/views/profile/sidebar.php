@@ -22,27 +22,18 @@
 <div class="list-group">
 
         <span href="#" class="list-group-item active">
-            Submenu
-
+            <i class="fa fa-user"></i> <?= "$user->first_name $user->last_name" ?>
         </span>
-    <a href="#" class="list-group-item">
-        <i class="fa fa-comment-o"></i> Lorem ipsum
+
+    <a href="<?php echo base_url('shop/profile/') ?>"
+       class="list-group-item<?php echo ($this->uri->segment(2) == "") ? " active1" : ""; ?>">
+        <i class="fa fa-user-circle"></i> Profile
     </a>
-    <a href="#" class="list-group-item">
-        <i class="fa fa-search"></i> Lorem ipsum
+    <a href="<?php echo base_url('shop/orders/') ?>"
+       class="list-group-item<?php echo ($this->uri->segment(2) == "") ? " active1" : ""; ?>">
+        <i class="fa fa-shopping-cart"></i> Orders
     </a>
-    <a href="#" class="list-group-item">
-        <i class="fa fa-user"></i> Lorem ipsum
-    </a>
-    <a href="#" class="list-group-item">
-        <i class="fa fa-folder-open-o"></i> Lorem ipsum <span class="badge">14</span>
-    </a>
-    <a href="#" class="list-group-item">
-        <i class="fa fa-bar-chart-o"></i> Lorem ipsumr <span class="badge">14</span>
-    </a>
-    <a href="#" class="list-group-item">
-        <i class="fa fa-envelope"></i> Lorem ipsum
-    </a>
+
 </div>
 
 

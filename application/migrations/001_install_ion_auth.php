@@ -146,7 +146,7 @@ class Migration_Install_ion_auth extends CI_Migration
             'username' => 'admin',
             'password' => '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36',
             'salt' => '',
-            'email' => 'test@test.com',
+            'email' => 'jr.evilboss@gmail.com',
             'activation_code' => '',
             'forgotten_password_code' => NULL,
             'created_on' => time(),
@@ -154,7 +154,7 @@ class Migration_Install_ion_auth extends CI_Migration
             'active' => '1',
             'first_name' => 'Admin',
             'last_name' => 'User',
-            'company' => 'kinbenaki.com',
+            'company' => 'toyntoys.com',
             'phone' => '+8801618277377',
         );
 
