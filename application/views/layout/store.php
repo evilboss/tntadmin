@@ -187,7 +187,7 @@
                                         <i class="fa fa-instagram"></i>
                                         <i class="fa fa-weixin"></i>
                                     </div>
-                                    <?php echo form_open('shop/register') ?>
+                                    <?php echo form_open('shop/register', array('method' => 'get')) ?>
 
                                     <p class="text-primary text-center">Create an account</p>
                                     <button class="btn btn-primary btn-block" href="<?= base_url('shop/register') ?>">

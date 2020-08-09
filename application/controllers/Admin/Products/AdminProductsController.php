@@ -207,7 +207,6 @@ class AdminProductsController extends TNT_Controller
 
             foreach ($images as $image) {
                 unlink('images/products/' . $image->path);
-                unlink('images/products/' . thumbImage($image->path));
             }
             $this->ProductsModel->delete($id);
 
@@ -314,6 +313,9 @@ class AdminProductsController extends TNT_Controller
 
     public function deleteImage($id = 0)
     {
+        $image = $this->ProductImagesModel->get($id);
+        unlink('images/products/' . $image->path);
+        $this->ProductImagesModel->delete($id);
         echo json_encode('ok');
     }
 
