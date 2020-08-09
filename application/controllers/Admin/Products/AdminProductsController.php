@@ -277,12 +277,19 @@ class AdminProductsController extends TNT_Controller
     {
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $inputs = $this->input->post();
+            echo "<pre>";
             echo count($_FILES['files']);
             print_r($_FILES['files']);
+            echo "</pre>";
 
         }
         $this->load->templateAdmin('admin/products/upload', $this->data);
 
+    }
+
+    public function deleteImage($id = 0)
+    {
+        echo json_encode('ok');
     }
 
 
