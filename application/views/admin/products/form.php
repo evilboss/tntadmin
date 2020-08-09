@@ -153,14 +153,7 @@
 
             </div>
             <div class=" form-group<?php echo (form_error('cover_image')) ? ' has-error' : ''; ?>">
-                <label for="cover_image">Cover Image *</label>
-                <input type="file" name="cover_image" class="form-control" id="cover_image"/>
-                <?php echo form_error('cover_image', '<span class="help-block">', '</span>') ?>
-            </div>
-            <div class="form-group<?php echo (form_error('images[]')) ? ' has-error' : ''; ?>">
-                <label for="images">images *</label>
-                <input type="file" name="images[]" class="form-control" multiple="multiple"/>
-                <?php echo form_error('images[]', '<span class="help-block">', '</span>') ?>
+                <?php $this->load->view('admin/products/upload_form'); ?>
             </div>
 
 
@@ -348,7 +341,6 @@
                 $("input[name='spEndDate']").val(selectedData.SalesEnd_Date);
 
             }
-
 
         });
 

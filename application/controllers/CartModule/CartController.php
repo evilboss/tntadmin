@@ -25,7 +25,7 @@ class CartController extends CI_Controller
             $qty = $this->input->post('qty');
         }
         $product_display_img = "";
-        $image = $product->cover_image;
+        $image = $this->ProductImagesModel->getThumbNail($product->id);
         if ($image) {
             $product_display_img = "images/products/$image";
         }
@@ -36,6 +36,7 @@ class CartController extends CI_Controller
             'name' => $product->name,
             'options' => array('product_image' => $product_display_img)
         );
+        $this->cart->product_name_rules = '\d\D';
 
         $status = $this->cart->insert($data);
         if ($status) {
@@ -43,8 +44,8 @@ class CartController extends CI_Controller
         } else {
             $this->session->set_flashdata('error', 'Failed to add product to cart');
         }
-
-        redirect($_SERVER['HTTP_REFERER']);
+       // print_r($data);
+       redirect($_SERVER['HTTP_REFERER']);
         exit;
 
     }

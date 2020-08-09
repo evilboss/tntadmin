@@ -128,7 +128,10 @@ class ProductsModel extends TNT_Model
             $product->productTypeName = !empty($product->productTypeId) ? $this->CategoriesModel->get($product->productTypeId)->name : false;
             $product->manufacturerName = !empty($product->manufacturerId) ? $this->CategoriesModel->get($product->manufacturerId)->name : false;
             $product->isNew = $this->checkIfNew($product->created_at);
-            $product->images = $this->ProductImagesModel->getByProductId($product->id);
+            $product->images = $this->ProductImagesModel->getSlides($product->id);
+            $product->cover_image = $this->ProductImagesModel->getCoverImage($product->id);
+            $product->banner = $this->ProductImagesModel->getBanner($product->id);
+            $product->thumbnail = $this->ProductImagesModel->getThumbNail($product->id);
 
         }
         return $products;

@@ -53,9 +53,6 @@ class AdminProductsController extends TNT_Controller
         $this->form_validation->set_rules('category_id', 'category', 'trim|required');
         $this->form_validation->set_rules('weight', 'Item Weight', 'trim|required');
         $this->form_validation->set_rules('price', 'Description', 'trim|required|max_length[11]');
-        if (empty($_FILES['cover_image']['name']) && $type == 'add') {
-            $this->form_validation->set_rules('cover_image', 'cover image', 'required');
-        }
     }
 
     /**
@@ -86,21 +83,14 @@ class AdminProductsController extends TNT_Controller
             $inputs = $this->input->post();
             $this->setValidationRules();
             //Set one additional rule
-            $this->form_validation->set_rules('images[]', 'Images', 'callback_validateAndUploadFiles');
+            $this->form_validation->set_rules('callback_validateAndUploadFiles');
 
             if ($this->form_validation->run() == FALSE) {
-
                 $this->data['record'] = (object)$inputs;
             } else {
                 //Form validation success. Insert Record into database
                 $inputs['created_at'] = date('Y-m-d H:i:s');
 
-                //Upload single file. i.e Product Cover image.
-                $cover_image = $this->uploadFile('cover_image', $this->getUploadConfig());
-                //Create Product thumbnail
-                $this->createThumb($cover_image);
-                //Save uploaded file name in column.
-                $inputs['cover_image'] = $cover_image['file_name'];
                 //Format date
                 $inputs['preOrderStart'] = (date_format(date_create($inputs['preOrderStart']), "Y/m/d H:i:s"));
                 $inputs['preOrderEnd'] = (date_format(date_create($inputs['preOrderEnd']), "Y/m/d H:i:s"));
@@ -121,11 +111,25 @@ class AdminProductsController extends TNT_Controller
                 //					return false;
                 //				}
 
-                foreach ($this->uploaded_images as $uploaded_image) {
-                    $images_path['path'] = $uploaded_image['file_name'];
-                    $images_path['product_id'] = $last_id;
+                $images = (isset($_FILES['files'])) ? $_FILES['files'] : [];
+                if (!empty($images)) {
+                    $uploadedImages = $this->upload_files('', $images);
+                    foreach ($uploadedImages as $image) {
+                        $type = 'slide';
+                        if (strpos($image['file_name'], 'display') !== false) {
+                            $type = 'display';
+                        } elseif (strpos($image['file_name'], 'thumbnail') !== false) {
+                            $type = 'thumbnail';
 
-                    $this->ProductImagesModel->insert($images_path);
+                        } elseif (strpos($image['file_name'], '1920') !== false) {
+                            $type = 'banner';
+                        }
+                        $images_path['path'] = $image['file_name'];
+                        $images_path['product_id'] = $last_id;
+                        $images_path['type'] = $type;
+                        $this->ProductImagesModel->insert($images_path);
+                    }
+
                 }
                 $this->session->set_flashdata('success', 'Product Created successfully');
 
@@ -167,8 +171,6 @@ class AdminProductsController extends TNT_Controller
                 $this->ProductsModel->update($id, $inputs);
                 $this->session->set_flashdata('success', 'Product Updated successfully');
                 $upload_dir = 'images/products';
-
-
                 foreach ($this->uploaded_images as $uploaded_image) {
                     $images_path['path'] = $uploaded_image['file_name'];
                     $images_path['product_id'] = $id;
@@ -180,7 +182,7 @@ class AdminProductsController extends TNT_Controller
             }
         }
         $record = $this->ProductsModel->get($id);
-
+        $record->images = $this->ProductImagesModel->getByProductId($id);
         $this->data['record'] = $record;
         $this->data['legacy'] = $this->Legacy_model->getProducts($this->ProductsModel->getAllProductCodes());
         $this->data['categories'] = $this->CategoriesModel->getCategoriesDropdown('category');
@@ -304,7 +306,6 @@ class AdminProductsController extends TNT_Controller
                 //   print_r($uploadedImages);
                 echo "</pre>";
             }
-
 
         }
         $this->load->templateAdmin('admin/products/upload', $this->data);
