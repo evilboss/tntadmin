@@ -17,7 +17,7 @@
             <?= $item->isNew ?
                 "<div class=\"corner $item->status-corner\"><span>NEW</span></div>" : ''
             ?>
-            <img class="card-img product-img" src="<?= base_url("/images/products/$item->cover_image") ?>"
+            <img class="card-img product-img" src="<?= base_url("/images/products/$item->thumbnail") ?>"
                  alt="Card image cap">
             <div class="product-type <?= $item->status ?>"><?= $item->productTypeName ?></div>
         </div>
