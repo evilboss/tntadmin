@@ -24,7 +24,7 @@
                     <div class="box-body">
                         <?php print_r($record); ?>
                         <table class="table table-bordered">
-                            <tbody>
+                            <tbody id="orderTableBody">
                             <tr>
                                 <th>Id</th>
                                 <td><?php echo xss_clean($record->id) ?></td>
@@ -96,6 +96,12 @@
         });
         $('#status-select').on('change', function (e) {
             console.log(e.currentTarget.value);
-        })
+            $('#orderTableBody').append(_.template(`<tr>
+                                <th>Set Shipping Rate:</th>
+                                <td><input class="form-control"/></td>
+                                <td><button class="btn btn-success">Save</button></td>
+
+                            </tr>`));
+        });
     });
 </script>

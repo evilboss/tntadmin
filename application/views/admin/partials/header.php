@@ -20,21 +20,23 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo base_url('assets/admin/css/skins/skin-blue.min.css') ?>">
-    <!-- jQuery 3 -->
-    <script src="<?php echo base_url('assets/libs/jquery/dist/jquery.min.js') ?>"></script>
-    <!-- daterangepicker-->
-
-
-    <!-- Bootstrap 3.3.7 -->
-    <script src="<?php echo base_url('assets/libs/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') ?>"></script>
-
 
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-yellow sidebar-mini">
+<!-- jQuery 3 -->
+<script src="<?php echo base_url('assets/libs/jquery/dist/jquery.min.js') ?>"></script>
+<!-- daterangepicker-->
+
+
+<!-- Bootstrap 3.3.7 -->
+<script src="<?php echo base_url('assets/libs/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') ?>"></script>
+
+<script src="<?= base_url('assets/libs/lodash/lodash.js') ?>"></script>
+
 <div class="wrapper">
 
     <header class="main-header">
