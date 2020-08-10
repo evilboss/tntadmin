@@ -5,6 +5,7 @@ class ProductsModel extends TNT_Model
 
     public $_table = 'products';
 
+
     /**
      * ProductsModel constructor.
      */

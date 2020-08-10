@@ -34,7 +34,7 @@
         <i class="fa fa-shopping-cart"></i> Orders
     </a>
     <a href="<?php echo base_url('shop/addresses/') ?>"
-       class="list-group-item<?php echo ($this->uri->segment(2) == "") ? " active1" : ""; ?>">
+       class="list-group-item<?php echo ($this->uri->segment(2) == "addresses") ? " active1" : ""; ?>">
         <i class="fa fa-home"></i> Addresses
     </a>
 

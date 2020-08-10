@@ -34,7 +34,7 @@ class CartController extends CI_Controller
             'qty' => $qty,
             'price' => $product->price,
             'name' => $product->name,
-            'options' => array('product_image' => $product_display_img)
+            'options' => array('product_image' => $product_display_img),
         );
         $this->cart->product_name_rules = '\d\D';
 
@@ -44,8 +44,8 @@ class CartController extends CI_Controller
         } else {
             $this->session->set_flashdata('error', 'Failed to add product to cart');
         }
-       // print_r($data);
-       redirect($_SERVER['HTTP_REFERER']);
+        // print_r($data);
+        redirect($_SERVER['HTTP_REFERER']);
         exit;
 
     }

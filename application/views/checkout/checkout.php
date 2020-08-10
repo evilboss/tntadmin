@@ -12,6 +12,10 @@
         <?php echo form_open('cart/update'); ?>
         <div class="container-table-cart pos-relative">
             <div class="wrap-table-shopping-cart bgwhite">
+                <pre><?php print_r($debug); ?></pre>
+                <pre><?= $zones; ?></pre>
+                <pre><?= $totalWeight; ?></pre>
+
                 <table class="table-shopping-cart">
                     <tr class="table-head">
                         <th class="column-1"></th>
@@ -77,74 +81,39 @@
             </div>
 
             <div class="flex-w flex-sb-m p-t-26 p-b-30">
-					<span class="m-text22 w-size19 w-full-sm">
-						Delivery Address:
-					</span>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"> Delivery Address:</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="addressId">
+                        <?php foreach ($addresses as $address) { ?>
+                            <option></option>
+                            <option value="<?= $address->id ?>"><?= "$address->country, $address->state, $address->city, $address->street, $address->postcode" ?></option>
+                            <?php
+                        } ?>
+                    </select>
+                </div>
 
-                <span class="m-text21 w-size20 w-full-sm effect1 w-size9">
-                         <?php echo form_input('delivery_address', set_value('delivery_address'), array("required" => "required")) ?>
-                        <span class="effect1-line"></span>
-					</span>
             </div>
 
-            <div class="flex-w flex-sb-m p-t-26 p-b-30">
-					<span class="m-text22 w-size19 w-full-sm">
-						Pincode :
-					</span>
 
-                <span class="m-text21 w-size20 w-full-sm effect1 w-size9">
-                         <?php echo form_input('pincode', set_value('pincode'), array("class" => "s-text7 w-full", "required" => "required")) ?>
-                        <span class="effect1-line"></span>
-					</span>
-            </div>
-
-            <div class="size15 trans-0-4">
+            <div class="form-group">
                 <!-- Button -->
-                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                <button class="btn btn-primary">
                     Place Order
                 </button>
             </div>
             <?php echo form_close() ?>
-            <p>
-
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#card"
-                        aria-expanded="false" aria-controls="collapseExample">
-                    Pay with Card
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#paynow"
-                            aria-expanded="false" aria-controls="collapseExample">
-                        Pay with Paynow
-                    </button>
-                    th data-target
-                </button>
-            </p>
-
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="paynow-tab" data-toggle="tab" href="#paynow" role="tab" aria-controls="paynow" aria-selected="true">Paynow</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#card" role="tab" aria-controls="card" aria-selected="false">Card Payment</a>
-                </li>
-
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane active" id="paynow" role="tabpanel" aria-labelledby="paynow-tab">
-
-                    Pay with paynow scan qr code
-                    add this as the referene code
-                    <img src="<?= base_url('assets/images/qr-tnt.jpeg') ?>">
-
-                </div>
-                <div class="tab-pane" id="card" role="tabpanel" aria-labelledby="profile-tab">Card Payment</div>
-            </div>
-
 
 
         </div>
     </div>
 
 </section>
+<script>
+    $(function () {
+        const zones = <?php echo ($zones) ? $zones : "''";?>;
+        console.log(zones);
+    });
+
+</script>
 
 

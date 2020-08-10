@@ -5,7 +5,7 @@ class Shop extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel', 'OrdersModel', 'OrderProductModel'));
+        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel', 'OrdersModel', 'OrderProductModel', 'AddressModel'));
         $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
         $this->load->helper(array('language', 'admin'));
 
@@ -608,12 +608,37 @@ class Shop extends CI_Controller
     {
         if ($this->ion_auth->logged_in()) {
             $user = $this->data['user'];
+            $debug = array();
+
+            if ($this->input->server('REQUEST_METHOD') == 'POST') {
+                $inputs = $this->input->post();
+                if ($inputs) {
+                    $this->form_validation->set_rules('country', 'Country is required', 'required');
+                    $this->form_validation->set_rules('state', 'State is required', 'required');
+                    $this->form_validation->set_rules('city', 'City is required', 'required');
+                    $this->form_validation->set_rules('street', 'Street Address is required', 'required');
+                    $this->form_validation->set_rules('postcode', 'Postcode is required', 'required');
+                    if ($this->form_validation->run() === true) {
+                        $inputs['userId'] = $user->user_id;
+                        array_push($debug, array('inputs' => $inputs));
+                        $this->AddressModel->insertAddress($inputs);
+
+                    }
+                    // print_r($inputs);
+                }
+            }
+
+
+            $addresses = $this->AddressModel->getAddressByUserId($user->user_id);
+            //print_r($addresses);
+            array_push($debug, array('$addresses' => $addresses));
+
             $orders = array();
             foreach ($this->OrdersModel->getUserOrders($user->id) as $order) {
                 $order->details = $this->OrderProductModel->getProductsByOrderIds([$order->id]);
                 array_push($orders, $order);
-
             }
+            $this->data['debug'] = $debug;
             $this->data['orders'] = $orders;
             //$this->data['orderDetails'] = $this->OrderProductModel->
             $this->load->templateProfile('profile/addresses', $this->data);

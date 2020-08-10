@@ -31,6 +31,8 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.carousel.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.theme.default.min.css') ?>">
 
     <link rel="stylesheet" href="/assets/css/tnt-store.css">
 
@@ -52,13 +54,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="<?= base_url('assets/libs/owl.carousel/dist/owl.carousel.min.js') ?>"></script>
 
-
-<script>
-    $(document).ready(function () {
-
-    });
-</script>
 <script src="/assets/js/cart.js"></script>
 <?php if (!empty($add_js)): ?><?php foreach ($add_js as $js): ?>
     <script src="<?= $js ?>"></script> <?php endforeach; ?><?php endif; ?>
@@ -285,7 +282,7 @@
 
                                         <div class="header-cart-wrapbtn">
                                             <!-- Button -->
-                                            <a href="<?php echo base_url('index.php/cart/checkout') ?>"
+                                            <a href="<?php echo base_url('cart/checkout') ?>"
                                                class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                                 Check Out
                                             </a>
