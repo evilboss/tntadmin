@@ -268,7 +268,7 @@
                                     </ul>
 
                                     <div class="header-cart-total">
-                                        Total: Rs. <?php echo number_format($this->cart->total()); ?>
+                                        Total: $ <?php echo number_format($this->cart->total()); ?>
                                     </div>
 
                                     <div class="header-cart-buttons">

@@ -22,6 +22,7 @@
                     </div>
 
                     <div class="box-body">
+                        <?php print_r($record); ?>
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
@@ -38,8 +39,18 @@
                                 <td><?php echo xss_clean($record->email) ?></td>
                             </tr>
                             <tr>
-                                <th>Delivery Address</th>
+                                <th>Delivery address</th>
                                 <td><?php echo xss_clean($record->delivery_address) ?></td>
+                            </tr>
+                            <tr>
+                                <th>Total order weight:</th>
+                                <td><?php echo xss_clean($record->total_weight) ?></td>
+
+                            </tr>
+                            <tr>
+                                <th>Total order amount</th>
+                                <td>$ <?php echo xss_clean($record->total_amt) ?></td>
+
                             </tr>
                             <tr>
                                 <th>Status</th>
