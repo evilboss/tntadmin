@@ -2,21 +2,23 @@
 
 class AddressModel extends TNT_Model
 {
-    protected $table = 'addresses';
+    public $_table = 'addresses';
 
     public function __construct()
     {
+        parent::__construct();
+
         //$this->load->database();
     }
 
     public function insertAddress($data)
     {
-        $this->db->insert($this->table, $data);
+        $this->db->insert($this->_table, $data);
     }
 
     public function getAddressByUserId($userId)
     {
-        return $this->db->where('userId', $userId)->get($this->table)->result();
+        return $this->db->where('userId', $userId)->get($this->_table)->result();
     }
 
 

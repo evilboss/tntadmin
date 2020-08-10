@@ -28,10 +28,10 @@
                             <?php foreach ($records as $record) : ?>
                                 <tr>
                                     <td><?php echo $record->id; ?></td>
-                                    <td><?php echo $record->pincode; ?></td>
+                                    <td><?php echo $record->order_status; ?></td>
                                     <td><?php echo $record->total_amt; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('index.php/admin/' . $this->uri->segment(2) . '/show/' . $record->id) ?>"
+                                        <a href="<?php echo base_url('/admin/' . $this->uri->segment(2) . '/show/' . $record->id) ?>"
                                            class="btn btn-primary btn-sm"><span
                                                     class="glyphicon glyphicon-eye-open"></span></a>
                                         <button data-toggle="modal"

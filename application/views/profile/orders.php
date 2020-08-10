@@ -6,7 +6,6 @@
                 <?php $this->load->view("profile/sidebar"); ?>
             </div>
             <div class="col-md-10 col-sm-8">
-
                 <div class="card">
                     <table class="table">
                         <thead>
@@ -15,6 +14,7 @@
                             <th>Product Name</th>
                             <th>Preview</th>
                             <th>qty</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,6 +30,7 @@
                                     </div>
                                 </td>
                                 <td><?php echo $details->qty; ?></td>
+                                <td> <?php echo $order->order_status; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endforeach; ?>

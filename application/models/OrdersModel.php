@@ -1,10 +1,8 @@
 <?php
-
 class OrdersModel extends TNT_Model
 {
     public $_table = 'orders';
     public $belongs_to = array('user');
-
 
     public function getOrder($id)
     {

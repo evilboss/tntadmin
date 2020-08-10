@@ -9,11 +9,7 @@ class AdminOrdersController extends TNT_Controller
     public function __construct()
     {
         parent::__construct();
-        /*if(!$this->session->logged_in){
-            redirect(base_url('index.php/login'));
-            exit;
-        }*/
-        $this->load->model('OrdersModel');
+        $this->load->model(array('OrdersModel', 'AddressModel'));
         $this->load->helper("security");
 
     }
@@ -24,7 +20,6 @@ class AdminOrdersController extends TNT_Controller
     public function index()
     {
         $this->data['records'] = $this->OrdersModel->order_by('created_at', 'desc')->get_all();
-
         $this->load->templateAdmin('admin/orders/list', $this->data);
     }
 
@@ -36,8 +31,11 @@ class AdminOrdersController extends TNT_Controller
     public function show($id)
     {
         $record = $this->OrdersModel->getOrder($id);
-        $data['record'] = $record;
-        $this->load->templateAdmin('admin/orders/show', $data);
+        $address = $this->AddressModel->get($record->deliveryId);
+        $this->data['record'] = $record;
+        $record->delivery_address = "$address->country, $address->state, $address->city, $address->street, $address->postcode";
+        $this->data['address'] = $address;
+        $this->load->templateAdmin('admin/orders/show', $this->data);
     }
 
     public function delete($id)

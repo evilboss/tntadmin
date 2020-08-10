@@ -7,9 +7,7 @@
 </section>
 <section class="cart bgwhite p-t-70 p-b-100">
     <div class="container">
-        <?php $this->load->view('partials/flash'); ?>
         <!-- Cart item -->
-        <?php echo form_open('cart/update'); ?>
         <div class="container-table-cart pos-relative">
             <div class="wrap-table-shopping-cart bgwhite">
                 <pre><?php print_r($debug); ?></pre>
@@ -49,7 +47,6 @@
                 </table>
             </div>
         </div>
-        <?php echo form_close() ?>
 
         <!-- Total -->
         <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
@@ -83,13 +80,18 @@
             <div class="flex-w flex-sb-m p-t-26 p-b-30">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1"> Delivery Address:</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="addressId">
-                        <?php foreach ($addresses as $address) { ?>
-                            <option></option>
-                            <option value="<?= $address->id ?>"><?= "$address->country, $address->state, $address->city, $address->street, $address->postcode" ?></option>
-                            <?php
-                        } ?>
-                    </select>
+                    <?php
+                    $dropDownAddresss = array('');
+
+                    foreach ($addresses as $address) {
+                        array_push($dropDownAddresss,
+                            "$address->country, $address->state, $address->city, $address->street, $address->postcode");
+                    }
+                    ?>
+                    <?php echo form_dropdown('deliveryId', $dropDownAddresss, '', ['class' => form_error('deliveryId') ? 'form-control is-invalid' : 'form-control']) ?>
+                    <?php echo form_error('deliveryId', '<span class="help-block invalid-feedback">', '</span>') ?>
+
+
                 </div>
 
             </div>
@@ -97,7 +99,7 @@
 
             <div class="form-group">
                 <!-- Button -->
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" type="submit">
                     Place Order
                 </button>
             </div>

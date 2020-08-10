@@ -20,7 +20,6 @@
                     <div class="box-header">
                         Order Details
                     </div>
-                    <?php echo form_open(base_url('index.php/admin/categories/edit/'.$this->uri->segment(4))) ?>
 
                     <div class="box-body">
                         <table class="table table-bordered">
@@ -43,14 +42,32 @@
                                 <td><?php echo xss_clean($record->delivery_address) ?></td>
                             </tr>
                             <tr>
-                                <th>Pincode</th>
-                                <td><?php echo xss_clean($record->pincode) ?></td>
+                                <th>Status</th>
+                                <td><?php echo xss_clean($record->order_status) ?>
+                                    <button id="changeStatus" class="btn btn-success" type="button">Change</button>
+                                    <select id="status-select" class="hide">
+                                        <option value="paid">
+                                            Paid
+                                        </option>
+                                        <option value="for payment">
+                                            For Payment
+                                        </option>
+                                        <option value="For Shipping">
+                                            For Shipping
+                                        </option>
+                                        <option value="Shipped">
+                                            Shipped
+                                        </option>
+                                        <option value="Delivered">
+                                            Delivered
+                                        </option>
+                                    </select>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
 
                     </div>
-                    <?php echo form_close() ?>
 
                 </div>
 
@@ -58,3 +75,16 @@
         </div>
     </section>
 </div>
+<script>
+    $(function () {
+
+        $('#changeStatus').click(function () {
+            console.log('changes status click');
+            $('#changeStatus').addClass('hide');
+            $('#status-select').removeClass('hide');
+        });
+        $('#status-select').on('change', function (e) {
+            console.log(e.currentTarget.value);
+        })
+    });
+</script>
