@@ -536,8 +536,12 @@ button.close {
     background-color: #ECA000;
 
 }
+.tab-content.payment{
+    min-height: 50vh;
+    max-height: 65vh;
 
-.tab-content {
+}
+.tab-content.item{
     min-height: 100px;
     max-height: 100px;
 }

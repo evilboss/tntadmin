@@ -23,6 +23,26 @@ class AdminOrdersController extends TNT_Controller
         $this->load->templateAdmin('admin/orders/list', $this->data);
     }
 
+    protected function setValidationRules($orderStatus)
+    {
+
+        switch ($orderStatus) {
+            case "Processing":
+
+                $this->form_validation->set_rules('transactionNumber', 'Transaction Number', 'required');
+                break;
+            case "For Payment":
+                $this->form_validation->set_rules('shippingPrice', 'Shipping Price', 'required');
+                break;
+            case "green":
+                echo "Your favorite color is green!";
+                break;
+            default:
+                echo "Your favorite color is neither red, blue, nor green!";
+        }
+
+    }
+
     /**
      * Show the order.
      *
@@ -31,6 +51,29 @@ class AdminOrdersController extends TNT_Controller
     public function show($id)
     {
         $record = $this->OrdersModel->getOrder($id);
+
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $inputs = $this->input->post();
+
+            $orderStatus = $inputs['order_status'];
+            $this->setValidationRules($orderStatus);
+
+
+            $this->form_validation->set_rules('order_status', 'Order Status', 'required');
+
+            if ($this->form_validation->run() === true) {
+                $record->order_status = $orderStatus;
+                $this->OrdersModel->update($id, $inputs);
+                $this->session->set_flashdata('success', 'Order Updated');
+            } else {
+                $this->session->set_flashdata('error', $this->form_validation->error_string());
+
+            }
+
+
+        }
+
+
         $address = $this->AddressModel->get($record->deliveryId);
         $this->data['record'] = $record;
         $record->delivery_address = "$address->country, $address->state, $address->city, $address->street, $address->postcode";

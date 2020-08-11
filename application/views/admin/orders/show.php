@@ -22,7 +22,10 @@
                     </div>
 
                     <div class="box-body">
+                        <?php $this->load->view('admin/partials/flash') ?>
                         <?php print_r($record); ?>
+                        <?php echo form_open("admin/orders/show/$record->id") ?>
+
                         <table class="table table-bordered">
                             <thead>
                             <th>Field</th>
@@ -30,6 +33,7 @@
                             <th>Actions</th>
 
                             </thead>
+
                             <tbody id="orderTableBody">
                             <tr>
                                 <th>Id</th>
@@ -70,36 +74,46 @@
                                 <td><?php echo xss_clean($record->order_status) ?>
                                 </td>
                                 <td>
-                                    <button id="changeStatus" class="btn btn-success" type="button">Change</button>
-                                    <select id="status-select" class="hide">
-                                        <option value="ordered">
-                                            Ordered
-                                        </option>
-                                        <option value="processing">
-                                            Processing
-                                        </option>
+                                    <?php if ($record->order_status === "Pending Verification"): ?>
 
-                                        <option value="for payment">
-                                            For Payment
-                                        </option>
-                                        <option value="paid">
-                                            Paid
-                                        </option>
-                                        <option value="for shipping">
-                                            For Shipping
-                                        </option>
-                                        <option value="shipped">
-                                            Shipped
-                                        </option>
-                                        <option value="delivered">
-                                            Delivered
-                                        </option>
-                                    </select>
+                                        <button id="approvePayment" class="btn btn-success" type="button">Aprove
+                                        </button>
+                                        <button id="rejectPayment" class="btn btn-danger" type="button">Reject</button>
 
+                                    <?php else: ?>
+                                        <button id="changeStatus" class="btn btn-success" type="button">Change</button>
+                                        <select id="status-select" name="order_status" class="hide">
+                                            <option value="Ordered">
+                                                Ordered
+                                            </option>
+                                            <option value="Processing">
+                                                Processing
+                                            </option>
+
+                                            <option value="For Payment">
+                                                For Payment
+                                            </option>
+                                            <option value="Paid">
+                                                Paid
+                                            </option>
+                                            <option value="for shipping">
+                                                For Shipping
+                                            </option>
+                                            <option value="shipped">
+                                                Shipped
+                                            </option>
+                                            <option value="delivered">
+                                                Delivered
+                                            </option>
+                                        </select>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                             </tbody>
+
                         </table>
+                        <?php echo form_close() ?>
+
 
                     </div>
 
@@ -123,21 +137,23 @@
             $('tr').remove('.option-row');
 
             switch (e.currentTarget.value) {
-                case 'for payment':
-                    $('#orderTableBody').append(_.template(`<tr class="option-row">
+                case 'For Payment':
+                    $('#orderTableBody').append(_.template(`
+                                <tr class="option-row">
                                 <th>Set Shipping Rate:</th>
-                                <td><input class="form-control"/></td>
-                                <td><button id="saveBtn" class="btn btn-success save">Save</button></td>
+                                <td><input name="shippingPrice" class="form-control"/></td>
+                                <td><button type="submit" class="btn btn-primary">Save</button></td>
+                            </tr>
 
-                            </tr>`));
+                            `));
                     $('.save').on('click', function () {
                         console.log('save button');
                     });
                     break;
-                case 'processing':
+                case 'Processing':
                     $('#orderTableBody').append(_.template(`<tr class="option-row">
                                 <th>Set Transaction number:</th>
-                                <td><input class="form-control"/></td>
+                                <td><input name="transactionNumber" class="form-control"/></td>
                                 <td><button class="btn btn-success save">Save</button></td>
 
                             </tr>`));
@@ -146,11 +162,13 @@
                     });
                     // code block
                     break;
-                case 'paid':
+                case 'Paid':
                     $('#orderTableBody').append(_.template(`<tr class="option-row">
                                 <th>Set Transaction number:</th>
                                 <td><input class="form-control"/></td>
+                                <td><input name="transactionNumber" class="form-control"/></td>
                                 <td><button class="btn btn-success save">Save</button></td>
+
 
                             </tr>`));
                     $('.save').on('click', function () {

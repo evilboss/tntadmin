@@ -100,7 +100,9 @@ $route['cart/remove']['POST'] = 'CartModule/CartController/removeItem';
 //================Check out ==============//
 
 $route['cart/checkout'] = 'CheckOut/CheckoutController';
+$route['cart/checkout/(:any)'] = 'CheckOut/CheckoutController/pay/$1';
 $route['place-order']['POST'] = 'CheckOut/CheckoutController/placeOrder';
+
 
 //================Products ==============//
 

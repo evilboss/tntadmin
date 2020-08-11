@@ -136,4 +136,48 @@ class CheckoutController extends CI_Controller
 
 
     }
+
+    public function pay($orderId)
+    {
+        $order = $this->OrdersModel->get($orderId);
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $inputs = $this->input->post();
+            $transactionType = $inputs['transactionType'];
+            $this->form_validation->set_rules('transactionType', 'Order Status', 'required');
+            $this->form_validation->set_rules($transactionType, ucfirst($transactionType), 'required');
+            if ($this->form_validation->run() === true) {
+                $data = array(
+                    'order_status' => 'Pending Verification',
+                    $transactionType => $inputs[$transactionType]
+                );
+                $orderId = $this->OrdersModel->update($order->id, $data);
+                if ($orderId) {
+                    $this->session->set_flashdata('success', 'Order Updated');
+                }
+
+            } else {
+                $this->session->set_flashdata('error', $this->form_validation->error_string());
+            }
+
+            /* $orderStatus = $inputs['order_status'];
+             $this->setValidationRules($orderStatus);
+
+
+             $this->form_validation->set_rules('order_status', 'Order Status', 'required');
+
+             if ($this->form_validation->run() === true) {
+                 $record->order_status = $orderStatus;
+                 $this->OrdersModel->update($id, $inputs);
+                 $this->session->set_flashdata('success', 'Order Updated');
+             } else {
+                 $this->session->set_flashdata('error', $this->form_validation->error_string());
+
+             }*/
+        }
+        print_r($order);
+        $this->data['order'] = $order;
+        $this->load->templateProfile('checkout/payment', $this->data);
+
+
+    }
 }
