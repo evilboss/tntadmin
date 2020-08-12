@@ -171,4 +171,20 @@ class ProductsModel extends TNT_Model
 
     }
 
+    public function getBannerItems()
+    {
+        $productIds = array();
+        $this->db->select("*");
+        $this->db->from($this->_table);
+        $this->db->where("banner", "1");
+        $banners = $this->db->get()->result();
+        foreach ($banners as $key => $value) {
+            array_push($productIds, $value->id);
+        }
+
+        return (object)array('banners' => $this->getFormattedItems($banners), 'bannerIds' => $productIds);
+
+//        $this->db2->where_not_in('ItemCode', $ids);
+    }
+
 }

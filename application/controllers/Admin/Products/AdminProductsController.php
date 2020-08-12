@@ -95,24 +95,11 @@ class AdminProductsController extends TNT_Controller
                 $inputs['preOrderStart'] = (date_format(date_create($inputs['preOrderStart']), "Y/m/d H:i:s"));
                 $inputs['preOrderEnd'] = (date_format(date_create($inputs['preOrderEnd']), "Y/m/d H:i:s"));
 
-//				$images_path = array();
-//				$allowed_mime_types = array("image/jpeg", "image/png", "image/jpg");
-//
-//				print_r($_FILES); die();
-//				$this->upload->do_upload('images');
-
-                //Insert form data into database
                 $last_id = $this->ProductsModel->insert($inputs);
-
-
-                //
-                //				if(!$this->upload->do_upload('images')){
-                //					//$this->form_validation->set_message('uploadFiles', $this->upload->display_errors());
-                //					return false;
-                //				}
 
                 $images = (isset($_FILES['files'])) ? $_FILES['files'] : [];
                 if (!empty($images)) {
+                    //print_r($images);
                     $uploadedImages = $this->upload_files('', $images);
                     foreach ($uploadedImages as $image) {
                         $type = 'slide';
@@ -135,7 +122,7 @@ class AdminProductsController extends TNT_Controller
 
 
                 //print_r($inputs);
-                redirect(base_url('index.php/admin/products'));
+                redirect(base_url('admin/products'));
                 exit;
 
             }

@@ -301,9 +301,7 @@
         //Date picker
         $('.datepicker').datepicker({
             autoclose: true
-        })
-    });
-    $(document).ready(function () {
+        });
         const selectedProductCode = <?php if (isset($record->productCode)) {
             echo json_encode($record->productCode);
         } else echo "''";?>;
@@ -316,7 +314,6 @@
             tags: true,
             containerCssClass: 'form-control'
         });
-        console.log('productCode', selectedProductCode);
         if (selectedProductCode) {
             productCodeOption.append(`<option value=${selectedProductCode} selected="selected">${selectedProductCode}</option>`);
             productCodeOption.val(selectedProductCode).trigger('change');
@@ -339,13 +336,9 @@
                 $("input[name='poPrice']").val(selectedData.PreorderPrice);
                 $("input[name='spStartDate']").val(selectedData.SalesStart_Date);
                 $("input[name='spEndDate']").val(selectedData.SalesEnd_Date);
-
             }
 
         });
 
-
-    })
-    ;
-
+    });
 </script>

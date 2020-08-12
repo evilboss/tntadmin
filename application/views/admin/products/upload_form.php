@@ -35,7 +35,7 @@
         showUpload: false,
         initialPreviewAsData: true,
         overwriteInitial: false,
-
+        allowedFileExtensions: ['jpg', 'gif', 'png', 'jpeg'],
         initialPreview: imagePaths,
         initialPreviewConfig: imageConfigs
 

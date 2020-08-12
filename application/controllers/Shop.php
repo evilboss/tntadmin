@@ -28,10 +28,12 @@ class Shop extends CI_Controller
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
         $this->pagination->initialize($pagination_config);
+        $bannerData = $this->ProductsModel->getBannerItems();
         $current_per_page = $this->input->get('per_page') or 0;
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
+        $this->data['banners'] = $bannerData->banners;
         $this->data['items'] = $this->Items_model->getWebItems();
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
         $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
@@ -645,6 +647,12 @@ class Shop extends CI_Controller
         } else {
             echo "login to continue";
         }
+
+    }
+
+    public function card()
+    {
+        $this->load->templateProfile('profile/card', $this->data);
 
     }
 

@@ -1,18 +1,32 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner store-carousel">
-        <?php foreach ($slides as $key => $slide) {
-            reset($slides);
+        <?php
+        $bannerCounter = 0;
+
+        foreach ($banners as $key => $slide) {
+            reset($slide);
+            if ($key === key($banners))
+                echo 'FIRST ELEMENT!';
+
             ?>
-            <div class="carousel-item <?php if ($key === key($slides))
-                echo 'active';
-            ?>">
-                <img class="d-block w-100" src="<?= base_url("images/categories/$slide->path") ?>"
-                     alt="<?= $slide->title ?>">
+
+            <div class="carousel-item <?php if ($key === key($banners))
+                echo 'active' ?>">
+                <img class="d-block w-100" src="<?= base_url("images/products/$slide->banner") ?>"
+                     alt="<?= $slide->name ?>">
             </div>
 
             <?php
         } ?>
+    </div>
+</div>
+
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner store-carousel">
+
 
     </div>
 
@@ -27,6 +41,7 @@
     </a>
 </div>
 <section class="light-gray-section item-container">
+
     <div class="container">
         <div class="row">
             <h3>Featured Products</h3>

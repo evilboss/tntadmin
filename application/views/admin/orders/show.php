@@ -78,7 +78,7 @@
 
                                         <button id="approvePayment" class="btn btn-success" type="button">Aprove
                                         </button>
-                                        <button id="rejectPayment" class="btn btn-danger" type="button">Reject</button>
+                                        <button id="rejectPayment" class="btn btn-dangera" type="button">Reject</button>
 
                                     <?php else: ?>
                                         <button id="changeStatus" class="btn btn-success" type="button">Change</button>

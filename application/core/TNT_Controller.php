@@ -73,7 +73,7 @@ class TNT_Controller extends CI_Controller
     {
         $config = array(
             'upload_path' => $path,
-            'allowed_types' => 'jpg|gif|png',
+            'allowed_types' => 'jpg|gif|png|jpeg',
             'overwrite' => 1,
         );
 
