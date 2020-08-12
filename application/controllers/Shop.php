@@ -652,6 +652,7 @@ class Shop extends CI_Controller
 
     public function card()
     {
+        //$this->load->view('layout/shop');
         $this->load->templateProfile('profile/card', $this->data);
 
     }

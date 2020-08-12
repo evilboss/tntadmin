@@ -187,4 +187,10 @@ class ProductsModel extends TNT_Model
 //        $this->db2->where_not_in('ItemCode', $ids);
     }
 
+    public function getNotIn($ids = '')
+    {
+        $this->db->select("*");
+        $this->db->from($this->_table);
+
+    }
 }
