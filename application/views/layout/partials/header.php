@@ -322,6 +322,13 @@
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="/assets/img/tnt-logo.png"></a>
+
+        <button class="navbar-toggler" style="height: 50px" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="w-100 mx-6 d-flex justify-content-between">
             <div class="row">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -379,16 +386,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="/assets/img/tnt-logo.png"></a>
-            </div>
-            <button class="navbar-toggler" style="height: 50px" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-        </div>
+
     </nav>
 
 </header>
