@@ -38,11 +38,17 @@
                                             </td>
                                             <td><?php echo $details->qty; ?></td>
                                             <td>
-                                                <button class="btn btn-success">Pay</button>
+
+                                                <?php if ($details->status === 'For Payment'): ?>
+                                                    <button class="btn btn-success">Pay</button>
+                                                <?php endif; ?>
                                                 <button class="btn btn-danger">Cancel</button>
-                                                <a class="btn btn-danger"
-                                                   href="<?= base_url("shop/return-product/$details->order_id/$details->product_id") ?>">Request
-                                                    Return</a>
+                                                <?php if ($details->status === 'delivered'): ?>
+                                                    <a class="btn btn-danger"
+                                                       href="<?= base_url("shop/return-product/$details->order_id/$details->product_id") ?>">Request
+                                                        return</a>
+                                                <?php endif; ?>
+
                                             </td>
                                             </tr>
                                         <?php endforeach; ?>
