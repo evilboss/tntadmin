@@ -103,6 +103,11 @@
                                 </span> </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item mx">
+                                        <a class="nav-link">View Cart</a>
+                                    </li>
+                                </ul>
 
                             </div>
                         </div>
@@ -373,11 +378,12 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="/assets/img/tnt-logo.png"></a>
-
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <button class="navbar-toggler" style="height: 50px" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

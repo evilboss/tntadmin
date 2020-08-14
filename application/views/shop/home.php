@@ -118,7 +118,7 @@
 <section class="light-gray-section item-container">
     <div class="container">
         <h3>Blog post</h3>
-        <div class="container">
+        <div class="container align-self-center">
             <div class="blog-carousel owl-carousel owl-theme">
                 <div class="item">
                     <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
@@ -163,26 +163,28 @@
             }
 
         });
-    });
-    $('.blog-carousel').owlCarousel({
-        smartSpeed: 650,
-        margin: 20,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
-            },
-            600: {
-                items: 1,
-                nav: false
-            },
-            1000: {
-                items: 3,
-                nav: true,
-                loop: false
+        $('.blog-carousel').owlCarousel({
+            smartSpeed: 650,
+            margin: 50,
+            responsiveClass: true,
+            autoWidth: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 1,
+                    nav: false
+                },
+                1000: {
+                    items: 3,
+                    nav: true,
+                    loop: false
+                }
             }
-        }
+
+        });
 
     });
 
