@@ -126,53 +126,14 @@
                     <span class="img-text">Back to the future</span>
                 </div>
                 <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=2"/>
-                    <span class="img-text">abstract</span>
+                    <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
+                    <span class="img-text">Home Alone</span>
                 </div>
                 <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=3"/>
-                    <span class="img-text">animals</span>
+                    <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
+                    <span class="img-text">Jaws</span>
                 </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=4"/>
-                    <span class="img-text">nature</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=5"/>
-                    <span class="img-text">business</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=6"/>
-                    <span class="img-text">cats</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=7"/>
-                    <span class="img-text">city</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=8"/>
-                    <span class="img-text">food</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=9"/>
-                    <span class="img-text">fashion</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=10"/>
-                    <span class="img-text">people</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=11"/>
-                    <span class="img-text">sports</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=12"/>
-                    <span class="img-text">technics</span>
-                </div>
-                <div class="item">
-                    <img src="https://picsum.photos/640/480?pic=13"/>
-                    <span class="img-text">transport</span>
-                </div>
+
             </div>
 
         </div>
