@@ -33,7 +33,6 @@ body {
 .item-container {
     min-height: 55vh;
     height: auto;
-    overflow-x: auto;
     white-space: nowrap;
 }
 

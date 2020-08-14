@@ -150,6 +150,7 @@
             nav: true,
             smartSpeed: 650,
             items: 4,
+
             navigationText: [
                 "<i class='icon-chevron-left icon-white'><</i>",
                 "<i class='icon-chevron-right icon-white'>></i>"
@@ -163,7 +164,23 @@
     $('.blog-carousel').owlCarousel({
         smartSpeed: 650,
         margin: 20,
-        items: 3,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:3,
+                nav:false
+            },
+            1000:{
+                items:5,
+                nav:true,
+                loop:false
+            }
+        }
+
     });
 
 </script>
