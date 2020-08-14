@@ -3,22 +3,25 @@
 
         <?php
         $bannerCounter = 0;
+        if (isset($banners)) {
+            foreach ($banners as $key => $slide) {
+                reset($slide);
+                if ($key === key($banners))
+                    echo 'FIRST ELEMENT!';
 
-        foreach ($banners as $key => $slide) {
-            reset($slide);
-            if ($key === key($banners))
-                echo 'FIRST ELEMENT!';
+                ?>
 
-            ?>
+                <div class="carousel-item <?php if ($key === key($banners))
+                    echo 'active' ?>">
+                    <img class="d-block w-100" src="<?= base_url("images/products/$slide->banner") ?>"
+                         alt="<?= $slide->name ?>">
+                </div>
 
-            <div class="carousel-item <?php if ($key === key($banners))
-                echo 'active' ?>">
-                <img class="d-block w-100" src="<?= base_url("images/products/$slide->banner") ?>"
-                     alt="<?= $slide->name ?>">
-            </div>
+                <?php
+            }
 
-            <?php
-        } ?>
+        }
+        ?>
     </div>
 </div>
 

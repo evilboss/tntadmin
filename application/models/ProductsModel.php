@@ -193,4 +193,5 @@ class ProductsModel extends TNT_Model
         $this->db->from($this->_table);
 
     }
+    
 }
