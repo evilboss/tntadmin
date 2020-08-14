@@ -25,6 +25,5 @@
     <?php echo form_input('postcode', '', ['class' => form_error('postcode') ? 'form-control is-invalid' : 'form-control']); ?>
     <?php echo form_error('postcode', '<span class="help-block invalid-feedback">', '</span>') ?>
 </div>
-<pre><?php print_r($debug) ?></pre>
 <button class="btn btn-primary" type="submit">Save</button>
 

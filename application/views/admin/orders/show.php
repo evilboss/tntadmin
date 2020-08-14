@@ -23,9 +23,7 @@
 
                     <div class="box-body">
                         <?php $this->load->view('admin/partials/flash') ?>
-                        <?php print_r($record); ?>
                         <?php echo form_open("admin/orders/show/$record->id") ?>
-
                         <table class="table table-bordered">
                             <thead>
                             <th>Field</th>

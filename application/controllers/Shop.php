@@ -633,14 +633,13 @@ class Shop extends CI_Controller
 
             $addresses = $this->AddressModel->getAddressByUserId($user->user_id);
             //print_r($addresses);
-            array_push($debug, array('$addresses' => $addresses));
 
             $orders = array();
             foreach ($this->OrdersModel->getUserOrders($user->id) as $order) {
                 $order->details = $this->OrderProductModel->getProductsByOrderIds([$order->id]);
                 array_push($orders, $order);
             }
-            $this->data['debug'] = $debug;
+            $this->data['addresses'] = $addresses;
             $this->data['orders'] = $orders;
             //$this->data['orderDetails'] = $this->OrderProductModel->
             $this->load->templateProfile('profile/addresses', $this->data);
