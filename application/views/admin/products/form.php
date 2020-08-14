@@ -49,7 +49,7 @@
                 <?php echo form_error('webItem', '<span class="help-block">', '</span>') ?>
             </div>
             <div class="form-group<?php echo (form_error('recomended')) ? ' has-error' : ''; ?>">
-                <label>Recomended * &nbsp </label>
+                <label>Recommended * &nbsp </label>
 
                 <label class="radio-inline">
                     <?php echo form_radio('recomended', 1, (isset($record->recomended)) ? $record->recomended : true, array()); ?>

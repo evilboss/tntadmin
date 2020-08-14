@@ -40,6 +40,9 @@
                                             <td>
                                                 <button class="btn btn-success">Pay</button>
                                                 <button class="btn btn-danger">Cancel</button>
+                                                <a class="btn btn-danger"
+                                                   href="<?= base_url("shop/return-product/$details->order_id/$details->product_id") ?>">Request
+                                                    Return</a>
                                             </td>
                                             </tr>
                                         <?php endforeach; ?>

@@ -656,6 +656,19 @@ class Shop extends CI_Controller
 
     }
 
+    public function requestReturn($orderId, $productId)
+    {
+        $order = $this->OrdersModel->get($orderId);
+        $product = $this->ProductsModel->get($productId);
+
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+        }
+        $this->data['order'] = $order;
+        $this->data['product'] = $product;
+        $this->load->templateProfile('profile/returnPage', $this->data);
+
+    }
+
 
 }
 /* End of file '/Shop.php' */
