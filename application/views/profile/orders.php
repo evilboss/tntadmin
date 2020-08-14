@@ -6,7 +6,7 @@
 
             <div class="col-md-10 col-sm-12 col-lg-10  ">
                 <div class="card">
-                    <table class="table">
+                    <table class="table-responsive">
                         <thead>
                         <tr>
                             <th>Order ID</th>
@@ -19,7 +19,7 @@
                             <tr>
                                 <td> TNT<?php echo $order->id; ?></td>
                                 <td>
-                                    <table>
+                                    <table class="table-responsive">
                                         <thead>
                                         <th>Item</th>
                                         <th>Item Image</th>
