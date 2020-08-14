@@ -99,11 +99,11 @@
             <img class="d-block w-100" src="<?= base_url('images/blog/blogbanner.jpg') ?>" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="<?= base_url('images/blog/blogbanner.jpg') ?>"
+            <img class="d-block w-100" src="<?= base_url('images/blog/2_blogbanner.jpg') ?>"
                  alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="<?= base_url('images/blog/blogbanner.jpg') ?>" alt="Third slide">
+            <img class="d-block w-100" src="<?= base_url('images/blog/3_blogbanner.jpg') ?>" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#blogCarousel" role="button" data-slide="prev">
@@ -119,19 +119,22 @@
 <section class="light-gray-section item-container">
     <div class="container">
         <h3>Blog post</h3>
-        <div class="carousel-wrap">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
-                    <span class="img-text">Back to the future</span>
-                </div>
-                <div class="item">
-                    <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
-                    <span class="img-text">Home Alone</span>
-                </div>
-                <div class="item">
-                    <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
-                    <span class="img-text">Jaws</span>
+        <div class="container">
+            <div class="carousel-wrap">
+                <div class="blog-carousel owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
+                        <span class="img-text">Back to the future</span>
+                    </div>
+                    <div class="item">
+                        <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
+                        <span class="img-text">Home Alone</span>
+                    </div>
+                    <div class="item">
+                        <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
+                        <span class="img-text">Jaws</span>
+                    </div>
+
                 </div>
 
             </div>
@@ -156,6 +159,11 @@
                 '<div class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
                 '<div class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>']
         });
+    });
+    $('.blog-carousel').owlCarousel({
+        smartSpeed: 650,
+        margin: 20,
+        items: 3,
     });
 
 </script>
