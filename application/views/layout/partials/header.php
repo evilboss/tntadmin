@@ -345,21 +345,21 @@
                     </ul>
                     <div class="d-block d-sm-none">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                                 <a class="nav-link text-white" href="#"><i class="fa fa-facebook-square"
                                                                            aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item mx-3">
                                 <a class="nav-link text-white" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                                 <a class="nav-link text-white" href="#"><i class="fa fa-instagram"
                                                                            aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item text-white">
+                            <li class="nav-item mx-3">
                                 <a class="nav-link text-white" href="#"><i class="fa fa-weixin" aria-hidden="true"></i>
                                 </a>
                             </li>
