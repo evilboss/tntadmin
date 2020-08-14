@@ -207,7 +207,6 @@ body {
 }
 
 .product-container {
-    overflow-x: auto;
     display: flex;
 }
 

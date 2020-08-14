@@ -49,15 +49,29 @@
         <div class="row">
             <h3>Featured Products</h3>
         </div>
-    </div>
-    <div class="product-container container">
-        <?php
-        foreach ($featuredItems as $item) {
-            $data['item'] = $item;
-            $this->load->view('shop/item', $data);
-        }
-        ?>
-    </div>
+
+        <div class="carousel-wrap">
+
+            <div class="product-container container owl-carousel owl-theme">
+
+                <?php
+                foreach ($featuredItems
+
+                         as $item) {
+                    $data['item'] = $item;
+                    ?>
+                    <div class="item">
+                        <?php
+
+                        $this->load->view('shop/item', $data);
+                        ?>
+                    </div>
+
+                    <?php
+
+                }
+                ?>
+            </div>
 
 
 </section>
@@ -110,4 +124,22 @@
         <h3>Blog post</h3>
     </div>
 </section>
+<script>
+    $(document).ready(function () {
+        $('.owl-carousel').owlCarousel({
+            margin: 20,
+            nav: true,
+            smartSpeed: 650,
+            items: 3,
+            navigationText: [
+                "<i class='icon-chevron-left icon-white'><</i>",
+                "<i class='icon-chevron-right icon-white'>></i>"
+            ],
 
+            navText: [
+                '<div class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
+                '<div class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>']
+        });
+    });
+
+</script>

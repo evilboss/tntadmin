@@ -677,6 +677,12 @@ class Shop extends CI_Controller
 
     }
 
+    public function owl()
+    {
+        $this->load->templateProfile('profile/owlTemplate', $this->data);
+
+    }
+
 
 }
 /* End of file '/Shop.php' */
