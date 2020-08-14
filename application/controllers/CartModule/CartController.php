@@ -80,6 +80,6 @@ class CartController extends CI_Controller
     {
 
         $this->data['content'] = 'cart/cart';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('cart/cart', $this->data);
     }
 }

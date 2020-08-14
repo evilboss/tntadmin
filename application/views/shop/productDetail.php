@@ -1,4 +1,4 @@
-<div class="container">
+<div class="">
     <div class="row row-item">
         <div class="col-md-7 product-gallery">
             <div class="aniimated-thumbnials">

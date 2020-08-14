@@ -1,4 +1,4 @@
-<div class="container">
+<div class="">
     <div class="row">
         <div class="col-lg-6 col-sm-12">
             <a href="<?= base_url("/images/products/$item->cover_image") ?>"

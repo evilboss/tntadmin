@@ -446,8 +446,8 @@ class Shop extends CI_Controller
         );
         $this->data['error'] = '';
 
-        $this->data['content'] = 'auth/login';
-        $this->load->templateProfile('auth/login', $this->data);
+        $this->data['content'] = 'shop/login';
+        $this->load->templateProfile('shop/login', $this->data);
 
 
     }

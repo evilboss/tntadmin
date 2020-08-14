@@ -1,6 +1,5 @@
 <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-
         <?php
         $bannerCounter = 0;
         if (isset($banners)) {
@@ -40,35 +39,35 @@
         </div>
 
     </div>
-    <div class="carousel-wrap">
+    <div class="carousel-wrap"></div>
 
-        <div class="product-container container owl-carousel owl-theme">
+    <div class="product-container container owl-carousel owl-theme">
 
-            <?php
-            foreach ($featuredItems
-
-                     as $item) {
-                $data['item'] = $item;
-                ?>
-                <?php $this->load->view('shop/item', $data); ?>
-
-                <?php
-
-            }
-            ?>
-        </div>
         <?php
         foreach ($featuredItems
 
                  as $item) {
             $data['item'] = $item;
             ?>
-            <?php $this->load->view('shop/itemModal', $data); ?>
+            <?php $this->load->view('shop/item', $data); ?>
 
             <?php
 
         }
         ?>
+    </div>
+    <?php
+    foreach ($featuredItems
+
+             as $item) {
+        $data['item'] = $item;
+        ?>
+        <?php $this->load->view('shop/itemModal', $data); ?>
+
+        <?php
+
+    }
+    ?>
 
 
 </section>
@@ -146,38 +145,44 @@
 <script>
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
+            loop: true,
             margin: 20,
-            nav: true,
-            smartSpeed: 650,
-            items: 4,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 5,
+                    nav: true,
+                    loop: false
+                }
+            }
 
-            navigationText: [
-                "<i class='icon-chevron-left icon-white'><</i>",
-                "<i class='icon-chevron-right icon-white'>></i>"
-            ],
-
-            navText: [
-                '<div class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
-                '<div class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>']
         });
     });
     $('.blog-carousel').owlCarousel({
         smartSpeed: 650,
         margin: 20,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-                nav:true
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
             },
-            600:{
-                items:3,
-                nav:false
+            600: {
+                items: 3,
+                nav: false
             },
-            1000:{
-                items:5,
-                nav:true,
-                loop:false
+            1000: {
+                items: 5,
+                nav: true,
+                loop: false
             }
         }
 
