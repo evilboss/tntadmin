@@ -119,24 +119,22 @@
     <div class="container">
         <h3>Blog post</h3>
         <div class="container">
-            <div class="carousel-wrap">
-                <div class="blog-carousel owl-carousel owl-theme">
-                    <div class="item">
-                        <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
-                        <span class="img-text">Back to the future</span>
-                    </div>
-                    <div class="item">
-                        <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
-                        <span class="img-text">Home Alone</span>
-                    </div>
-                    <div class="item">
-                        <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
-                        <span class="img-text">Jaws</span>
-                    </div>
-
+            <div class="blog-carousel owl-carousel owl-theme">
+                <div class="item">
+                    <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
+                    <span class="img-text">Back to the future</span>
+                </div>
+                <div class="item">
+                    <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
+                    <span class="img-text">Home Alone</span>
+                </div>
+                <div class="item">
+                    <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
+                    <span class="img-text">Jaws</span>
                 </div>
 
             </div>
+
 
         </div>
 
