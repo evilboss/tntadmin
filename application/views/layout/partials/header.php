@@ -55,6 +55,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="<?= base_url('assets/libs/owl.carousel/dist/owl.carousel.min.js') ?>"></script>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: 'your-app-id',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v8.0'
+        });
+    };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 <script src="/assets/js/cart.js"></script>
 <?php if (!empty($add_js)): ?><?php foreach ($add_js as $js): ?>
@@ -101,8 +112,9 @@
                     <div class="mr-auto">
                         <ul class="navbar-nav mr-auto social-media-icons">
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="#"><i class="fa fa-facebook"
-                                                                aria-hidden="true"></i>
+                                <a class="nav-link" href="https://www.facebook.com/toyntoys" target="_blank"><i
+                                            class="fa fa-facebook"
+                                            aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="nav-item  mx-2">
