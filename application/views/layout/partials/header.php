@@ -98,16 +98,27 @@
     position: absolute;
     top: 5px;
     left: 0px;
-">
+">                                   <?php echo $cart->total_items(); ?>
+
                                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                                 </span> </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item mx">
-                                        <a class="nav-link">View Cart</a>
-                                    </li>
-                                </ul>
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="<?php echo base_url('cart') ?>"
+                                       class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="<?php echo base_url('cart/checkout') ?>"
+                                       class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
 
                             </div>
                         </div>
@@ -385,7 +396,6 @@
                     </div>
                 </div>
             </div>
-
 
 
     </nav>
