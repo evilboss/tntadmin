@@ -94,7 +94,11 @@
                             <a class="nav-link" href="#" role="button"
                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false">
-                                    <span class="nav-link badge badge-secondary">
+                                    <span class="nav-link badge badge-secondary" style="
+    position: absolute;
+    top: 5px;
+    left: 0px;
+">
                                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                                 </span> </a>
 
