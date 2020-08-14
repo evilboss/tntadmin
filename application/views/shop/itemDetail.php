@@ -10,9 +10,8 @@
             </a>
 
             <div class="row justify-content-center ">
-                <div class="thumb-nails overflow-auto mt-2 jr-carousel owl-theme">
+                <div class="thumb-nails overflow-auto mt-2 owl-carousel owl-theme">
                     <?php foreach ($item->images as $image) {
-
 
                         ?>
                         <a href="<?= base_url("/images/products/$image->path") ?>"

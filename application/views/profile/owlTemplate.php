@@ -61,6 +61,69 @@
         </div>
 
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 news-events-page--list-page">
+                <a href="#" data-toggle="modal" data-target="#carouselModal">
+                    <img src="http://placehold.it/359x159" class="img-responsive">
+                </a>
+                <h6><a href="" data-toggle="modal" data-target="#carouselModal">Title Here</a></h6>
+            </div>
+            <div class="col-sm-4 news-events-page--list-page">
+                <a href="#" data-toggle="modal" data-target="#carouselModal">
+                    <img src="http://placehold.it/359x159" class="img-responsive">
+                </a>
+                <h6><a href="" data-toggle="modal" data-target="#carouselModal">Title Here</a></h6>
+            </div>
+            <div class="col-sm-4 news-events-page--list-page">
+                <a href="#" data-toggle="modal" data-target="#carouselModal">
+                    <img src="http://placehold.it/359x159" class="img-responsive">
+                </a>
+                <h6><a href="" data-toggle="modal" data-target="#carouselModal">Title Here</a></h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="carouselModal" tabindex="-1" role="dialog" aria-labelledby="carouselModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="carouselModalLabel">Title Here</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="customNavigation">
+                        <a class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                        <a class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div id="sync1" class="owl-carousel">
+
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/1000x500" class="img-responsive"></div>
+                    </div>
+                    <div id="sync2" class="owl-carousel thumbnails-wrap">
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                        <div class="item"><img src="http://placehold.it/148x69" class="img-responsive"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $(document).ready(function () {
             $('.owl-carousel').owlCarousel({

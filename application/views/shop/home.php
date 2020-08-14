@@ -50,28 +50,36 @@
             <h3>Featured Products</h3>
         </div>
 
-        <div class="carousel-wrap">
+    </div>
+    <div class="carousel-wrap">
 
-            <div class="product-container container owl-carousel owl-theme">
+        <div class="product-container container owl-carousel owl-theme">
+
+            <?php
+            foreach ($featuredItems
+
+                     as $item) {
+                $data['item'] = $item;
+                ?>
+                <?php $this->load->view('shop/item', $data); ?>
 
                 <?php
-                foreach ($featuredItems
 
-                         as $item) {
-                    $data['item'] = $item;
-                    ?>
-                    <div class="item">
-                        <?php
+            }
+            ?>
+        </div>
+        <?php
+        foreach ($featuredItems
 
-                        $this->load->view('shop/item', $data);
-                        ?>
-                    </div>
+                 as $item) {
+            $data['item'] = $item;
+            ?>
+            <?php $this->load->view('shop/itemModal', $data); ?>
 
-                    <?php
+            <?php
 
-                }
-                ?>
-            </div>
+        }
+        ?>
 
 
 </section>
@@ -130,7 +138,7 @@
             margin: 20,
             nav: true,
             smartSpeed: 650,
-            items: 3,
+            items: 4,
             navigationText: [
                 "<i class='icon-chevron-left icon-white'><</i>",
                 "<i class='icon-chevron-right icon-white'>></i>"
