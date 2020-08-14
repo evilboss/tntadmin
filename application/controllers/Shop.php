@@ -660,11 +660,19 @@ class Shop extends CI_Controller
     {
         $order = $this->OrdersModel->get($orderId);
         $product = $this->ProductsModel->get($productId);
-
+        $productOrder = (object)array();
+        foreach ($this->OrderProductModel->getProductsByOrderIds([$order->id]) as $orderDetail) {
+            if ($orderDetail->product_id === $productId) {
+                $productOrder = $orderDetail;
+            }
+        }
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $inputs = $this->input->post();
+            print_r($inputs);
         }
         $this->data['order'] = $order;
         $this->data['product'] = $product;
+        $this->data['productOrder'] = $productOrder;
         $this->load->templateProfile('profile/returnPage', $this->data);
 
     }
