@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <h5><?= $item->name ?> </h5>
+            <h5 class="text-truncate"><?= $item->name ?> </h5>
             <div class="row desc">
                 <div class="col-6">
                     <div>

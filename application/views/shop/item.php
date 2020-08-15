@@ -19,12 +19,12 @@
             ?>
             <img class="card-img product-img" src="<?= base_url("/images/products/$item->thumbnail") ?>"
                  alt="Card image cap">
-            <div class="product-type <?= $item->status ?>"><?= $item->productTypeName ?></div>
+            <div class="product-type <?= $item->status ?>"><?= $item->brandName ?></div>
         </div>
         <div class="card-body info">
             <ul class="list-unstyled">
-                <li><h6><?= $item->name; ?></h6></li>
-                <li><?= $item->price; ?></li>
+                <li><h6 class="text-truncate"><?= $item->name; ?></h6></li>
+                <li>$ <?= money_format('%.2n', $item->price); ?></li>
             </ul>
         </div>
 

@@ -1,8 +1,31 @@
+@font-face {
+    font-family: "LatoRegular";
+    src: url("/assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "LatoBold";
+    src: url("/assets/fonts/Lato/Lato-Bold.ttf");
+}
+
 html,
 body {
     height: 100%;
     max-width: 1440px;
     margin: auto;
+}
+
+h6, h5 {
+    font-family: 'LatoRegular', Lato;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h3 {
+    font-family: LatoRegular;
+    font-size: 30px;
 }
 
 .store-carousel {
@@ -544,19 +567,26 @@ button.close {
 
 .Low-Stock {
     background-color: #C72221;
+    color: #F6F6F6;
 }
 
 .Coming-Soon {
     background-color: #0A7BB1;
+    color: #F6F6F6;
+
 }
 
 .Out-Of-Stock {
     background-color: #A5ACB7;
+    color: #F6F6F6;
+
 
 }
 
 .In-Stock {
     background-color: #ECA000;
+    color: #F6F6F6;
+
 
 }
 

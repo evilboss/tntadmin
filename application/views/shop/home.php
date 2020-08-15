@@ -126,6 +126,8 @@
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             responsiveClass: true,
+            center: true,
+
             responsive: {
                 0: {
                     items: 1,
@@ -135,18 +137,18 @@
                 768: {
                     items: 3,
                     nav: true,
-                    margin: 10,
+                    margin: 0,
                 },
                 1024: {
                     items: 4,
                     nav: true,
-                    margin: 10,
+                    margin: 0,
                 },
                 1140: {
                     items: 5,
                     nav: true,
                     loop: true,
-                    margin: 25,
+                    margin: 0,
 
                 }
             }
