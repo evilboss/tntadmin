@@ -111,9 +111,16 @@ body {
     text-align: left;
 }
 
+
 @media only screen and (min-width: 768px) {
     .col.product-item > .card {
         width: 14rem;
+    }
+
+    .blog-carousel.owl-carousel > .owl-stage-outer > .owl-stage {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
     }
 
 }

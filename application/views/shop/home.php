@@ -39,8 +39,6 @@
         </div>
 
     </div>
-    <div class="carousel-wrap"></div>
-
     <div class="product-container container owl-carousel owl-theme">
 
         <?php
@@ -167,6 +165,7 @@
             smartSpeed: 650,
             margin: 50,
             responsiveClass: true,
+            autoWidth: true,
             responsive: {
                 0: {
                     items: 1,
