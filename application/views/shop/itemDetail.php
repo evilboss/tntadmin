@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <h5 class="text-truncate"><?= $item->name ?> </h5>
+            <h5 class="text-truncate lato-regular-20"><?= $item->name ?> </h5>
             <div class="row desc">
                 <div class="col-6">
                     <div>
@@ -73,10 +73,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="details-container">
-                        <div class="price">
-                            <span>Deposit: <?= $item->poPrice ?></span>
-                            <h3>$<?= $item->spPrice ?></h3>
-                            <span class="prev-amt">$<?= $item->price ?></span>
+                        <div class="price ">
+                            <span class="lato-regular-20">Deposit: <?= $item->poPrice ?></span>
+                            <h3 class="lato-regular-20">$<?= $item->spPrice ?></h3>
+                            <span class="prev-amt lato-regular-20">$<?= $item->price ?></span>
                         </div>
                         <div class="price-actions">
                             <button type="button" class="btn btn-outline-secondary btn-number"

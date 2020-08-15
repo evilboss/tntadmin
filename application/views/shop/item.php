@@ -1,5 +1,5 @@
 <div class="col product-item item">
-    <div class="card hovereffect" style="height:auto">
+    <div class="card hovereffect">
         <div class="card-header product-item-header">
             <div class="row">
                 <div class="col-sm">
@@ -23,8 +23,9 @@
         </div>
         <div class="card-body info">
             <ul class="list-unstyled">
-                <li><h6 class="text-truncate"><?= $item->name; ?></h6></li>
-                <li>$ <?= money_format('%.2n', $item->price); ?></li>
+                <li><h6 class="text-truncate lato-regular-20"><?= $item->name; ?></h6></li>
+                <li class="manufacturerCategoryText"><?= $item->manufacturerName; ?></li>
+                <li class="lato-regular-20" $ <?= money_format('%.2n', $item->price); ?></li>
             </ul>
         </div>
 
