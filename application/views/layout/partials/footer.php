@@ -1,5 +1,5 @@
 <section id="wrapper-footer" class="gray-section text-white">
-    <div class="row mx-0">
+    <div class="row mx-0 text-center">
         <div class="col-md-3 col-sm-12"><h3>Facebook</h3>
             <div class="fb-page"
                  data-tabs="events"
