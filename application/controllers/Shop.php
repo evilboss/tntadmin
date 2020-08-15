@@ -164,7 +164,6 @@ class Shop extends CI_Controller
         $this->data['categories'] = $this->CategoriesModel->getParentCategory('category');
 
         $this->data['products'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->order_by('created_at', 'desc')->limit($pagination_config['per_page'], $this->input->get('per_page'))->get_many_by('webItem', '1'));
-        $this->data['content'] = 'products/list';
         $this->load->templateProfile('products/list', $this->data);
 
     }
@@ -212,8 +211,7 @@ class Shop extends CI_Controller
         //
 
         $this->data['total_rows'] = $pagination_config['total_rows'];
-        $this->data['products'] = $this->ProductsModel->
-        getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $this->data['products'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         //Get Product Images :
         //$this->ProductImagesModel->getImageLookupProducts($products);
 

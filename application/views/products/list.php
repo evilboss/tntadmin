@@ -1,8 +1,8 @@
-
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/libs/noui/nouislider.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/libs/noui/nouislider.min.css">
 
 <!-- Title Page -->
-<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?php echo base_url('assets/images/header/shop.jpg') ?>">
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
+         style="background-image: url(<?php echo base_url('assets/images/header/shop.jpg') ?>">
     <h2 class="l-text2 t-center">
         SHOP
     </h2>
@@ -27,13 +27,15 @@
                     <ul class="p-b-54">
 
                         <li class="p-t-4">
-                            <a href="<?php echo base_url('index.php/shop/') ?>" class="s-text13 <?php echo ($this->uri->segment(2) == "") ? 'active1':''; ?>">
+                            <a href="<?php echo base_url('/products') ?>"
+                               class="s-text13 <?php echo ($this->uri->segment(2) == "") ? 'active1' : ''; ?>">
                                 All
                             </a>
                         </li>
-                        <?php foreach ($categories as $category) :?>
+                        <?php foreach ($categories as $category) : ?>
                             <li class="p-t-4">
-                                <a href="<?php echo base_url('index.php/shop/'.$category->id) ?>" class="s-text13 <?php echo ($this->uri->segment(2) == $category->id) ? 'active1':''; ?>">
+                                <a href="<?php echo base_url('categories/' . $category->id) ?>"
+                                   class="s-text13 <?php echo ($this->uri->segment(2) == $category->id) ? 'active1' : ''; ?>">
                                     <?php echo xss_clean($category->name) ?>
                                 </a>
                             </li>
@@ -45,7 +47,7 @@
                     <h4 class="m-text14 p-b-32">
                         Filters
                     </h4>
-                    <?php echo form_open('',array('method'=>'GET','id'=>'filters_form'))?>
+                    <?php echo form_open('', array('method' => 'GET', 'id' => 'filters_form')) ?>
                     <div class="filter-price p-t-22 p-b-50 bo3">
                         <div class="m-text15 p-b-17">
                             Price
@@ -66,19 +68,23 @@
                             <div class="s-text3 p-t-10 p-b-10">
                                 Range: <span id="price-lower"></span> - <span id="price-upper"></span>
                             </div>
-                            <input type="hidden" id="min_price" name="min_price" value="<?php echo $this->input->get('min_price'); ?>">
-                            <input type="hidden" id="max_price" name="max_price" value="<?php echo $this->input->get('max_price'); ?>">
+                            <input type="hidden" id="min_price" name="min_price"
+                                   value="<?php echo $this->input->get('min_price'); ?>">
+                            <input type="hidden" id="max_price" name="max_price"
+                                   value="<?php echo $this->input->get('max_price'); ?>">
                         </div>
                     </div>
 
                     <div class="search-product pos-relative bo4 of-hidden">
-                        <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search_str" value="<?php echo $this->input->get('search_str'); ?>" id="search-product" placeholder="Search Products...">
+                        <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search_str"
+                               value="<?php echo $this->input->get('search_str'); ?>" id="search-product"
+                               placeholder="Search Products...">
 
                         <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4 filter_button">
                             <i class="fs-12 fa fa-search" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <?php echo  form_close() ?>
+                    <?php echo form_close() ?>
                 </div>
 
             </div>
@@ -87,11 +93,11 @@
                 <div class="flex-sb-m flex-w p-b-35">
                     <div class="flex-w">
                         <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-                            <?php echo form_dropdown("sort_type",array(""=>"Default","asc" => "Price: low to high","desc"=>"Price: high to low"),$this->input->get('sort_type'),array("class"=>"selection-2","id"=>"sort_type")) ?>
+                            <?php echo form_dropdown("sort_type", array("" => "Default", "asc" => "Price: low to high", "desc" => "Price: high to low"), $this->input->get('sort_type'), array("class" => "selection-2", "id" => "sort_type")) ?>
                         </div>
                     </div>
                     <span class="s-text8 p-t-5 p-b-5">
-							<?php echo "Showing 1-9 of ".$total_rows; ?> results
+							<?php echo "Showing 1-9 of " . $total_rows; ?> results
 						</span>
                 </div>
                 <!-- Products -->
@@ -109,7 +115,8 @@
                                     <img src="<?php echo product_images($product->cover_image) ?>" alt="IMG-PRODUCT">
 
                                     <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4" data-product-id="<?php echo $product->id ?>">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4"
+                                           data-product-id="<?php echo $product->id ?>">
                                             <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
                                             <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
                                         </a>
@@ -128,20 +135,21 @@
                                     </div>
                                 </div>
                                 <div class="block2-txt p-t-20">
-                                    <a href="<?php echo base_url("index.php/product/$product->id"); ?>" class="block2-name dis-block s-text3 p-b-5">
+                                    <a href="<?php echo base_url("index.php/product/$product->id"); ?>"
+                                       class="block2-name dis-block s-text3 p-b-5">
                                         <?php echo xss_clean($product->name); ?>
                                     </a>
                                     <span class="block2-price m-text6 p-r-5">
-										Rs <?php echo number_format($product->price); ?>
+										$ <?php echo number_format($product->price); ?>
 									</span>
                                 </div>
                             </div>
                         </div>
-                        <?php if($product_count%3 == 0) : ?>
+                        <?php if ($product_count % 3 == 0) : ?>
                             <div class="clearfix"></div>
                         <?php endif; ?>
                         <?php
-                        $product_count ++;
+                        $product_count++;
 
 
                     endforeach; ?>
@@ -152,7 +160,6 @@
         </div>
     </div>
 </section>
-
 
 
 <!-- Back to top -->
@@ -179,25 +186,25 @@
 </script>
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="<?php echo base_url('assets/libs/noui/nouislider.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/libs/noui/nouislider.min.js') ?>"></script>
 <script type="text/javascript">
     /*[ No ui ]
     ===========================================================*/
     var filterBar = document.getElementById('filter-bar');
-    var noui_initial_min =  0;
+    var noui_initial_min = 0;
     var noui_initial_max = 1000000;
 
     var min_price_selected = document.getElementById('min_price').value;
     var max_price_selected = document.getElementById('max_price').value;
-    if(min_price_selected){
+    if (min_price_selected) {
         noui_initial_min = min_price_selected;
     }
-    if(max_price_selected){
+    if (max_price_selected) {
         noui_initial_max = max_price_selected;
     }
 
     noUiSlider.create(filterBar, {
-        start: [noui_initial_min,noui_initial_max],
+        start: [noui_initial_min, noui_initial_max],
         connect: true,
         range: {
             'min': 50,
@@ -210,9 +217,9 @@
         document.getElementById('price-upper')
     ];
 
-    filterBar.noUiSlider.on('update', function( values, handle ) {
+    filterBar.noUiSlider.on('update', function (values, handle) {
 
-        skipValues[handle].innerHTML = Math.round(values[handle]) ;
+        skipValues[handle].innerHTML = Math.round(values[handle]);
 
         //Update
         document.getElementById('min_price').value = Math.round(values[0]);

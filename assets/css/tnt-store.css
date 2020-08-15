@@ -123,6 +123,15 @@ body {
     padding: 1rem 0.5rem;
 }
 
+.product-container-row {
+    display: flex;
+    max-width: 100%;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
 .hovereffect {
     width: 100%;
     height: 100%;
