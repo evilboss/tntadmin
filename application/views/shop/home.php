@@ -35,7 +35,7 @@
 
     <div class="container">
         <div class="row">
-            <h3>Featured Products</h3>
+            <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
 
     </div>

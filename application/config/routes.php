@@ -74,12 +74,14 @@ $route['categories/brands'] = 'shop/brands';// $1 is category-type
 $route['categories/manufacturers'] = 'shop/manufacturers';// $1 is category-type
 $route['categories/producttypes'] = 'shop/producttypes';// $1 is category-type
 $route['categories/genres'] = 'shop/genres';// $1 is category-type
+
 $route['shop/return-product/(:any)/(:any)'] = 'shop/requestReturn/$1/$2';// $1 is category-type
 
 //$route['categories/brands/(:any)'] = 'StoreFront/StoreFrontController/brands/$1';// $1 is category-type
 $route['new'] = 'shop/newProducts';
 $route['coming-soon'] = 'shop/comingSoon';
 $route['pre-orders'] = 'shop/preOrders';
+$route['about'] = 'shop/about';// $1 is category-type
 
 $route['categories'] = 'shop/categories';
 

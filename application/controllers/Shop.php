@@ -55,8 +55,11 @@ class Shop extends CI_Controller
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
         $this->data['items'] = $this->Items_model->getWebItems();
-        //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
-        $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $itemsToDisplay = array();
+
+        $this->data['featuredItems'] = $itemsToDisplay;
+        $this->data['containerText'] = "New Products";
 
 
         // print_r($this->Items_model->getFeaturedItems());
@@ -75,9 +78,10 @@ class Shop extends CI_Controller
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
-        $this->data['items'] = $this->Items_model->getWebItems();
-        //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
-        $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $itemsToDisplay = array();
+
+        $this->data['featuredItems'] = $itemsToDisplay;
 
 
         // print_r($this->Items_model->getFeaturedItems());
@@ -96,9 +100,11 @@ class Shop extends CI_Controller
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
-        $this->data['items'] = $this->Items_model->getWebItems();
-        //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
-        $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $itemsToDisplay = array();
+        $this->data['containerText'] = "Coming Soon";
+
+        $this->data['featuredItems'] = $itemsToDisplay;
 
 
         // print_r($this->Items_model->getFeaturedItems());
@@ -117,9 +123,11 @@ class Shop extends CI_Controller
         $limit = $pagination_config['per_page'];
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
-        $this->data['items'] = $this->Items_model->getWebItems();
-        //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
-        $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
+        $itemsToDisplay = array();
+        $this->data['containerText'] = "Preorders";
+
+        $this->data['featuredItems'] = $itemsToDisplay;
 
 
         // print_r($this->Items_model->getFeaturedItems());
@@ -682,6 +690,11 @@ class Shop extends CI_Controller
     {
         $this->load->templateProfile('profile/owlTemplate', $this->data);
 
+    }
+
+    public function about()
+    {
+        $this->load->templateProfile('shop/about', $this->data);
     }
 
 
