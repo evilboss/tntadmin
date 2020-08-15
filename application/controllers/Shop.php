@@ -573,7 +573,7 @@ class Shop extends CI_Controller
         $this->data['csrf'] = $this->_get_csrf_nonce();
 
         $this->data['content'] = 'auth/create_user_form';
-        $this->load->view('layout/store', $this->data);
+        $this->load->templateProfile('shop/create_user_form', $this->data);
     }
 
     public function profile()

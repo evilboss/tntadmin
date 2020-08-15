@@ -89,16 +89,13 @@
                     </div>
                     <div class="p-2">
                         <span class="badge badge-secondary"><i class="fa fa-heart fa-2x" aria-hidden="true"></i></span>
-
+                    </div>
+                    <div class="p-2">
                         <div class="dropdown">
                             <a class="nav-link" href="#" role="button"
                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false">
-                                    <span class="nav-link badge badge-secondary" style="
-    position: absolute;
-    top: 5px;
-    left: 0px;
-">                                   <?php echo $cart->total_items(); ?>
+                                    <span class="nav-link badge badge-secondary">                                   <?php echo $cart->total_items(); ?>
 
                                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                                 </span> </a>
@@ -123,8 +120,53 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="p-2">
+                        <div class="dropdown">
+                            <a class="nav-link" href="#" role="button"
+                               id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                    <span class="nav-link badge badge-secondary">
+                                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                                </span> </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <?php if (isset($user)) {
+                                    ?>
+                                    <div class="header-cart-wrapbtn">
+
+                                        <a class="nav-link" href="<?= base_url('shop/profile') ?>"><i
+                                                    class="fa fa-user"></i> Profile</a>
+
+                                        <a class="nav-link" href="<?= base_url('shop/logout') ?>"> <i
+                                                    class="fa fa-sign-out"></i>Logout</a>
+                                    </div>
+
+
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li class="nav-item">
+                                    </li>
+                                    <div class="header-cart-wrapitem">
+                                        <a href="<?= base_url('shop/login') ?>" class="nav-link">Login</a>
+                                        <a href="<?= base_url('shop/register') ?>" class="nav-link">Sign Up</a>
+                                    </div>
+
+                                    <?php
+                                } ?>
+
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
+
                 </div>
             </div>
             <div class="d-none d-sm-block ">

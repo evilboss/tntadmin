@@ -10,7 +10,7 @@
             </a>
 
             <div class="row justify-content-center ">
-                <div class="thumb-nails overflow-auto mt-2 owl-carousel owl-theme">
+                <div class="thumb-nails overflow-auto mt-2 owl-carousel img-carousel owl-theme">
                     <?php foreach ($item->images as $image) {
 
                         ?>
@@ -88,7 +88,7 @@
                                    value="1" min="1" max="10"/>
                             <button type="button" class="btn btn-outline-secondary btn-number"
                                     data-type="plus" data-field="quant[1]"><i
-                                    class="fa fa-plus-circle"></i></button>
+                                        class="fa fa-plus-circle"></i></button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                     <?php echo form_open(base_url('add-to-cart')) ?>
                     <input name="id" type="hidden" value="<?= $item->id ?>">
                     <button class="btn btn-outline-primary" type="submit"><i
-                            class="fa fa-shopping-cart"></i> Add To cart
+                                class="fa fa-shopping-cart"></i> Add To cart
                     </button>
                     <?php echo form_close(); ?>
 
@@ -125,8 +125,8 @@
                 >
 
                                         <span class="release-date"><i
-                                                class="fa fa-calendar"
-                                                aria-hidden="true"></i> Release date <?= $item->releaseDate ?></span>
+                                                    class="fa fa-calendar"
+                                                    aria-hidden="true"></i> Release date <?= $item->releaseDate ?></span>
                 </div>
             </div>
 
@@ -166,3 +166,6 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
