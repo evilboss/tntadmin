@@ -10,6 +10,7 @@ class CartController extends CI_Controller
         $this->load->model('ProductsModel');
         $this->load->model('ProductImagesModel');
         $this->data['cart'] = $this->cart;
+
     }
 
     /**
