@@ -175,7 +175,7 @@
             <div class="d-none d-sm-block ">
                 <div class="d-flex">
                     <div class="mr-auto">
-                        <ul class="navbar-nav mr-auto social-media-icons">
+                        <ul class="navbar-nav mr-auto social-media-icons flex-row">
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="https://www.facebook.com/toyntoys" target="_blank"><i
                                             class="fa fa-facebook"
@@ -199,7 +199,7 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                        <ul class="navbar-nav nav-buttons">
+                        <ul class="navbar-nav nav-buttons flex-row">
                             <!-- <li class="nav-item active">
                                 <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
                             </li> -->
@@ -303,7 +303,7 @@
                             } ?>
 
                         </ul>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav flex-row">
                             <li class="nav-item ">
                                 <a class="nav-link heart-badge" href="#">
                                     <i class="fa fa-heart px-2 " aria-hidden="true"></i>
