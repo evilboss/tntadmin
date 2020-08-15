@@ -91,7 +91,7 @@ h3 {
     border-bottom: 130px solid transparent;
     border-left: 35px solid transparent;
     position: absolute;
-    right: 5px;
+    right: 10px;
 }
 
 .Coming-Soon-corner {
@@ -654,7 +654,7 @@ button.close {
 
 .product-body {
     height: 15em;
-    padding: 5px;
+    padding: 10px;
 }
 
 .carousel-wrap {
