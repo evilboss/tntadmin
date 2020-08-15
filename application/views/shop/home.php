@@ -40,7 +40,6 @@
 
     </div>
     <div class="product-container owl-carousel owl-theme">
-
         <?php
         foreach ($featuredItems
 

@@ -57,7 +57,11 @@ class Shop extends CI_Controller
         $this->data['items'] = $this->Items_model->getWebItems();
         $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         $itemsToDisplay = array();
-
+        foreach ($items as $item) {
+            if ($item->isNew) {
+                array_push($itemsToDisplay, $item);
+            }
+        }
         $this->data['featuredItems'] = $itemsToDisplay;
         $this->data['containerText'] = "New Products";
 
@@ -102,6 +106,11 @@ class Shop extends CI_Controller
         $this->data['content'] = 'shop/home';
         $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         $itemsToDisplay = array();
+        foreach ($items as $item) {
+            if ($item->status === "Coming-Soon") {
+                array_push($itemsToDisplay, $item);
+            }
+        }
         $this->data['containerText'] = "Coming Soon";
 
         $this->data['featuredItems'] = $itemsToDisplay;
@@ -125,6 +134,11 @@ class Shop extends CI_Controller
         $this->data['content'] = 'shop/home';
         $items = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         $itemsToDisplay = array();
+        foreach ($items as $item) {
+            if ($item->status === "Pre-Order") {
+                array_push($itemsToDisplay, $item);
+            }
+        }
         $this->data['containerText'] = "Preorders";
 
         $this->data['featuredItems'] = $itemsToDisplay;
@@ -148,7 +162,6 @@ class Shop extends CI_Controller
         $this->data['total_rows'] = $pagination_config['total_rows'];
 
         $this->data['categories'] = $this->CategoriesModel->getParentCategory('category');
-
 
         $this->data['products'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->order_by('created_at', 'desc')->limit($pagination_config['per_page'], $this->input->get('per_page'))->get_many_by('webItem', '1'));
         $this->data['content'] = 'products/list';
