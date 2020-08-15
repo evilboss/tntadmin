@@ -10,7 +10,7 @@
             </a>
 
             <div class="row justify-content-center ">
-                <div class="thumb-nails overflow-auto mt-2 owl-carousel img-carousel owl-theme">
+                <div class="thumb-nails overflow-auto mt-2 owl-carousel img-carousel owl-theme" >
                     <?php foreach ($item->images as $image) {
 
                         ?>
@@ -18,7 +18,7 @@
                            data-toggle="lightbox"
                            data-lightbox="gallery-<? /*= $item->id */ ?>" class="col-sm-4">
                             <img src="<?= base_url("/images/products/$image->path") ?>"
-                                 class="img-fluid">
+                                 class="img-thumbnail">
                         </a>
                     <?php } ?>
 

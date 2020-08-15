@@ -31,25 +31,20 @@
         </a>
     </div>
 </div>
-<section class="light-gray-section item-container">
+<section class="light-gray-section item-container mx-5">
 
     <div class="container">
         <div class="row">
             <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
-
     </div>
     <div class="product-container owl-carousel owl-theme">
         <?php
-        foreach ($featuredItems
-
-                 as $item) {
+        foreach ($featuredItems as $item) {
             $data['item'] = $item;
             ?>
             <?php $this->load->view('shop/item', $data); ?>
-
             <?php
-
         }
         ?>
     </div>
@@ -137,23 +132,32 @@
                     nav: true,
 
                 },
-                768: {
+                800: {
+                    margin: 5,
+
+                    center: false,
                     items: 3,
-                    nav: true,
+                    nav: false,
                 },
-                1024: {
+
+                1400: {
+                    margin: 5,
+
+                    center: false,
                     items: 4,
-                    nav: true,
+                    nav: false,
                 },
-                1140: {
+                1920: {
                     items: 5,
-                    nav: true,
-                    loop: true,
+                    nav: false,
+                    center: false,
+
 
                 }
             }
 
-        });
+        })
+        ;
         $('.blog-carousel').owlCarousel({
             smartSpeed: 650,
             margin: 50,

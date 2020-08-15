@@ -17,7 +17,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-8">
+                <div class="col-sm-8">
                     <div class="checkbox icheck">
                         <label>
                             <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?> Remember Me
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-xs-4">
+                <div class="col-sm-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
 
