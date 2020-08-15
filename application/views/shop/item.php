@@ -1,4 +1,4 @@
-<div class="col product-item">
+<div class="col product-item item">
     <div class="card hovereffect" style="height:auto">
         <div class="card-header product-item-header">
             <div class="row">

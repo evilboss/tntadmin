@@ -39,7 +39,7 @@
         </div>
 
     </div>
-    <div class="product-container container owl-carousel owl-theme">
+    <div class="product-container owl-carousel owl-theme">
 
         <?php
         foreach ($featuredItems
@@ -142,21 +142,33 @@
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,
-            margin: 20,
+
             responsiveClass: true,
             responsive: {
                 0: {
                     items: 1,
-                    nav: true
+                    nav: true,
+                    loop: true,
+
                 },
-                600: {
+                768: {
                     items: 3,
-                    nav: false
+                    nav: true,
+                    loop: true,
+                    margin: 10,
                 },
-                1000: {
+                1024: {
+                    items: 4,
+                    nav: true,
+                    loop: true,
+                    margin: 10,
+                },
+                1140: {
                     items: 5,
                     nav: true,
-                    loop: false
+                    loop: true,
+                    margin: 25,
+
                 }
             }
 

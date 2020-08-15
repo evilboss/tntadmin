@@ -6,13 +6,6 @@
         <div class="card-body">
             <h1><?php echo lang('login_heading'); ?></h1>
             <p><?php echo lang('login_subheading'); ?></p>
-            <?php if ($message): ?>
-                <div id="infoMessage" class="alert alert-success"><?php echo $message; ?></div>
-            <?php endif; ?>
-            <?php if ($error): ?>
-                <div id="infoMessage" class="alert alert-error"><?php echo $error; ?></div>
-            <?php endif; ?>
-            <?php $this->load->view('admin/partials/flash') ?>
 
             <?php echo form_open(((isset($loginRoute) ? $loginRoute : "shop/login"))); ?>
             <div class="form-group has-feedback">
