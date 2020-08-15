@@ -331,10 +331,8 @@
                                                 </div>
 
                                                 <div class="header-cart-item-txt">
-                                                    <a href="<?php echo base_url() . "index.php/product/" . $header_cart['id'] ?>"
-                                                       class="header-cart-item-name">
-                                                        <?php echo $header_cart['name'] ?>
-                                                    </a>
+
+                                                    <?php echo $header_cart['name'] ?>
 
                                                     <span class="header-cart-item-info">
 											<?php echo $header_cart['qty'] . "x" . $header_cart['price'] ?>

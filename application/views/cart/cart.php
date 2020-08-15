@@ -26,11 +26,9 @@
                                 <tr>
                                     <th scope="row">1</th>
                                     <td class="w-25">
-                                        <div style="height: 200px;width: 100px">
-                                            <img src="<?php echo (isset($item['options']['product_image'])) ? base_url() . thumbImage($item['options']['product_image']) : ""; ?>"
-                                                 alt="IMG-PRODUCT" class="img-fluid img-thumbnail">
+                                        <img src="<?php echo (isset($item['options']['product_image'])) ? base_url() . thumbImage($item['options']['product_image']) : ""; ?>"
+                                             alt="IMG-PRODUCT" class="img-fluid img-thumbnail">
 
-                                        </div>
 
                                     </td>
                                     <td class="column-2"><?php echo $item['name']; ?></td>
@@ -57,8 +55,16 @@
                         Total
                     </div>
                     <div class="card-body">
-                        <?php echo "$ " . number_format($this->cart->total()); ?>
+                        <div class="row">
+                            <?php echo "$ " . number_format($this->cart->total()); ?>
 
+                        </div>
+                        <div class="row">
+                            <a class="btn-success btn" href="<?php echo base_url('cart/checkout') ?>">
+                                Checkout
+                            </a>
+
+                        </div>
                     </div>
                 </div>
 
