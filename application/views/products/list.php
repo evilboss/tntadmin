@@ -106,52 +106,13 @@
                     <?php
                     $product_count = 1;
 
-                    foreach ($products as $product) : ?>
-                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-
-                                    <img src="<?php echo product_images($product->cover_image) ?>" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4"
-                                           data-product-id="<?php echo $product->id ?>">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <?php echo form_open(base_url('index.php/add-to-cart')); ?>
-
-
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Add to Cart
-                                            </button>
-                                            <input type="hidden" name="id" value="<?php echo $product->id ?>">
-                                            <?php echo form_close(); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="block2-txt p-t-20">
-                                    <a href="<?php echo base_url("index.php/product/$product->id"); ?>"
-                                       class="block2-name dis-block s-text3 p-b-5">
-                                        <?php echo xss_clean($product->name); ?>
-                                    </a>
-                                    <span class="block2-price m-text6 p-r-5">
-										$ <?php echo number_format($product->price); ?>
-									</span>
-                                </div>
-                            </div>
-                        </div>
-                        <?php if ($product_count % 3 == 0) : ?>
-                            <div class="clearfix"></div>
-                        <?php endif; ?>
+                    foreach ($products as $item) : ?>
                         <?php
+                        $data['item'] = $item;
+                        $this->load->view('shop/item', $data);
+                        $this->load->view('shop/itemModal', $data);
+
                         $product_count++;
-
-
                     endforeach; ?>
                 </div>
                 <?php echo $this->pagination->create_links(); ?>
