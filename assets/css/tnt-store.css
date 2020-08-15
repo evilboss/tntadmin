@@ -9,8 +9,14 @@ body {
     max-height: 45vh;
 }
 
+@media only screen and (max-width: 991px) {
+    .store-content {
+        padding-top: 9.9em !important;
+    }
+}
+
 .store-content {
-    padding-top: 10vh;
+    padding-top: 7.9em;
     min-height: calc(100% - 201px);
 }
 

@@ -1,5 +1,5 @@
 <div class="col product-item">
-    <div class="card hovereffect" style="width: 14rem;height:auto">
+    <div class="card hovereffect" style="height:auto">
         <div class="card-header product-item-header">
             <div class="row">
                 <div class="col-sm">
