@@ -1,4 +1,4 @@
-<div class="col-md-4 col-sm-12 col-lg-2">
+<div class="col-lg-2 col-md-4 col-sm-12 ">
     <div class="card">
         <div class="card-header">
                         <span href="#" class="list-group-item">
