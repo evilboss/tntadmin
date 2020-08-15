@@ -1,8 +1,4 @@
 <div class="content store-content">
-    <pre>
-            <?php print_r($order) ?>
-
-    </pre>
     <?php if ($order->order_status === "For Payment"): ?>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -11,7 +7,7 @@
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#card" role="tab" aria-controls="card"
-                   aria-selected="false">Card Payment</a>
+                   aria-selected="false">To be added</a>
             </li>
 
         </ul>

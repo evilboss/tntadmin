@@ -28,6 +28,7 @@
                                     </thead>
                                     <tbody>
                                     <?php foreach ($order->details as $details) : ?>
+                                        <?php print_r($order) ?>
                                         <td><?php echo $details->product_name; ?> </td>
                                         <td>
                                             <div class="cart-img-product b-rad-4 o-f-hidden">
@@ -38,11 +39,14 @@
                                         <td><?php echo $details->qty; ?></td>
                                         <td>
 
-                                            <?php if ($details->status === 'For Payment'): ?>
-                                                <button class="btn btn-success">Pay</button>
+                                            <?php if ($order->order_status === 'For Payment'): ?>
+                                                <a class="btn btn-success"
+                                                   href="<?= base_url("cart/checkout/$order->id") ?>">Pay</a>
+                                            <?php else: ?>
+                                                <button class="btn btn-danger">Cancel</button>
+
                                             <?php endif; ?>
-                                            <button class="btn btn-danger">Cancel</button>
-                                            <?php if ($details->status === 'delivered'): ?>
+                                            <?php if ($order->order_status === 'delivered'): ?>
                                                 <a class="btn btn-danger"
                                                    href="<?= base_url("shop/return-product/$details->order_id/$details->product_id") ?>">Request
                                                     return</a>

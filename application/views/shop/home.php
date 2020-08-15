@@ -127,7 +127,10 @@
         $('.owl-carousel').owlCarousel({
             responsiveClass: true,
             center: true,
-
+            autoplay: true,
+            margin: 10,
+            loop: false,
+            autoWidth: false,
             responsive: {
                 0: {
                     items: 1,
@@ -137,18 +140,15 @@
                 768: {
                     items: 3,
                     nav: true,
-                    margin: 0,
                 },
                 1024: {
                     items: 4,
                     nav: true,
-                    margin: 0,
                 },
                 1140: {
                     items: 5,
                     nav: true,
                     loop: true,
-                    margin: 0,
 
                 }
             }
