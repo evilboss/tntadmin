@@ -167,7 +167,6 @@
             smartSpeed: 650,
             margin: 50,
             responsiveClass: true,
-            autoWidth: true,
             responsive: {
                 0: {
                     items: 1,
