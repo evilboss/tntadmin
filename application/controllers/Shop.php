@@ -38,6 +38,7 @@ class Shop extends CI_Controller
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
         $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         // print_r($this->Items_model->getFeaturedItems());
+        $this->data['displayBlog'] = true;
         $this->load->templateProfile('shop/home', $this->data);
     }
 

@@ -69,75 +69,60 @@
 
 
 </section>
-<!--<section class="dark-section item-container">
-    <div class="container">
-
-        <h3 class="text-white">Special Deals</h3>
-        <div class="row product-container container-fluid">
-
+<?php if (isset($displayBlog)): ?>
+    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+        <div class="container">
+            <h3>Headline</h3>
         </div>
 
-
-    </div>
-</section>-->
-
-<!--<section class="light-gray-section item-container">
-    <div class="container">
-        <h3>Best Seller</h3>
-    </div>
-</section>-->
-<div id="blogCarousel" class="carousel slide" data-ride="carousel">
-    <div class="container">
-        <h3>Headline</h3>
-    </div>
-
-    <div class="carousel-inner store-carousel">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="<?= base_url('images/blog/blogbanner.jpg') ?>" alt="First slide">
+        <div class="carousel-inner store-carousel">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="<?= base_url('images/blog/blogbanner.jpg') ?>" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="<?= base_url('images/blog/2_blogbanner.jpg') ?>"
+                     alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="<?= base_url('images/blog/3_blogbanner.jpg') ?>" alt="Third slide">
+            </div>
         </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="<?= base_url('images/blog/2_blogbanner.jpg') ?>"
-                 alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="<?= base_url('images/blog/3_blogbanner.jpg') ?>" alt="Third slide">
-        </div>
+        <a class="carousel-control-prev" href="#blogCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#blogCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <a class="carousel-control-prev" href="#blogCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#blogCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
 
-<section class="light-gray-section item-container">
-    <div class="container">
-        <h3>Blog post</h3>
-        <div class="container align-self-center">
-            <div class="blog-carousel owl-carousel owl-theme">
-                <div class="item">
-                    <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
-                    <span class="img-text">Back to the future</span>
+    <section class="light-gray-section item-container">
+        <div class="container">
+            <h3>Blog post</h3>
+            <div class="container align-self-center">
+                <div class="blog-carousel owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"/>
+                        <span class="img-text">Back to the future</span>
+                    </div>
+                    <div class="item">
+                        <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
+                        <span class="img-text">Home Alone</span>
+                    </div>
+                    <div class="item">
+                        <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
+                        <span class="img-text">Jaws</span>
+                    </div>
+
                 </div>
-                <div class="item">
-                    <img src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"/>
-                    <span class="img-text">Home Alone</span>
-                </div>
-                <div class="item">
-                    <img src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"/>
-                    <span class="img-text">Jaws</span>
-                </div>
+
 
             </div>
 
-
         </div>
-
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <script>
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
