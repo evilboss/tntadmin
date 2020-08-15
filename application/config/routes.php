@@ -82,6 +82,7 @@ $route['new'] = 'shop/newProducts';
 $route['coming-soon'] = 'shop/comingSoon';
 $route['pre-orders'] = 'shop/preOrders';
 $route['about'] = 'shop/about';// $1 is category-type
+$route['blog'] = 'shop/blog';// $1 is category-type
 
 $route['categories'] = 'shop/categories';
 

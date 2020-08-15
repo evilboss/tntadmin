@@ -697,6 +697,11 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/about', $this->data);
     }
 
+    public function blog()
+    {
+        $this->load->templateProfile('shop/blog', $this->data);
+    }
+
 
 }
 /* End of file '/Shop.php' */

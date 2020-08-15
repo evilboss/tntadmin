@@ -409,7 +409,7 @@
                             <a class="nav-link text-white" href="<?php echo base_url('about'); ?>">About</a>
                         </li>
                         <li class="nav-item mx-3">
-                            <a class="nav-link text-white" href="#">Blog</a>
+                            <a class="nav-link text-white" href="<?php echo base_url('blog'); ?>">Blog</a>
                         </li>
 
                     </ul>
