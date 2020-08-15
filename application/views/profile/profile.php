@@ -1,9 +1,9 @@
 <div class="content store-content">
     <div class="container">
-        <div class="row">
+        <div class="row mx-0">
             <?php $this->load->view("profile/sidebar"); ?>
 
-            <div class="col-md-10 col-lg-10 col-sm-12">
+            <div class="col-md-8 col-sm-12 col-lg-10  ">
                 <div class="card">
                     <div class="card-header">
                         Profile
