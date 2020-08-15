@@ -1,124 +1,108 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/libs/noui/nouislider.min.css">
 
-<!-- Title Page -->
-<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
-         style="background-image: url(<?php echo base_url('assets/images/header/shop.jpg') ?>">
-    <h2 class="l-text2 t-center">
-        SHOP
-    </h2>
-    <p class="m-text13 t-center">
-
-    </p>
-</section>
-
-
 <!-- Content page -->
-<section class="bgwhite p-t-55 p-b-65">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+<section class="">
+    <div class="row mx-0">
+        <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 
-                <div class="leftbar p-r-20 p-r-0-sm">
-                    <!--  -->
-                    <h4 class="m-text14 p-b-7">
-                        Categories
-                    </h4>
+            <div class="leftbar p-r-20 p-r-0-sm">
+                <!--  -->
+                <h4 class="m-text14 p-b-7">
+                    Categories
+                </h4>
 
-                    <ul class="p-b-54">
+                <ul class="p-b-54">
 
+                    <li class="p-t-4">
+                        <a href="<?php echo base_url('/products') ?>"
+                           class="s-text13 <?php echo ($this->uri->segment(2) == "") ? 'active1' : ''; ?>">
+                            All
+                        </a>
+                    </li>
+                    <?php foreach ($categories as $category) : ?>
                         <li class="p-t-4">
-                            <a href="<?php echo base_url('/products') ?>"
-                               class="s-text13 <?php echo ($this->uri->segment(2) == "") ? 'active1' : ''; ?>">
-                                All
+                            <a href="<?php echo base_url('categories/' . $category->id) ?>"
+                               class="s-text13 <?php echo ($this->uri->segment(2) == $category->id) ? 'active1' : ''; ?>">
+                                <?php echo xss_clean($category->name) ?>
                             </a>
                         </li>
-                        <?php foreach ($categories as $category) : ?>
-                            <li class="p-t-4">
-                                <a href="<?php echo base_url('categories/' . $category->id) ?>"
-                                   class="s-text13 <?php echo ($this->uri->segment(2) == $category->id) ? 'active1' : ''; ?>">
-                                    <?php echo xss_clean($category->name) ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                    </ul>
+                </ul>
 
-                    <!--  -->
-                    <h4 class="m-text14 p-b-32">
-                        Filters
-                    </h4>
-                    <?php echo form_open('', array('method' => 'GET', 'id' => 'filters_form')) ?>
-                    <div class="filter-price p-t-22 p-b-50 bo3">
-                        <div class="m-text15 p-b-17">
-                            Price
-                        </div>
-
-                        <div class="wra-filter-bar">
-                            <div id="filter-bar"></div>
-                        </div>
-
-                        <div class="flex-sb-m flex-w p-t-16">
-                            <div class="w-size11">
-                                <!-- Button -->
-                                <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
-                                    Filter
-                                </button>
-                            </div>
-
-                            <div class="s-text3 p-t-10 p-b-10">
-                                Range: <span id="price-lower"></span> - <span id="price-upper"></span>
-                            </div>
-                            <input type="hidden" id="min_price" name="min_price"
-                                   value="<?php echo $this->input->get('min_price'); ?>">
-                            <input type="hidden" id="max_price" name="max_price"
-                                   value="<?php echo $this->input->get('max_price'); ?>">
-                        </div>
+                <!--  -->
+                <h4 class="m-text14 p-b-32">
+                    Filters
+                </h4>
+                <?php echo form_open('', array('method' => 'GET', 'id' => 'filters_form')) ?>
+                <div class="filter-price p-t-22 p-b-50 bo3">
+                    <div class="m-text15 p-b-17">
+                        Price
                     </div>
 
-                    <div class="search-product pos-relative bo4 of-hidden">
-                        <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search_str"
-                               value="<?php echo $this->input->get('search_str'); ?>" id="search-product"
-                               placeholder="Search Products...">
-
-                        <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4 filter_button">
-                            <i class="fs-12 fa fa-search" aria-hidden="true"></i>
-                        </button>
+                    <div class="wra-filter-bar">
+                        <div id="filter-bar"></div>
                     </div>
-                    <?php echo form_close() ?>
-                </div>
 
-            </div>
-
-            <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-                <div class="flex-sb-m flex-w p-b-35">
-                    <div class="flex-w">
-                        <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-                            <?php echo form_dropdown("sort_type", array("" => "Default", "asc" => "Price: low to high", "desc" => "Price: high to low"), $this->input->get('sort_type'), array("class" => "selection-2", "id" => "sort_type")) ?>
+                    <div class="flex-sb-m flex-w p-t-16">
+                        <div class="w-size11">
+                            <!-- Button -->
+                            <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+                                Filter
+                            </button>
                         </div>
+
+                        <div class="s-text3 p-t-10 p-b-10">
+                            Range: <span id="price-lower"></span> - <span id="price-upper"></span>
+                        </div>
+                        <input type="hidden" id="min_price" name="min_price"
+                               value="<?php echo $this->input->get('min_price'); ?>">
+                        <input type="hidden" id="max_price" name="max_price"
+                               value="<?php echo $this->input->get('max_price'); ?>">
                     </div>
-                    <span class="s-text8 p-t-5 p-b-5">
-							<?php echo "Showing 1-9 of " . $total_rows; ?> results
-						</span>
                 </div>
-                <!-- Products -->
-                <div class="row">
-                    <?php $this->load->view('partials/flash'); ?>
-                    <?php
-                    $product_count = 1;
 
-                    foreach ($products as $item) : ?>
-                        <?php
-                        $data['item'] = $item;
-                        $this->load->view('shop/item', $data);
-                        $this->load->view('shop/itemModal', $data);
+                <div class="search-product pos-relative bo4 of-hidden">
+                    <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search_str"
+                           value="<?php echo $this->input->get('search_str'); ?>" id="search-product"
+                           placeholder="Search Products...">
 
-                        $product_count++;
-                    endforeach; ?>
+                    <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4 filter_button">
+                        <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+                    </button>
                 </div>
-                <?php echo $this->pagination->create_links(); ?>
+                <?php echo form_close() ?>
             </div>
 
         </div>
+
+        <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+            <div class="flex-sb-m flex-w p-b-35">
+                <div class="flex-w">
+                    <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                        <?php echo form_dropdown("sort_type", array("" => "Default", "asc" => "Price: low to high", "desc" => "Price: high to low"), $this->input->get('sort_type'), array("class" => "selection-2", "id" => "sort_type")) ?>
+                    </div>
+                </div>
+                <span class="s-text8 p-t-5 p-b-5">
+							<?php echo "Showing 1-9 of " . $total_rows; ?> results
+						</span>
+            </div>
+            <!-- Products -->
+            <div class="row">
+                <?php
+                $product_count = 1;
+                foreach ($products as $item) : ?>
+                    <?php
+                    $data['item'] = $item;
+                    $this->load->view('shop/item', $data);
+                    $this->load->view('shop/itemModal', $data);
+
+                    $product_count++;
+                endforeach; ?>
+            </div>
+            <?php echo $this->pagination->create_links(); ?>
+        </div>
+
     </div>
 </section>
 

@@ -207,9 +207,6 @@ class Shop extends CI_Controller
         $this->data['brands'] = $this->CategoriesModel->getParentCategory($category_id, 'brand');
         $this->data['manufacturers'] = $this->CategoriesModel->getParentCategory($category_id, 'manufacturer');
         $this->data['productTypes'] = $this->CategoriesModel->getParentCategory($category_id, 'productType');
-
-        //
-
         $this->data['total_rows'] = $pagination_config['total_rows'];
         $this->data['products'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         //Get Product Images :
