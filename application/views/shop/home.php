@@ -176,6 +176,7 @@
         $('.blog-carousel').owlCarousel({
             smartSpeed: 650,
             margin: 50,
+            center: true,
             responsiveClass: true,
             autoWidth: true,
             responsive: {

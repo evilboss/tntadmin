@@ -117,12 +117,6 @@ body {
         width: 14rem;
     }
 
-    .blog-carousel.owl-carousel > .owl-stage-outer > .owl-stage {
-        width: 100% !important;
-        display: flex;
-        justify-content: center;
-    }
-
 }
 
 .card-body.info {
