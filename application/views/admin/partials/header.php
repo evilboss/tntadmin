@@ -124,6 +124,19 @@
                                 Add</a></li>
                     </ul>
                 </li>
+                <li class="treeview<?php echo ($this->uri->segment(2) == "deals") ? " active" : ""; ?>">
+                    <a href="#">
+                        <i class="fa fa-shopping-bag"></i>
+                        <span>Special Deals</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo base_url('/admin/deals'); ?>"><i class="fa fa-circle-o"></i> All</a>
+                        </li>
+                        <li><a href="<?php echo base_url('/admin/deals/create'); ?>"><i class="fa fa-circle-o"></i>
+                                Add</a></li>
+                    </ul>
+                </li>
 
                 <li class="treeview <?php echo ($this->uri->segment(2) == "categories") ? " active" : ""; ?>">
                     <a href="#">
@@ -189,8 +202,8 @@
                         <i class="fa fa-first-order"></i> <span>Orders</span>
                     </a>
                 </li>
-                <!--<li class="<?php /*echo ($this->uri->segment(2) == "contact-us") ? " active" : ""; */?>">
-                    <a href="<?php /*echo base_url('/admin/contact-us') */?>">
+                <!--<li class="<?php /*echo ($this->uri->segment(2) == "contact-us") ? " active" : ""; */ ?>">
+                    <a href="<?php /*echo base_url('/admin/contact-us') */ ?>">
                         <i class="fa fa-phone"></i> <span>Contact</span>
                     </a>
                 </li>-->

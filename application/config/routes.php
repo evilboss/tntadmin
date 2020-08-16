@@ -28,6 +28,13 @@ $route['admin/products/create'] = 'Admin/Products/AdminProductsController/create
 $route['admin/products/edit/(:num)'] = 'Admin/Products/AdminProductsController/edit/$1';
 $route['admin/products/delete/(:num)'] = 'Admin/Products/AdminProductsController/delete/$1';
 
+$route['admin/deals'] = 'Admin/Deals/AdminDealsController/index';
+$route['admin/deals/store'] = 'Admin/Deals/AdminDealsController/store';
+$route['admin/deals/create'] = 'Admin/Deals/AdminDealsController/create';
+$route['admin/deals/edit/(:num)'] = 'Admin/Deals/AdminDealsController/edit/$1';
+$route['admin/deals/delete/(:num)'] = 'Admin/Deals/AdminDealsController/delete/$1';
+
+
 $route['admin/categories'] = 'Admin/Categories/AdminCategoriesController/index';
 $route['admin/categories/store'] = 'Admin/Categories/AdminCategoriesController/store';
 $route['admin/categories/create'] = 'Admin/Categories/AdminCategoriesController/create';
