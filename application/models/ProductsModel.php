@@ -1,7 +1,6 @@
 <?php
 
-class ProductsModel extends TNT_Model
-{
+class ProductsModel extends TNT_Model {
 
     public $_table = 'products';
 
@@ -9,8 +8,7 @@ class ProductsModel extends TNT_Model
     /**
      * ProductsModel constructor.
      */
-    public function __construct()
-    {
+    public function __construct() {
         //$this->has_one['image'] = array('foreign_model'=>'ProductsModel','foreign_table'=>'product_images','foreign_key'=>'product_id','local_key'=>'id');
 
         parent::__construct();
@@ -19,8 +17,7 @@ class ProductsModel extends TNT_Model
 
     }
 
-    public function getProductsForShop($category, $inputs, $limit, $offset)
-    {
+    public function getProductsForShop($category, $inputs, $limit, $offset) {
 
 
         $products = $this->buildQuery($category, $inputs, $limit, $offset);
@@ -30,13 +27,11 @@ class ProductsModel extends TNT_Model
         return $products;
     }
 
-    public function getTotalRecordsForPagination($category, $inputs)
-    {
+    public function getTotalRecordsForPagination($category, $inputs) {
         return count($this->buildQuery($category, $inputs));
     }
 
-    public function buildQuery($category, $inputs, $limit = null, $offset = 0)
-    {
+    public function buildQuery($category, $inputs, $limit = null, $offset = 0) {
 
         $this->db->select('products.*');
 
@@ -80,8 +75,7 @@ class ProductsModel extends TNT_Model
     /**
      * @return mixed
      */
-    public function countActive()
-    {
+    public function countActive() {
         $this->db->select("$this->_table.id");
         $this->db->from($this->_table);
         $this->db->where("webItem", "1");
@@ -90,8 +84,7 @@ class ProductsModel extends TNT_Model
 
     }
 
-    private function getItemStatus($item)
-    {
+    private function getItemStatus($item) {
         $date_now = date("Y/m/d");
         $status = "";
         if ($item->arrivalDate > 0 && $item->releaseDate > 0) {
@@ -114,13 +107,11 @@ class ProductsModel extends TNT_Model
         return $status;
     }
 
-    public function checkIfNew($date)
-    {
+    public function checkIfNew($date) {
         return (strtotime(date_format(date_create($date), 'Y/m/d')) > strtotime('-7 day'));
     }
 
-    public function getFormattedItems($products)
-    {
+    public function getFormattedItems($products) {
         foreach ($products as $product) {
             $product->cls = 0;
             $product->status = $this->getItemStatus($product);
@@ -138,8 +129,7 @@ class ProductsModel extends TNT_Model
         return $products;
     }
 
-    public function cleanSpecialOffers($products)
-    {
+    public function cleanSpecialOffers($products) {
         $date_now = date("Y/m/d"); // this format is string comparable
         // print_r($products);
         $filteredProducts = [];
@@ -158,8 +148,7 @@ class ProductsModel extends TNT_Model
         return $filteredProducts;
     }
 
-    public function getAllProductCodes()
-    {
+    public function getAllProductCodes() {
         $productCodes = array();
         $this->db->select('products.productCode');
         $this->db->from($this->_table);
@@ -171,8 +160,7 @@ class ProductsModel extends TNT_Model
 
     }
 
-    public function getBannerItems()
-    {
+    public function getBannerItems() {
         $productIds = array();
         $this->db->select("*");
         $this->db->from($this->_table);
@@ -187,11 +175,10 @@ class ProductsModel extends TNT_Model
 //        $this->db2->where_not_in('ItemCode', $ids);
     }
 
-    public function getNotIn($ids = '')
-    {
+    public function getNotIn($ids = '') {
         $this->db->select("*");
         $this->db->from($this->_table);
 
     }
-    
+
 }

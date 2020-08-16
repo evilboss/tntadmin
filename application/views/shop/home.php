@@ -1,3 +1,4 @@
+<script src="<?= base_url('assets/libs/jquery.countdown-2.2.0/jquery.countdown.min.js') ?>"></script>
 <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <?php
@@ -63,6 +64,19 @@
 
 
 </section>
+
+<?php if (isset($deal)): ?>
+
+
+    <?php if (isset($specialDeals) && !empty($specialDeals)): ?>
+        <section class="dark-section item-container mx-5">
+            <h3 class="text-white">Special Deals</h3>
+            <div id="clock"></div>
+
+        </section>
+
+    <?php endif; ?>
+<?php endif; ?>
 
 <?php if (isset($displayBlog)): ?>
     <div id="blogCarousel" class="carousel slide" data-ride="carousel">
@@ -156,6 +170,8 @@
     </section>
 <?php endif; ?>
 <script>
+    const timer = <?=isset($deal) && isset($deal->end) ? strtotime($deal->end) : '""'?>;
+    console.log(timer);
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             responsiveClass: true,
@@ -218,6 +234,17 @@
             }
 
         });
+        if (timer) {
+            $('#clock').countdown(new Date(timer * 1000), function (event) {
+                const $this = $(this).html(event.strftime(`<div>
+                    <span>%d:</span> <span>%H:</span>  <span>%M:</span>  <span>%S</span>
+<div><span>DAYS|</span><span>HRS|</span><span>MINS|</span><span>SECS</span></div>
+                    </div>`));
+            });
+
+
+        }
+
 
     });
 

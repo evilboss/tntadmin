@@ -1,11 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Shop extends CI_Controller
-{
-    public function __construct()
-    {
+class Shop extends CI_Controller {
+    public function __construct() {
         parent::__construct();
-        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel', 'OrdersModel', 'OrderProductModel', 'AddressModel'));
+        $this->load->model(array('Items_model', 'Cart_model', 'ProductsModel', 'ProductImagesModel', 'CategoriesModel', 'SliderImagesModel', 'OrdersModel', 'OrderProductModel', 'AddressModel', 'DealsModel'));
         $this->load->library(array('ion_auth', 'form_validation', 'pagination'));
         $this->load->helper(array('language', 'admin'));
 
@@ -20,11 +18,19 @@ class Shop extends CI_Controller
         }
     }
 
-    public function index()
-    {
+    public function index() {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
         $category_id = '';
+        $productIds = array();
+        $specialDeals = array();
+        $deal = $this->DealsModel->getOne();
+        if (!empty($deal)) {
+            $productIds = json_decode($deal->productIds);
+            $productIds = array_slice($productIds, 0, 5, true);
+            $specialDeals = $this->ProductsModel->getFormattedItems($this->ProductsModel->get_many($productIds));
+
+        }
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
         $this->pagination->initialize($pagination_config);
@@ -34,7 +40,9 @@ class Shop extends CI_Controller
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
         $this->data['banners'] = $bannerData->banners;
-        $this->data['items'] = $this->Items_model->getWebItems();
+
+        $this->data['deal'] = $deal;
+        $this->data['specialDeals'] = $specialDeals;
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();
         $this->data['featuredItems'] = $this->ProductsModel->getFormattedItems($this->ProductsModel->getProductsForShop($category_id, $inputs, $limit, $offset));
         // print_r($this->Items_model->getFeaturedItems());
@@ -42,8 +50,7 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/home', $this->data);
     }
 
-    public function newProducts()
-    {
+    public function newProducts() {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
         $category_id = '';
@@ -70,8 +77,7 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/home', $this->data);
     }
 
-    public function featured()
-    {
+    public function featured() {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
         $category_id = '';
@@ -92,8 +98,7 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/home', $this->data);
     }
 
-    public function comingSoon()
-    {
+    public function comingSoon() {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
         $category_id = '';
@@ -120,8 +125,7 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/home', $this->data);
     }
 
-    public function preorders()
-    {
+    public function preorders() {
         //  $this->load->model('shop_model');
         //  $this->data['shop'] = $this->shop_model->get_all();
         $category_id = '';
@@ -148,8 +152,7 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/home', $this->data);
     }
 
-    public function products()
-    {
+    public function products() {
 
         /*
          * 				$id = $product['serial'];
@@ -168,8 +171,7 @@ class Shop extends CI_Controller
 
     }
 
-    public function product($id = '')
-    {
+    public function product($id = '') {
         $this->data['item'] = (object)array(
             'isNew' => true,
             'status' => 'status',
@@ -192,8 +194,7 @@ class Shop extends CI_Controller
     }
 
 
-    public function categories($category_id = 0)
-    {
+    public function categories($category_id = 0) {
         //Get Query string Inputs.
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
@@ -220,8 +221,7 @@ class Shop extends CI_Controller
         ///$this->load->template('shop/list', $data);
     }
 
-    public function brands($category_id = null)
-    {
+    public function brands($category_id = null) {
         //Get Query string Inputs.
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
@@ -247,8 +247,7 @@ class Shop extends CI_Controller
         ///$this->load->template('shop/list', $data);
     }
 
-    public function manufacturers($category_id = 0)
-    {
+    public function manufacturers($category_id = 0) {
         //Get Query string Inputs.
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
@@ -274,8 +273,7 @@ class Shop extends CI_Controller
         ///$this->load->template('shop/list', $data);
     }
 
-    public function producttypes($category_id = 0)
-    {
+    public function producttypes($category_id = 0) {
         //Get Query string Inputs.
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
@@ -301,8 +299,7 @@ class Shop extends CI_Controller
         ///$this->load->template('shop/list', $data);
     }
 
-    public function genres($category_id = 0)
-    {
+    public function genres($category_id = 0) {
         //Get Query string Inputs.
         $inputs = $this->input->get();
         $pagination_config = $this->getPaginationConfig($category_id, $inputs);
@@ -326,15 +323,13 @@ class Shop extends CI_Controller
         ///$this->load->template('shop/list', $data);
     }
 
-    public function item($slug = '')
-    {
+    public function item($slug = '') {
         $this->data['content'] = 'shop/productDetail';
         $this->load->view('layout/store', $this->data);
 
     }
 
-    public function get($id)
-    {
+    public function get($id) {
         $id = intval($id);
         if ($id != 0) {
             $this->load->model('shop_model');
@@ -345,8 +340,7 @@ class Shop extends CI_Controller
         }
     }
 
-    public function add()
-    {
+    public function add() {
         $this->form_validation->set_rules('element', 'Element label', 'trim|required');
         if ($this->form_validation->run() === FALSE) {
             $data['input_element'] = array('name' => 'element', 'id' => 'element', 'value' => set_value('element'));
@@ -362,8 +356,7 @@ class Shop extends CI_Controller
         }
     }
 
-    public function edit()
-    {
+    public function edit() {
         $this->form_validation->set_rules('element', 'Element label', 'trim|required');
         $this->form_validation->set_rules('id', 'ID', 'trim|is_natural_no_zero|required');
         if ($this->form_validation->run() === FALSE) {
@@ -387,8 +380,7 @@ class Shop extends CI_Controller
         }
     }
 
-    public function delete($id)
-    {
+    public function delete($id) {
         $id = intval($id);
         if ($id != 0) {
             $this->load->model('shop_model');
@@ -399,8 +391,7 @@ class Shop extends CI_Controller
         }
     }
 
-    public function getPaginationConfig($category_id, $inputs)
-    {
+    public function getPaginationConfig($category_id, $inputs) {
         $config['base_url'] = base_url('shop/' . $this->uri->segment(2));
         $config['total_rows'] = $this->ProductsModel->getTotalRecordsForPagination($category_id, $inputs);
         $config['per_page'] = 9;
@@ -415,8 +406,7 @@ class Shop extends CI_Controller
         return $config;
     }
 
-    private function getData()
-    {
+    private function getData() {
         $this->load->model('setting');
         $settings = $this->setting->all();
 
@@ -429,8 +419,7 @@ class Shop extends CI_Controller
         return $data;
     }
 
-    public function login()
-    {
+    public function login() {
         if ($this->ion_auth->logged_in()) {
             redirect('shop/profile');
         }
@@ -469,8 +458,7 @@ class Shop extends CI_Controller
 
     }
 
-    public function logout()
-    {
+    public function logout() {
         $this->data['title'] = "Logout";
         if ($this->ion_auth->logout()) {
             $this->session->set_flashdata('message', $this->ion_auth->messages());
@@ -482,8 +470,7 @@ class Shop extends CI_Controller
 
     }
 
-    public function _get_csrf_nonce()
-    {
+    public function _get_csrf_nonce() {
         $this->load->helper('string');
         $key = random_string('alnum', 8);
         $value = random_string('alnum', 20);
@@ -493,8 +480,7 @@ class Shop extends CI_Controller
         return array($key => $value);
     }
 
-    public function register()
-    {
+    public function register() {
         $inputs = $this->input->post();
 
         $this->data['title'] = $this->lang->line('create_user_heading');
@@ -593,8 +579,7 @@ class Shop extends CI_Controller
         $this->load->templateProfile('shop/create_user_form', $this->data);
     }
 
-    public function profile()
-    {
+    public function profile() {
         if ($this->ion_auth->logged_in()) {
             $this->data['user'] = $this->ion_auth->user()->row();
             $this->load->templateProfile('profile/profile', $this->data);
@@ -604,8 +589,7 @@ class Shop extends CI_Controller
 
     }
 
-    public function orders()
-    {
+    public function orders() {
         if ($this->ion_auth->logged_in()) {
             $user = $this->data['user'];
             $orders = array();
@@ -623,8 +607,7 @@ class Shop extends CI_Controller
 
     }
 
-    public function addresses()
-    {
+    public function addresses() {
         if ($this->ion_auth->logged_in()) {
             $user = $this->data['user'];
             $debug = array();
@@ -666,15 +649,13 @@ class Shop extends CI_Controller
 
     }
 
-    public function card()
-    {
+    public function card() {
         //$this->load->view('layout/shop');
         $this->load->templateProfile('profile/card', $this->data);
 
     }
 
-    public function requestReturn($orderId, $productId)
-    {
+    public function requestReturn($orderId, $productId) {
         $order = $this->OrdersModel->get($orderId);
         $product = $this->ProductsModel->get($productId);
         $productOrder = (object)array();
@@ -694,19 +675,16 @@ class Shop extends CI_Controller
 
     }
 
-    public function owl()
-    {
+    public function owl() {
         $this->load->templateProfile('profile/owlTemplate', $this->data);
 
     }
 
-    public function about()
-    {
+    public function about() {
         $this->load->templateProfile('shop/about', $this->data);
     }
 
-    public function blog()
-    {
+    public function blog() {
         $this->load->templateProfile('shop/blog', $this->data);
     }
 
