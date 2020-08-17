@@ -793,16 +793,23 @@ span.img-text:hover {
 .slides {
 
 }
+
 .owl-carousel .owl-stage {
     display: flex;
     align-items: center;
 }
-.owl-item{
+
+.owl-item {
     max-width: 325px;
     margin-right: 0px
 }
-.product-badge{
+
+.product-badge {
     border-radius: 0;
+
+}
+
+.product-badge-left {
     left: 25px;
     top: 4px;
     position: absolute;
