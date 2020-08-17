@@ -67,9 +67,10 @@ h3 {
 }
 
 .item-container {
-    min-height: 55vh;
+    min-height: 70vh;
     height: auto;
     white-space: nowrap;
+
 }
 
 .fixed-top-2 {
@@ -105,6 +106,10 @@ h3 {
 
     border-top: 35px solid #ECA000;
 
+}
+
+.text-amber {
+    color: #f3ec03;
 }
 
 .Pre-Order-corner {
