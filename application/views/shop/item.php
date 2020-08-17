@@ -32,9 +32,9 @@
             <a class="info" data-toggle="modal" data-target="#itemModal-<?= $item->id ?>">Quick View</a>
             <div class="bottom-overlay" role="">
                 <div class="bottom-overlay btn-group" role="group">
-                    <button type="button" class="btn btn-xs btn-outline-default m-0"><i class="fa fa-heart"></i>
+                    <button type="button" class="btn btn-xs btn-outline-default m-0 quick-access-button"><i class="fa fa-heart"></i>
                     </button>
-                    <button type="button" class="btn btn-xs btn-outline-default m-0"><i class="fa fa-shopping-cart"></i>
+                    <button type="button" class="btn btn-xs btn-outline-default m-0 quick-access-button"><i class="fa fa-shopping-cart"></i>
                     </button>
 
                 </div>

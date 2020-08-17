@@ -835,11 +835,12 @@ span.img-text:hover {
 
 }
 
-.bottom-overlay > button {
+.quick-access-button {
     border-color: transparent;
     padding: 5px;
 }
-.bottom-overlay > button:hover {
+
+.quick-access-button:hover {
     background-color: transparent;
     border-color: transparent;
 }
