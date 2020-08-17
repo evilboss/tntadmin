@@ -31,9 +31,9 @@
         <div class="overlay">
             <a class="info" data-toggle="modal" data-target="#itemModal-<?= $item->id ?>">Quick View</a>
             <div class="bottom-overlay">
-                <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-heart"></i>
+                <button type="button" class="btn btn-sm btn-outline-default"><i class="fa fa-heart"></i>
                 </button>
-                <button type="button" class="btn btn-sm btn-outline-primary"><i class="fa fa-shopping-cart"></i>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-shopping-cart"></i>
                 </button>
             </div>
         </div>
