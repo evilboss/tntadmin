@@ -184,6 +184,7 @@
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             autoplay: true,
+            dots: false,
             loop: false,
             autoWidth: false,
             responsive: {
@@ -280,8 +281,6 @@
                                 </div>`));
             });
         }
-
-
 
 
     });
