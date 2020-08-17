@@ -135,6 +135,9 @@
     </div>
     <section class="light-gray-section">
         <div class="container">
+            <h3>Blog Post</h3>
+        </div>
+        <div class="container">
             <div class="card-group">
                 <div class="card">
                     <img class="card-img-top" src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"
