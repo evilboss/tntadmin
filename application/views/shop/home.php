@@ -189,17 +189,21 @@
                     nav: true,
 
                 },
-                800: {
+                1020: {
+                    margin: 2,
+                    center: false,
+                    items: 3,
+                    nav: false,
+                },
+                1340: {
                     margin: 3,
-
                     center: false,
                     items: 3,
                     nav: false,
                 },
 
-                1400: {
+                1240: {
                     margin: 4,
-
                     center: false,
                     items: 4,
                     nav: false,
@@ -273,6 +277,8 @@
                                 </div>`));
             });
         }
+
+
 
 
     });

@@ -29,11 +29,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.carousel.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.theme.default.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/libs/slick-1.8.1/slick/slick.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/libs/lightgallery/dist/css/lightgallery.min.css') ?>">
+
     <link rel="stylesheet" href="<?= base_url('assets/libs/slick-1.8.1/slick/slick-theme.css') ?>">
 
     <link rel="stylesheet" href="/assets/css/tnt-store.css">
@@ -53,10 +55,10 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="<?= base_url('assets/libs/owl.carousel/dist/owl.carousel.min.js') ?>"></script>
+<script src="<?= base_url('assets/libs/lightgallery/dist/js/lightgallery.min.js') ?>"></script>
+
 <script>
     window.fbAsyncInit = function () {
         FB.init({

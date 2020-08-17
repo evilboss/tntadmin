@@ -1,7 +1,8 @@
 <div class="">
-    <div class="row">
-        <div class="col-lg-6 col-sm-12">
+    <div id="itemDetail" class="row ">
+        <div class="col-lg-6 col-sm-12 item-slides">
             <a href="<?= base_url("/images/products/$item->cover_image") ?>"
+               class="lightGallery"
                data-lightbox="gallery-<?= $item->id ?>"
                data-toggle="lightbox">
                 <img src="<?= base_url("/images/products/$item->cover_image") ?>"
@@ -11,14 +12,15 @@
 
             <div class="row justify-content-center ">
 
-                <div class="thumb-nails overflow-auto mt-2 img-carousel owl-theme owl-carousel slider">
+                <div class="thumb-nails overflow-auto mt-2 img-carousel owl-theme owl-carousel slider item-slides">
                     <?php foreach ($item->images as $image) : ?>
                         <a href="<?= base_url("/images/products/$image->path") ?>"
                            data-toggle="lightbox"
+                           alt="<?= $image->path ?>"
                            width="auto"
+                           class="lightGallery"
                            data-lightbox="gallery-<? /*= $item->id */ ?>" class="col-sm-4">
-                            <img src="<?= base_url("/images/products/$image->path") ?>"
-                                 class="img-thumbnail slides">
+                            <img src="<?= base_url("/images/products/$image->path") ?>" class="img-thumbnail slides">
                         </a>
                     <?php endforeach; ?>
 
@@ -166,6 +168,13 @@
 </div>
 <script>
     $(document).ready(function () {
+        const $customEvents = $('.item-slides');
+        $customEvents.lightGallery({
+            thumbnail: true
+        });
+        $customEvents.on('onBeforeSlide.lg', function () {
+            $('.lg-outer').css('background-color', 'black')
+        });
 
     });
 
