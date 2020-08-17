@@ -272,7 +272,7 @@ h3 {
 }
 
 .product-item {
-    margin: 0.5rem -4px 0.5rem auto;
+    margin: 10px;
     align-self: auto;
     float: none;
 }
@@ -787,4 +787,12 @@ span.img-text:hover {
     background: #303133;
     background-color: #303133;
     color: #F6F6F6;
+}
+
+.slides {
+
+}
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: center;
 }

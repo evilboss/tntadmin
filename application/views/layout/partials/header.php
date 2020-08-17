@@ -33,6 +33,8 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.carousel.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.theme.default.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/libs/slick-1.8.1/slick/slick.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/libs/slick-1.8.1/slick/slick-theme.css') ?>">
 
     <link rel="stylesheet" href="/assets/css/tnt-store.css">
 

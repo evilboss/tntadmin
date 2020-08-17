@@ -78,7 +78,7 @@
 
                     </div>
                     <div class="col-md-4" style="text-align: right">
-                        <button class="btn btn-secondary">View All</button>
+                        <button class="btn dark text-white">View All</button>
 
                     </div>
 
@@ -180,10 +180,7 @@
     const timer = <?=isset($deal) && isset($deal->end) ? strtotime($deal->end) : '""'?>;
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
-            responsiveClass: true,
-            center: true,
             autoplay: true,
-            margin: 10,
             loop: false,
             autoWidth: false,
             responsive: {
@@ -193,7 +190,7 @@
 
                 },
                 800: {
-                    margin: 5,
+                    margin: 3,
 
                     center: false,
                     items: 3,
@@ -201,21 +198,35 @@
                 },
 
                 1400: {
-                    margin: 5,
+                    margin: 4,
 
                     center: false,
                     items: 4,
                     nav: false,
                 },
-                1920: {
+                1620: {
                     items: 5,
                     nav: false,
                     center: false,
-                }
+                    margin: 0
+                },
+                2020: {
+                    items: 6,
+                    nav: false,
+                    center: false,
+                    margin: 0
+                },
+
             }
 
-        })
-        ;
+        });
+        $('.slider').owlCarousel({
+            center: true,
+            items: 4,
+            loop: true,
+            margin: 10,
+        });
+
         $('.blog-carousel').owlCarousel({
             smartSpeed: 650,
             margin: 50,

@@ -10,17 +10,17 @@
             </a>
 
             <div class="row justify-content-center ">
-                <div class="thumb-nails overflow-auto mt-2 owl-carousel img-carousel owl-theme" >
-                    <?php foreach ($item->images as $image) {
 
-                        ?>
+                <div class="thumb-nails overflow-auto mt-2 img-carousel owl-theme owl-carousel slider">
+                    <?php foreach ($item->images as $image) : ?>
                         <a href="<?= base_url("/images/products/$image->path") ?>"
                            data-toggle="lightbox"
+                           width="auto"
                            data-lightbox="gallery-<? /*= $item->id */ ?>" class="col-sm-4">
                             <img src="<?= base_url("/images/products/$image->path") ?>"
-                                 class="img-thumbnail">
+                                 class="img-thumbnail slides">
                         </a>
-                    <?php } ?>
+                    <?php endforeach; ?>
 
 
                 </div>
@@ -150,8 +150,6 @@
                              role="tabpanel"
                              aria-labelledby="nav-details-tab">
                             <?= $item->summary ?>
-
-
                         </div>
                         <div class="tab-pane fade text-wrap" id="nav-specs" role="tabpanel"
                              aria-labelledby="nav-specs-tab">
@@ -167,5 +165,9 @@
     </div>
 </div>
 <script>
+    $(document).ready(function () {
+
+    });
+
 
 </script>
