@@ -244,25 +244,26 @@
         });
         if (timer) {
             $('#clock').countdown(new Date(timer * 1000), function (event) {
-                const $this = $(this).html(event.strftime(`<div class="text-amber">
-<span>
-    <span>%d:</span>
-    <span class="clock-text">DAYS</span>
-</span>
-<span>
-<span>%H:</span>
-<span class="clock-text">HRS</span>
-</span>
-<span>
-<span>%M:</span>
-<span class="clock-text">MINS|</span>
-</span>
-<span>
+                const $this = $(this).html(event.strftime(`
+                        <div class="text-amber">
+                                <span>
+                                    <span>%d:</span>
+                                    <span class="clock-text">DAYS</span>
+                                </span>
+                                <span>
+                                <span>%H:</span>
+                                <span class="clock-text">HRS</span>
+                                </span>
+                                <span>
+                                <span>%M:</span>
+                                <span class="clock-text">MINS|</span>
+                                </span>
+                                <span>
 
-    <span>%S</span>
-<span class="clock-text">SECS</span>
-</span>
-                    </div>`));
+                                    <span>%S</span>
+                                <span class="clock-text">SECS</span>
+                                </span>
+                                </div>`));
             });
 
 
