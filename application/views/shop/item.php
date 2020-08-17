@@ -33,7 +33,7 @@
             <div class="bottom-overlay">
                 <button type="button" class="btn btn-sm btn-outline-default"><i class="fa fa-heart"></i>
                 </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-shopping-cart"></i>
+                <button type="button" class="btn btn-sm btn-outline-default"><i class="fa fa-shopping-cart"></i>
                 </button>
             </div>
         </div>
