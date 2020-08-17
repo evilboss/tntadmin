@@ -25,8 +25,7 @@
             <ul class="list-unstyled">
                 <li><h6 class="text-truncate lato-regular-20"><?= $item->name; ?></h6></li>
                 <li class="manufacturerCategoryText"><?= $item->manufacturerName; ?></li>
-                <li class="lato-regular-20" $
-                <?= $item->price; ?></li>
+                <li class="lato-regular-20"> <?= $item->price ? "$ $item->price" : ""; ?></li>
             </ul>
         </div>
 
