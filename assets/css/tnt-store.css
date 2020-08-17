@@ -837,6 +837,7 @@ span.img-text:hover {
 
 .bottom-overlay > button {
     border-color: transparent;
+    padding: 5px;
 }
 .bottom-overlay > button:hover {
     background-color: transparent;
