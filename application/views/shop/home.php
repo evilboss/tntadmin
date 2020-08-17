@@ -78,7 +78,7 @@
 
                     </div>
                     <div class="col-md-4" style="text-align: right">
-                        <button class="btn">View All</button>
+                        <button class="btn btn-secondary">View All</button>
 
                     </div>
 
@@ -89,20 +89,16 @@
                 <?php
                 foreach ($specialDeals as $item) {
                     $data['item'] = $item;
-                    ?>
-                    <?php $this->load->view('shop/item', $data); ?>
-                    <?php
-                }
-                ?>
+                    $data['isDark'] = true;
+                    $this->load->view('shop/item', $data);
+                } ?>
             </div>
-            <?php foreach ($specialDeals as $item) {
+            <?php
+            foreach ($specialDeals as $item) {
                 $data['item'] = $item;
-                ?>
-                <?php $this->load->view('shop/itemModal', $data); ?>
-                <?php
-
-            }
-            ?>
+                $data['isDark'] = true;
+                $this->load->view('shop/itemModal', $data);
+            } ?>
 
 
         </section>
@@ -265,8 +261,6 @@
                                 </span>
                                 </div>`));
             });
-
-
         }
 
 

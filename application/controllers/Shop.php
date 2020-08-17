@@ -40,7 +40,6 @@ class Shop extends CI_Controller {
         $offset = $current_per_page;
         $this->data['content'] = 'shop/home';
         $this->data['banners'] = $bannerData->banners;
-
         $this->data['deal'] = $deal;
         $this->data['specialDeals'] = $specialDeals;
         //$this->data['featuredItems'] = $this->Items_model->getFeaturedItems();

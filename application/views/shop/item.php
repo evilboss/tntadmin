@@ -1,5 +1,5 @@
-<div class="col product-item item">
-    <div class="card hovereffect">
+<div class="col product-item item ">
+    <div class="card hovereffect <?= (isset($isDark) && $isDark) ? 'dark-item' : '' ?>">
         <div class="card-header product-item-header">
             <div class="row">
                 <div class="col-sm">
