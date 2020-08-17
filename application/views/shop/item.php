@@ -1,15 +1,13 @@
-<div class="col product-item item ">
+<div class="col product-item item">
     <div class="card hovereffect <?= (isset($isDark) && $isDark) ? 'dark-item' : '' ?>">
-        <div class="card-header product-item-header <?= (isset($isDark) && $isDark) ? 'dark-item' : '' ?>">
-            <div class="row">
-                <div class="col-sm">
+        <div class="card-title d-flex justify-content-space-between align-items-center product-item-header <?= (isset($isDark) && $isDark) ? 'dark-item' : '' ?>">
+            <div class="col-sm">
                     <span class="badge product-badge product-badge-left <?= $item->status ?>">
                         <?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?>
                     </span>
-                </div>
-                <div class="col-sm">
-                    <span class="text-right"><?= $item->productCode ?></span>
-                </div>
+            </div>
+            <div class="col-sm">
+                <span class="product-badge-right"><?= $item->productCode ?></span>
             </div>
         </div>
 

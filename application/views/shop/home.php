@@ -188,8 +188,6 @@
             dots: false,
             loop: true,
             autoWidth: false,
-            margin: 10,
-            stagePadding: 50,
             responsive: {
                 0: {
                     items: 1,
@@ -201,11 +199,12 @@
                 },
                 1000: {
                     items: 3,
-                    nav: true,
+                    nav: false,
+                    stagePadding: 50,
                 }
+
+
             },
-
-
         });
         /*            responsive: {
                 0: {

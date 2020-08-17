@@ -265,7 +265,7 @@ h3 {
 }
 
 .product-item-header {
-    padding: 0;
+    padding: 10px;
     margin: 0;
     border-bottom: none;
     background-color: white;
@@ -804,6 +804,7 @@ span.img-text:hover {
 
 .owl-item {
 }
+
 .carousel-item + .carousel-item {
     margin-left: 10px;
 }
@@ -815,7 +816,14 @@ span.img-text:hover {
 }
 
 .product-badge-left {
-    left: 25px;
-    top: 4px;
     position: absolute;
+    top: -4px;
+    left: 11px;
 }
+
+.product-badge-right {
+    position: absolute;
+    top: -8px;
+    left: 44px;
+}
+
