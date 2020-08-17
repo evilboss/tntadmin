@@ -803,9 +803,11 @@ span.img-text:hover {
 }
 
 .owl-item {
-    max-width: 325px;
-    margin-right: 0px
 }
+.carousel-item + .carousel-item {
+    margin-left: 10px;
+}
+
 
 .product-badge {
     border-radius: 0;

@@ -32,14 +32,14 @@
         </a>
     </div>
 </div>
-<section class="light-gray-section item-container mx-5">
+<section class="light-gray-section item-container">
 
     <div class="container">
         <div class="row">
             <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
     </div>
-    <div class="product-container owl-carousel owl-theme">
+    <div class="product-container owl-carousel owl-theme container">
         <?php
         foreach ($featuredItems as $item) {
             $data['item'] = $item;
@@ -66,8 +66,9 @@
 
 
     <?php if (isset($specialDeals) && !empty($specialDeals)): ?>
-        <section class="dark-section item-container  mx-5">
-            <div class="deals-header">
+        <section class="dark-section item-container">
+            <div class="deals-header container">
+
                 <div class="row">
                     <div class="col-md-4">
                         <h3 class="text-white">Special Deals</h3>
@@ -85,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="product-container owl-carousel owl-theme">
+            <div class="product-container owl-carousel owl-theme container">
                 <?php
                 foreach ($specialDeals as $item) {
                     $data['item'] = $item;
@@ -187,7 +188,26 @@
             dots: false,
             loop: true,
             autoWidth: false,
+            margin: 10,
+            stagePadding: 50,
             responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 1,
+                    nav: false
+                },
+                1000: {
+                    items: 3,
+                    nav: true,
+                }
+            },
+
+
+        });
+        /*            responsive: {
                 0: {
                     items: 1,
                     autoWidth: false,
@@ -208,7 +228,7 @@
                 },
 
                 1440: {
-                    margin: 4,
+                    margin: 3,
                     center: false,
                     items: 4,
                     nav: false,
@@ -227,8 +247,7 @@
                 },
 
             }
-
-        });
+*/
         $('.slider').owlCarousel({
             center: true,
             items: 4,
