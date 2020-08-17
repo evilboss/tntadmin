@@ -1,6 +1,6 @@
 <div class="col product-item item ">
     <div class="card hovereffect <?= (isset($isDark) && $isDark) ? 'dark-item' : '' ?>">
-        <div class="card-header product-item-header">
+        <div class="card-header product-item-header <?= (isset($isDark) && $isDark) ? 'dark-item' : '' ?>">
             <div class="row">
                 <div class="col-sm">
                     <span class="badge product-badge product-badge-left <?= $item->status ?>">
