@@ -198,14 +198,14 @@
                     items: 3,
                     nav: false,
                 },
-                1340: {
+                1240: {
                     margin: 3,
                     center: false,
                     items: 3,
                     nav: false,
                 },
 
-                1240: {
+                1440: {
                     margin: 4,
                     center: false,
                     items: 4,

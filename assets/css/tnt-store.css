@@ -796,3 +796,7 @@ span.img-text:hover {
     display: flex;
     align-items: center;
 }
+.owl-item{
+    max-width: 325px;
+    margin-right: 0px
+}
