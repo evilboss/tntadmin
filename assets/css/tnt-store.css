@@ -88,24 +88,24 @@ h3 {
     width: 0;
     height: 0;
     border-top: 35px solid #ffcc00;
-    border-bottom: 130px solid transparent;
-    border-left: 35px solid transparent;
+    border-bottom: 135px solid transparent;
+    border-left: 50px solid transparent;
     position: absolute;
     right: 10px;
     color: white;
 }
 
 .Coming-Soon-corner {
-    border-top: 35px solid #0A7BB1;
+    border-top: 50px solid #0A7BB1;
 }
 
 .Low-Stock-corner {
-    border-top: 35px solid #C72221;
+    border-top: 50px solid #C72221;
 }
 
 .In-Stock-corner {
 
-    border-top: 35px solid #ECA000;
+    border-top: 50px solid #ECA000;
 
 }
 
@@ -114,22 +114,22 @@ h3 {
 }
 
 .Pre-Order-corner {
-    border-top: 35px solid #2C9D17;
+    border-top: 50px solid #2C9D17;
 }
 
 .Out-Of-Stock-corner {
-    border-top: 35px solid #A5ACB7;
+    border-top: 50px solid #A5ACB7;
 }
 
 
 .corner span {
     position: absolute;
-    top: -30px;
+    top: -40px;
     width: 100px;
-    left: -60px;
+    left: -65px;
     text-align: center;
-    font-size: 10px;
-    font-family: arial;
+    font-size: 12px;
+    font-family: Lato;
     transform: rotate(45deg);
     display: block;
 }
@@ -266,6 +266,8 @@ h3 {
 .product-item-header {
     padding: 0;
     margin: 0;
+    border-bottom: none;
+    background-color: white;
 }
 
 .product-container {

@@ -190,7 +190,8 @@
             responsive: {
                 0: {
                     items: 1,
-                    nav: true,
+                    autoWidth: false,
+
 
                 },
                 1020: {
