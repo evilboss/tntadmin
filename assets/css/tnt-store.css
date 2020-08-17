@@ -801,3 +801,9 @@ span.img-text:hover {
     max-width: 325px;
     margin-right: 0px
 }
+.product-badge{
+    border-radius: 0;
+    left: 25px;
+    top: 4px;
+    position: absolute;
+}

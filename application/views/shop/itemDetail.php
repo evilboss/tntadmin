@@ -32,7 +32,7 @@
         <div class="col-lg-6 col-sm-12">
             <div class="row">
                 <div class="col-6">
-                    <span class="badge <?= $item->status ?> "><?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?></span>
+                    <span class="badge product-badge <?= $item->status ?> "><?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?></span>
                     <span class="item-id"><?= $item->productCode ?></span>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         <div class="card-header product-item-header">
             <div class="row">
                 <div class="col-sm">
-                    <span class="badge <?= $item->status ?>">
+                    <span class="badge product-badge <?= $item->status ?>">
                         <?= $item->status ? implode(' ', explode('-', $item->status)) : '' ?>
                     </span>
                 </div>
