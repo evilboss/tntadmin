@@ -185,7 +185,7 @@
         $('.owl-carousel').owlCarousel({
             autoplay: true,
             dots: false,
-            loop: false,
+            loop: true,
             autoWidth: false,
             responsive: {
                 0: {
