@@ -818,12 +818,12 @@ span.img-text:hover {
 .product-badge-left {
     position: absolute;
     top: -4px;
-    left: 11px;
+    left: 0px;
 }
 
 .product-badge-right {
     position: absolute;
     top: -8px;
-    left: 44px;
+    left: 70px;
 }
 
