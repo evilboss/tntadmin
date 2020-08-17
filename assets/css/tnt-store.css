@@ -34,7 +34,7 @@ h3 {
 }
 
 .store-carousel {
-    max-height: 45vh;
+    max-height: 50vh;
 }
 
 @media only screen and (max-width: 991px) {
