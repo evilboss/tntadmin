@@ -148,6 +148,7 @@ h3 {
 .col.product-item > .card {
     width: 311px;
     height: 456px;
+    border: none;
 }
 
 
