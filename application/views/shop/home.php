@@ -218,7 +218,7 @@
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,
-            margin: 10,
+            margin: 15,
             nav: false,
             dots: false,
             autoWidth: true,
