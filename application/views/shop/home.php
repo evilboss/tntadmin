@@ -218,25 +218,13 @@
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,
-            margin: 10,
+            margin: 20,
             nav: false,
             dots: false,
             autoWidth: true,
             responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                500: {
-                    items: 3
-                },
-                1500: {
-                    items: 2
-                },
-                2000: {
-                    items: 5
-                }
-            }
+            items: 1
+
         });
         $('.slider').owlCarousel({
             center: true,

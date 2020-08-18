@@ -282,9 +282,10 @@ h3 {
 }
 
 .product-item {
-    margin: 10px;
     align-self: auto;
     float: none;
+    padding: 0;
+    margin: 0;
 }
 
 .product-modal h5 {
@@ -496,7 +497,6 @@ button.close {
     border-left: 2px solid;
     padding: 0 2em;
 }
-
 
 
 #navbarSupportedContent {
@@ -754,6 +754,7 @@ span.img-text:hover {
 
 .owl-item {
 }
+
 .owl-carousel .owl-stage-outer {
     overflow: hidden;
 }
