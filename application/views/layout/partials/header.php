@@ -77,7 +77,7 @@
 <header class="fixed-top">
 
     <nav class="navbar navbar-expand-lg navbar-dark dark-section p-0">
-        <div class="w-100 mx-6" id="nav-one">
+        <div class="w-100 container" id="nav-one">
             <!--visible only in small-->
             <div class="d-block d-sm-none">
                 <div class="d-flex bd-highlight mb-3">
@@ -177,7 +177,7 @@
                 </div>
             </div>
             <div class="d-none d-sm-block d-flex">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex">
                     <div class="mr-auto">
                         <ul class="navbar-nav mr-auto social-media-icons flex-row">
                             <li class="nav-item mx-2">
@@ -379,7 +379,7 @@
         </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
-        <div class="mx-6 d-flex justify-content-space-between">
+        <div class="container d-flex justify-content-space-between">
             <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="/assets/img/tnt-logo.png"></a>
 
             <button class="navbar-toggler" style="height: 50px" type="button" data-toggle="collapse"

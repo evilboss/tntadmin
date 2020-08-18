@@ -34,12 +34,12 @@
 </div>
 <section class="light-gray-section item-container">
 
-    <div class="mx-6">
-        <div class="row">
+    <div class="container">
+        <div class="row mx-3">
             <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
     </div>
-    <div class="product-container owl-carousel owl-theme mx-6">
+    <div class="product-container owl-carousel owl-theme container">
         <?php
         foreach ($featuredItems as $item) {
             $data['item'] = $item;
@@ -67,26 +67,28 @@
 
     <?php if (isset($specialDeals) && !empty($specialDeals)): ?>
         <section class="dark-section item-container">
-            <div class="deals-header container">
+            <div class="deals-header">
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="text-white">Special Deals</h3>
+                <div class="container">
+                    <div class="row mx-3">
+                        <div class="col-md-4">
+                            <h3 class="text-white">Special Deals</h3>
+
+                        </div>
+                        <div class="col-md-4 clock-container" style="text-align: center">
+                            <div id="clock"></div>
+
+                        </div>
+                        <div class="col-md-4" style="text-align: right">
+                            <button class="btn dark text-white">View All</button>
+
+                        </div>
 
                     </div>
-                    <div class="col-md-4 clock-container" style="text-align: center">
-                        <div id="clock"></div>
-
-                    </div>
-                    <div class="col-md-4" style="text-align: right">
-                        <button class="btn dark text-white">View All</button>
-
-                    </div>
-
                 </div>
             </div>
 
-            <div class="product-container owl-carousel owl-theme mx-6">
+            <div class="product-container owl-carousel owl-theme container">
                 <?php
                 foreach ($specialDeals as $item) {
                     $data['item'] = $item;
@@ -108,12 +110,12 @@
 <?php endif; ?>
 <section class="light-gray-section item-container">
 
-    <div class="mx-6">
-        <div class="row">
+    <div class="container">
+        <div class="row mx-3">
             <h3>Best Seller</h3>
         </div>
     </div>
-    <div class="product-container owl-carousel owl-theme mx-6">
+    <div class="product-container owl-carousel owl-theme container">
         <?php
         foreach ($featuredItems as $item) {
             $data['item'] = $item;
@@ -140,7 +142,7 @@
 
 <?php if (isset($displayBlog)): ?>
     <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-        <div class="mx-6">
+        <div class="container">
             <h3>Headline</h3>
         </div>
 
@@ -166,7 +168,7 @@
         </a>
     </div>
     <section class="light-gray-section">
-        <div class="mx-6">
+        <div class="container">
             <h3>Blog Post</h3>
         </div>
         <div class="container">
@@ -215,80 +217,27 @@
     const timer = <?=isset($deal) && isset($deal->end) ? strtotime($deal->end) : '""'?>;
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
-            autoplay: true,
-            dots: false,
-            lazyLoad: true,
             loop: true,
+            margin: 10,
+            nav: false,
+            dots: false,
             autoWidth: true,
+            responsiveClass: true,
             responsive: {
                 0: {
-                    items: 1,
-                    nav: true
+                    items: 1
                 },
-                600: {
-                    items: 1,
-                    nav: false
+                500: {
+                    items: 3
                 },
-                1000: {
-                    items: 3,
-                    nav: false,
-                    stagePadding: 50,
+                1500: {
+                    items: 2
                 },
-                1200: {
-                    items: 4,
-                    nav: false,
-                    stagePadding: 50,
-                },
-                1300: {
-                    items: 4,
-                    nav: false,
-                    stagePadding: 50,
+                2000: {
+                    items: 5
                 }
-
-
-            },
-        });
-        /*            responsive: {
-                0: {
-                    items: 1,
-                    autoWidth: false,
-
-
-                },
-                1020: {
-                    margin: 2,
-                    center: false,
-                    items: 3,
-                    nav: false,
-                },
-                1240: {
-                    margin: 3,
-                    center: false,
-                    items: 3,
-                    nav: false,
-                },
-
-                1440: {
-                    margin: 3,
-                    center: false,
-                    items: 4,
-                    nav: false,
-                },
-                1620: {
-                    items: 5,
-                    nav: false,
-                    center: false,
-                    margin: 0
-                },
-                2020: {
-                    items: 6,
-                    nav: false,
-                    center: false,
-                    margin: 0
-                },
-
             }
-*/
+        });
         $('.slider').owlCarousel({
             center: true,
             items: 4,
