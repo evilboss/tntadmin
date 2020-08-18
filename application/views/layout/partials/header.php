@@ -377,7 +377,6 @@
             </div>
 
         </div>
-
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
         <div class="mx-6 d-flex justify-content-space-between">
