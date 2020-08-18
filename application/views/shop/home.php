@@ -39,7 +39,7 @@
             <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
     </div>
-    <div class="product-container owl-carousel owl-theme container">
+    <div class="product-container owl-carousel owl-theme mx-6">
         <?php
         foreach ($featuredItems as $item) {
             $data['item'] = $item;
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="product-container owl-carousel owl-theme container">
+            <div class="product-container owl-carousel owl-theme mx-6">
                 <?php
                 foreach ($specialDeals as $item) {
                     $data['item'] = $item;
@@ -106,10 +106,41 @@
 
     <?php endif; ?>
 <?php endif; ?>
+<section class="light-gray-section item-container">
+
+    <div class="mx-6">
+        <div class="row">
+            <h3>Best Seller</h3>
+        </div>
+    </div>
+    <div class="product-container owl-carousel owl-theme mx-6">
+        <?php
+        foreach ($featuredItems as $item) {
+            $data['item'] = $item;
+            $data['isDark'] = false;
+
+            ?>
+            <?php $this->load->view('shop/item', $data); ?>
+            <?php
+        }
+        ?>
+    </div>
+    <?php foreach ($featuredItems as $item) {
+        $data['item'] = $item;
+        ?>
+        <?php $this->load->view('shop/itemModal', $data); ?>
+
+        <?php
+
+    }
+    ?>
+
+
+</section>
 
 <?php if (isset($displayBlog)): ?>
     <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-        <div class="container">
+        <div class="mx-6">
             <h3>Headline</h3>
         </div>
 
@@ -135,7 +166,7 @@
         </a>
     </div>
     <section class="light-gray-section">
-        <div class="container">
+        <div class="mx-6">
             <h3>Blog Post</h3>
         </div>
         <div class="container">
@@ -186,8 +217,9 @@
         $('.owl-carousel').owlCarousel({
             autoplay: true,
             dots: false,
+            lazyLoad: true,
             loop: true,
-            autoWidth: false,
+            autoWidth: true,
             responsive: {
                 0: {
                     items: 1,
@@ -199,6 +231,16 @@
                 },
                 1000: {
                     items: 3,
+                    nav: false,
+                    stagePadding: 50,
+                },
+                1200: {
+                    items: 4,
+                    nav: false,
+                    stagePadding: 50,
+                },
+                1300: {
+                    items: 4,
                     nav: false,
                     stagePadding: 50,
                 }

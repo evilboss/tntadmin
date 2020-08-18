@@ -80,7 +80,7 @@
         <div class="w-100 mx-6" id="nav-one">
             <!--visible only in small-->
             <div class="d-block d-sm-none">
-                <div class="d-flex justify-content-between bd-highlight mb-3">
+                <div class="d-flex bd-highlight mb-3">
                     <div class="p-2">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -176,8 +176,8 @@
 
                 </div>
             </div>
-            <div class="d-none d-sm-block ">
-                <div class="d-flex">
+            <div class="d-none d-sm-block d-flex">
+                <div class="d-flex justify-content-between">
                     <div class="mr-auto">
                         <ul class="navbar-nav mr-auto social-media-icons flex-row">
                             <li class="nav-item mx-2">
@@ -380,7 +380,7 @@
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark gray-section">
-        <div class="container">
+        <div class="mx-6 d-flex justify-content-space-between">
             <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="/assets/img/tnt-logo.png"></a>
 
             <button class="navbar-toggler" style="height: 50px" type="button" data-toggle="collapse"
@@ -398,9 +398,9 @@
                             <li class="nav-item mx-3  <?= $this->router->method == 'new' ? 'active' : '' ?>">
                                 <a class="nav-link text-white" href="<?php echo base_url('new'); ?>">New</a>
                             </li>
-                            <li class="nav-item mx-3  <?= $this->router->method == 'comingSoon' ? 'active' : '' ?>">
+                            <li class="nav-item mx-3 <?= $this->router->method == 'comingSoon' ? 'active' : '' ?>">
                                 <a class="nav-link text-white" href="<?php echo base_url('coming-soon'); ?>">Coming
-                                    soon</a>
+                                    Soon</a>
                             </li>
                             <li class="nav-item mx-3 <?= $this->router->method == 'preOrders' ? 'active' : '' ?>">
                                 <a class="nav-link text-white" href="<?php echo base_url('pre-orders'); ?>">Pre
@@ -418,6 +418,12 @@
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link text-white" href="<?php echo base_url('blog'); ?>">Blog</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a href="#" class="nav-link text-white">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </a>
+
                             </li>
 
                         </ul>
