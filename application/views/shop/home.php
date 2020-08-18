@@ -34,7 +34,7 @@
 </div>
 <section class="light-gray-section item-container">
 
-    <div class="container">
+    <div class="mx-6">
         <div class="row">
             <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
