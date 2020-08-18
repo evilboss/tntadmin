@@ -64,6 +64,12 @@ h3 {
 
 .dark-section .navbar-light .navbar-nav .nav-link {
     color: white;
+
+}
+
+.nav-link {
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .item-container {
@@ -806,7 +812,6 @@ span.img-text:hover {
 }
 
 .carousel-item + .carousel-item {
-    margin-left: 10px;
 }
 
 
@@ -845,4 +850,7 @@ span.img-text:hover {
     border-color: transparent;
 }
 
-
+.copyright-text {
+    font-size: 8px;
+    padding: 5px;
+}
