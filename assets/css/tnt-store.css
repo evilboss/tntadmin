@@ -164,8 +164,8 @@ h3 {
 }
 
 .card-body.info {
-    padding: 2rem 0.5rem;
-    min-height: 10rem;
+    padding: 2rem 0.5rem 0;
+
 }
 
 .product-container-row {
