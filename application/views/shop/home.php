@@ -172,8 +172,8 @@
             <h3>Blog Post</h3>
         </div>
         <div class="container">
-            <div class="card-group">
-                <div class="card">
+            <div class="card-group blog-card-container">
+                <div class="card blog-container">
                     <img class="card-img-top" src="<?= base_url('images/blog/1_bthumbnail.jpg') ?>"
                          alt="Card image cap">
                     <div class="card-body">
@@ -184,7 +184,7 @@
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card blog-container">
                     <img class="card-img-top" src="<?= base_url('images/blog/2_bthumbnail.jpg') ?>"
                          alt="Card image cap">
                     <div class="card-body">
@@ -194,7 +194,7 @@
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card blog-container">
                     <img class="card-img-top" src="<?= base_url('images/blog/3_bthumbnail.jpg') ?>"
                          alt="Card image cap">
                     <div class="card-body">
@@ -221,9 +221,7 @@
             margin: 20,
             nav: false,
             dots: false,
-            autoWidth: true,
-            responsiveClass: true,
-
+            autoWidth: true
         });
         $('.slider').owlCarousel({
             center: true,

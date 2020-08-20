@@ -4,11 +4,15 @@
             <div class="row  text-center">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <h3 class="mb-4">Facebook</h3>
-                    <div class="fb-page"
-                         data-tabs="post"
-                         style="width: "
-                         data-href="https://www.facebook.com/toyntoys/"
-                         data-width="380"></div>
+
+
+
+                    <div class="fb-page" data-href="https://www.facebook.com/toyntoys" data-tabs="timeline"
+                         data-width="" data-height="410" data-small-header="false" data-adapt-container-width="true"
+                         data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/toyntoys/" class="fb-xfbml-parse-ignore"><a
+                                    href="https://www.facebook.com/toyntoys/">Toyntoys</a></blockquote>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12"><h3>Instagram</h3>
                     <div class="fb-page"

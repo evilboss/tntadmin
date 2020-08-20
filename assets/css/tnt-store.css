@@ -803,8 +803,19 @@ span.img-text:hover {
     font-size: 8px;
     padding: 5px;
 }
-@media only screen and (min-width : 1200px) {
 
-    .container { max-width: 1640px; }
+@media only screen and (min-width: 1200px) {
 
+    .container {
+        max-width: 1640px;
+    }
+
+}
+
+.blog-container {
+    margin: 1rem;
+}
+
+.blog-card-container {
+    padding: 1rem;
 }
