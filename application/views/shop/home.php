@@ -34,7 +34,7 @@
 </div>
 <section class="light-gray-section item-container">
 
-    <div class="container">
+    <div class="container header-wrapper">
         <div class="row mx-3">
             <h3><?= isset($containerText) ? $containerText : "Featured Products" ?></h3>
         </div>
@@ -69,7 +69,7 @@
         <section class="dark-section item-container">
             <div class="deals-header">
 
-                <div class="container">
+                <div class="container header-wrapper">
                     <div class="row mx-3">
                         <div class="col-md-4">
                             <h3 class="text-white">Special Deals</h3>
@@ -110,7 +110,7 @@
 <?php endif; ?>
 <section class="light-gray-section item-container">
 
-    <div class="container">
+    <div class="container header-wrapper">
         <div class="row mx-3">
             <h3>Best Seller</h3>
         </div>
@@ -141,8 +141,8 @@
 </section>
 
 <?php if (isset($displayBlog)): ?>
-    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-        <div class="container">
+    <div id="blogCarousel " class="carousel slide light-gray-section" data-ride="carousel">
+        <div class="container header-wrapper ">
             <h3>Headline</h3>
         </div>
 
@@ -168,7 +168,7 @@
         </a>
     </div>
     <section class="light-gray-section">
-        <div class="container">
+        <div class="container header-wrapper">
             <h3>Blog Post</h3>
         </div>
         <div class="container">

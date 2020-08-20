@@ -1,8 +1,8 @@
 <section id="wrapper-footer" class="">
     <div class="dark-section">
         <div class="container text-white">
-            <div class="row  text-center">
-                <div class="col-lg-3 col-md-12 col-sm-12">
+            <div class="row  text-center header-wrapper">
+                <div class="col-lg-3 col-md-12 col-sm-12 ">
                     <h3 class="mb-4">Facebook</h3>
 
 
