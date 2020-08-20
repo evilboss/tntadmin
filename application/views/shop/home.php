@@ -218,10 +218,11 @@
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,
-            margin: 20,
+            margin: 15,
             nav: false,
             dots: false,
-            autoWidth: true
+            autoWidth: true,
+            mergeFit: true
         });
         $('.slider').owlCarousel({
             loop: true,
