@@ -202,7 +202,7 @@
 
                         </ul>
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex navbar-right">
                         <ul class="navbar-nav nav-buttons flex-row">
                             <!-- <li class="nav-item active">
                                 <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
@@ -387,7 +387,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="w-100 mx-6 d-flex justify-content-between">
+            <div class="w-100 d-flex justify-content-between">
                 <div class="row">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav">

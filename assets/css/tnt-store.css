@@ -802,6 +802,7 @@ span.img-text:hover {
 .copyright-text {
     font-size: 8px;
     padding: 5px;
+    margin: 0;
 }
 
 @media only screen and (min-width: 1200px) {
