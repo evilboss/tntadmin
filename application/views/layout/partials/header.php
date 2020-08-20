@@ -57,23 +57,8 @@
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script src="//assets.pinterest.com/js/pinit.js"></script>
 <script src="<?= base_url('assets/libs/owl.carousel/dist/owl.carousel.min.js') ?>"></script>
 <script src="<?= base_url('assets/libs/lightgallery/dist/js/lightgallery.min.js') ?>"></script>
-
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: 'your-app-id',
-            autoLogAppEvents: true,
-            xfbml: true,
-            version: 'v8.0'
-        });
-    };
-</script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-
-<script src="/assets/js/cart.js"></script>
 <?php if (!empty($add_js)): ?><?php foreach ($add_js as $js): ?>
     <script src="<?= $js ?>"></script> <?php endforeach; ?><?php endif; ?>
 <header class="fixed-top">
