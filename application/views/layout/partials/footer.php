@@ -30,10 +30,23 @@
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 ">
                     <h3 class="mb-4">Subscribe to our Newsletter</h3>
-                    <?php echo form_open('/') ?>
-                    <?php echo form_input('email', '', ['class' => 'form-control', 'placeholder' => 'Enter Your Email']) ?>
-                    <button class="btn btn-yellow pull-right">Subscribe</button>
-                    <?php echo form_close() ?>
+                    <?= form_open('/') ?>
+
+                    <div class="row">
+                        <div class="form-group col-lg-8 col-md-12">
+                            <?= form_input('email', '', ['class' => 'form-control w-100', 'placeholder' => 'Enter Your Email']) ?>
+
+
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <button class="btn btn-yellow">Subscribe</button>
+
+                        </div>
+                        <div class="col-sm-12 mt-5">
+                            <img class="img-fluid" src="<?= base_url('assets/images/mvp.png') ?>"
+                        </div>
+                    </div>
+                    <?= form_close() ?>
                 </div>
 
             </div>
