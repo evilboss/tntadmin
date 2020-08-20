@@ -578,7 +578,7 @@ button.close {
 }
 
 .product-type {
-    padding: 5px;
+    min-height: 30px;
 }
 
 .Pre-Order {
@@ -663,7 +663,6 @@ button.close {
 }
 
 .product-body {
-    height: 15em;
     padding: 10px;
 }
 
