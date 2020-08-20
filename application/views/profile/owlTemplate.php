@@ -88,7 +88,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="carouselModalLabel">Title Here</h4>
                 </div>
                 <div class="modal-body">
@@ -129,14 +130,18 @@
             $('.owl-carousel').owlCarousel({
                 margin: 10,
                 nav: true,
-                navigationText: [
-                    "<i class='icon-chevron-left icon-white'><</i>",
-                    "<i class='icon-chevron-right icon-white'>></i>"
-                ],
-
-                navText: [
-                    '<div class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
-                    '<div class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>']
+                navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
             });
         });
 

@@ -224,10 +224,9 @@
             autoWidth: true
         });
         $('.slider').owlCarousel({
-            center: true,
-            items: 4,
             loop: true,
             margin: 10,
+            autoWidth: true
         });
 
         $('.blog-carousel').owlCarousel({

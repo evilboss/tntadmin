@@ -176,7 +176,7 @@
 
                 </div>
             </div>
-            <div class="d-none d-sm-block d-flex">
+            <div class="d-none d-sm-block d-flex w-100">
                 <div class="d-flex">
                     <div class="mr-auto">
                         <ul class="navbar-nav mr-auto social-media-icons flex-row">
@@ -387,75 +387,73 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="w-100 d-flex justify-content-between">
-                <div class="row">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
-                            <li class="nav-item mx-3 <?= $this->router->method == 'index' ? 'active' : '' ?>">
-                                <a class="nav-link text-white" href="<?php echo base_url(); ?>">Home</a>
-                            </li>
-                            <li class="nav-item mx-3  <?= $this->router->method == 'new' ? 'active' : '' ?>">
-                                <a class="nav-link text-white" href="<?php echo base_url('new'); ?>">New</a>
-                            </li>
-                            <li class="nav-item mx-3 <?= $this->router->method == 'comingSoon' ? 'active' : '' ?>">
-                                <a class="nav-link text-white" href="<?php echo base_url('coming-soon'); ?>">Coming
-                                    Soon</a>
-                            </li>
-                            <li class="nav-item mx-3 <?= $this->router->method == 'preOrders' ? 'active' : '' ?>">
-                                <a class="nav-link text-white" href="<?php echo base_url('pre-orders'); ?>">Pre
-                                    Order</a>
-                            </li>
-                            <li class="nav-item mx-3 <?= $this->router->method == 'products' ? 'active' : '' ?>">
-                                <a class="nav-link text-white" href="<?php echo base_url('products'); ?>">Shop</a>
-                            </li>
-                            <li class="nav-item mx-3 <?= $this->router->method == 'categories' ? 'active' : '' ?>">
-                                <a class="nav-link text-white"
-                                   href="<?php echo base_url('categories'); ?>">Categories</a>
-                            </li>
-                            <li class="nav-item mx-3 <?= $this->router->method == 'about' ? 'active' : '' ?>">
-                                <a class="nav-link text-white" href="<?php echo base_url('about'); ?>">About</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link text-white" href="<?php echo base_url('blog'); ?>">Blog</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a href="#" class="nav-link text-white">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </a>
+            <div class="row">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mx-3 <?= $this->router->method == 'index' ? 'active' : '' ?>">
+                            <a class="nav-link text-white" href="<?php echo base_url(); ?>">Home</a>
+                        </li>
+                        <li class="nav-item mx-3  <?= $this->router->method == 'new' ? 'active' : '' ?>">
+                            <a class="nav-link text-white" href="<?php echo base_url('new'); ?>">New</a>
+                        </li>
+                        <li class="nav-item mx-3 <?= $this->router->method == 'comingSoon' ? 'active' : '' ?>">
+                            <a class="nav-link text-white" href="<?php echo base_url('coming-soon'); ?>">Coming
+                                Soon</a>
+                        </li>
+                        <li class="nav-item mx-3 <?= $this->router->method == 'preOrders' ? 'active' : '' ?>">
+                            <a class="nav-link text-white" href="<?php echo base_url('pre-orders'); ?>">Pre
+                                Order</a>
+                        </li>
+                        <li class="nav-item mx-3 <?= $this->router->method == 'products' ? 'active' : '' ?>">
+                            <a class="nav-link text-white" href="<?php echo base_url('products'); ?>">Shop</a>
+                        </li>
+                        <li class="nav-item mx-3 <?= $this->router->method == 'categories' ? 'active' : '' ?>">
+                            <a class="nav-link text-white"
+                               href="<?php echo base_url('categories'); ?>">Categories</a>
+                        </li>
+                        <li class="nav-item mx-3 <?= $this->router->method == 'about' ? 'active' : '' ?>">
+                            <a class="nav-link text-white" href="<?php echo base_url('about'); ?>">About</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="<?php echo base_url('blog'); ?>">Blog</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a href="#" class="nav-link text-white">
+                                <fa class="fa fa-search"></fa>
+                            </a>
 
+                        </li>
+
+                    </ul>
+                    <div class="d-block d-sm-none">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link text-white" href="#"><i class="fa fa-facebook-square"
+                                                                           aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link text-white" href="#"><i class="fa fa-twitter"
+                                                                           aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link text-white" href="#"><i class="fa fa-instagram"
+                                                                           aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link text-white" href="#"><i class="fa fa-weixin"
+                                                                           aria-hidden="true"></i>
+                                </a>
                             </li>
 
                         </ul>
-                        <div class="d-block d-sm-none">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link text-white" href="#"><i class="fa fa-facebook-square"
-                                                                               aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link text-white" href="#"><i class="fa fa-twitter"
-                                                                               aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link text-white" href="#"><i class="fa fa-instagram"
-                                                                               aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link text-white" href="#"><i class="fa fa-weixin"
-                                                                               aria-hidden="true"></i>
-                                    </a>
-                                </li>
 
-                            </ul>
-
-                        </div>
                     </div>
                 </div>
-
             </div>
+
 
     </nav>
 
