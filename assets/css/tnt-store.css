@@ -825,6 +825,9 @@ span.img-text:hover {
 .header-wrapper {
     padding-top: 1rem;
 }
-
+.btn-yellow{
+    background-color: yellow;
+    margin-top: 1rem;
+}
 
 

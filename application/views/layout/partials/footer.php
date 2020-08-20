@@ -30,7 +30,10 @@
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 ">
                     <h3 class="mb-4">Subscribe to our Newsletter</h3>
-                    To follow
+                    <?php echo form_open('/') ?>
+                    <?php echo form_input('email', '', ['class' => 'form-control', 'placeholder' => 'Enter Your Email']) ?>
+                    <button class="btn btn-yellow pull-right">Subscribe</button>
+                    <?php echo form_close() ?>
                 </div>
 
             </div>
