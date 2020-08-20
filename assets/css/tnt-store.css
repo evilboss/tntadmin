@@ -25,6 +25,7 @@ body {
 .manufacturerCategoryText {
     font-size: 80%;
     color: #6c757d;
+    min-height: 1rem;
 
 }
 
@@ -664,6 +665,7 @@ button.close {
 
 .product-body {
     padding: 10px;
+    max-height: 80%;
 }
 
 
